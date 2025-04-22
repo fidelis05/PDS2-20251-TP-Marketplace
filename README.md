@@ -10,20 +10,24 @@
 ---
 ## Histórias de Usuário:
 ### Usuário:
-_informações_
-- possui um ID, que serve como um token p/ a plataforma, senha, e-mail, um endereço, nome, CPF,CNPJ
-_Ele será subdividido em:_
-- Admim: podéra ter acesso à informações de outros usuários e manejá-las
-- user: usuário comum, que poderá comprar, pedir e anunciar produtos, tal como colocar no carrinho, onde o ID será enviado ao carrinho
-### Produto:
-o produto é será acessado e que será modulado conforme situação, tal que a criação do anuncio do produto atribuindo-o como objeto próprio
-_informações:_
-- recebendo um ID, nome, marca, valor, avaliação, descrição e produto, onde as informações de quantidade e ID serão enviadas ao carrinho
-### Pedido
-O pedido advém através diretamente do carrinho, onde, informações contidas no produto são informadas e fornecidas à plataforma, onde se uma série de critérios tal como informar método de pagamento e endereço for válido, e o produto ainda estiver disponível ele passará por estágios:
-- de esperando pagamento -> pagamento confirmado, -> enviado -> à caminho -> entregue,
-_Informações:_
-- será gerado um código de rastreio, data de criação e um ID
+- Como usuário, quero criar uma conta com login e senha, para poder acessar o sistema.
+- Como usuário, quero fazer login com meu e-mail e senha, para acessar minha conta com segurança.
+- Como usuário, quero visualizar a lista de produtos à venda e aplicar filtros (nome, categoria, preço), para encontrar o que desejo com facilidade.
+- Como usuário, quero acessar os detalhes de um produto, para ver sua descrição completa e informações do vendedor.
+- Como usuário, quero adicionar produtos ao meu carrinho, para realizar uma compra com múltiplos itens.
+- Como usuário, quero remover produtos do meu carrinho, para gerenciar o que será comprado.
+- Como usuário, quero finalizar a compra dos itens do meu carrinho, para concluir o pedido.
+- Como usuário, quero comprar um produto diretamente da página de anúncio, para agilizar o processo de compra.
+- Como usuário, quero cadastrar um novo produto, informando nome, descrição, preço e quantidade, para colocá-lo à venda.
+- Como usuário, quero visualizar meus pedidos realizados, para acompanhar o histórico de compras.
+- Como usuário, quero cancelar um pedido ainda não processado, para corrigir enganos ou desistências.
+- Como usuário, quero editar ou excluir meus produtos cadastrados, para manter o controle sobre meus anúncios.
+- Como usuário, quero ver uma confirmação ao realizar ações importantes (como deletar produto ou finalizar pedido), para evitar erros.
+### Administrador:
+- Como administrador, quero listar, filtrar, editar, excluir e cadastrar usuário, para gerenciar o acesso ao sistema.
+- Como administrador, quero listar, filtrar, editar e excluir produtos cadastrados, para garantir a qualidade e organização do marketplace.
+- Como administrador, quero listar, filtrar, editar e excluir pedidos realizados, para poder resolver problemas e manter o controle das operações.
+- Como administrador, quero visualizar um resumo estatístico (ex: total de usuários, produtos e pedidos), para ter uma visão geral do sistema.
 
 ## Cartões CRC
 ![image](https://github.com/user-attachments/assets/2a512a95-cff4-4781-8a84-7f81776086c7)

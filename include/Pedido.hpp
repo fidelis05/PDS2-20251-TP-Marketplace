@@ -3,9 +3,10 @@
 
 #include "Produto.hpp"
 #include "Usuario.hpp"
-#include <istream>
+#include <iostream>
 
-struct Pedido {
+struct Pedido
+{
   int = ID std::string = created_at std::string = codigo_rastreio
 
   Pedido(Usuario x, Carrinho y);

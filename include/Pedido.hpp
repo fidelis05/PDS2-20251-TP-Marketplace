@@ -6,11 +6,14 @@
 #include "Usuario.hpp"
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 #include <istream>
 
 struct Pedido {
   int = ID std::string = created_at std::string = codigo_rastreio
 =======
+=======
+>>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
 #include <iostream>
@@ -23,6 +26,9 @@ public:
   std::string codigoRastreio;
   Carrinho compra
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes

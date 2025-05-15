@@ -6,17 +6,17 @@
 class Produto
 {
 public:
-    int IdProduto;
-    std::string NomeProduto;
-    std::string MarcaProduto;
-    double ValorProduto;
-    double AvaliacaoProduto;
-    int QuantidadeProduto;
-    std::string DescricaoProduto;
-    std::string EnderecoProduto;
+  int id;
+  std::string nome;
+  std::string marca;
+  double valor;
+  double avaliacao;
+  int quantidade;
+  std::string descricao;
+  std::string endereco;
 
-    Produto(int id, const std::string &nome, const std::string &marca, double valor,
-            double avaliacao, int quantidade, const std::string &descricao, const std::string &endereco);
+  Produto(int id, const std::string &nome, const std::string &marca, double valor,
+    double avaliacao, int quantidade, const std::string &descricao, const std::string &endereco);
 };
 
 #endif

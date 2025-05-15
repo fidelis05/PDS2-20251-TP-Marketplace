@@ -9,12 +9,14 @@
 
 class Pedido
 {
-  public:
+public:
   int id;
   std::string createdAt;
   std::string codigoRastreio;
 
   Pedido(Usuario x, Carrinho y);
+
+  void cancelarPedido();
 };
 
 #endif

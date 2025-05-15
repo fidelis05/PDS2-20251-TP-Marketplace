@@ -3,11 +3,16 @@
 
 #include "Produto.hpp"
 #include "Usuario.hpp"
+#include "Carrinho.hpp"
 #include <iostream>
+#include <string>
 
-struct Pedido
+class Pedido
 {
-  int = ID std::string = created_at std::string = codigo_rastreio
+  public:
+  int id;
+  std::string createdAt;
+  std::string codigoRastreio;
 
   Pedido(Usuario x, Carrinho y);
 };

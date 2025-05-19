@@ -1,30 +1,12 @@
-<<<<<<< Updated upstream
 #ifndef ADMIN_HPP
 #define ADMIN_HPP
 
-=======
->>>>>>> Stashed changes
 #include "Usuario.hpp"
 
 class Admin {
   bool autorização;
   Usuario Admin;
 
-<<<<<<< Updated upstream
-  void verListadePedidos();
-  void verListadeUsuarios();
-  void verListadeProduto();
-
-  void gerenciarUsuario(verListadeUsuario);
-  void deletarUsuario();
-  void promoverUsuario();
-
-  void gerenciarProduto();
-  void deletarProduto();
-};
-
-#endif
-=======
   // Usuário 
   void verListadeUsuarios();
   void filtrarListadeUsuarios();
@@ -52,7 +34,6 @@ void verListadePedido();
 
 void verlistaresumoestártico(); //usar para contar o total de usuario, produto e pedido, faz isso acessando o escopo de lista e contando quanto cada um tem
 
+#endif
 
 
-
->>>>>>> Stashed changes

@@ -10,13 +10,13 @@
 
 class Usuario{
 private:
-  std::string id_usuario;
+  int id_usuario;
   std::string nome;
   std::string email;
   std::string senha;
   std::string telefone;
   std::string cpf_cnpj;
-  std::string endereco_u;
+  std::string endereco;
 
   std::vector<Produto> meusProdutos;
   std::vector<Pedido> meusPedidos;
@@ -27,10 +27,14 @@ public:
   Usuario();
   Usuario(std::string nome, std::string email, std::string senha);
 
-  void cadastrar(); 
+  void cadastrar(std::string nome, std::string email, std::string senha, std::string telefone, std::string cpf_cnpj, std::string endereco); 
   bool login(std::string email, std::string senha);
   void visualizarPerfil();
   void editarPerfil();
+  void editarEmail();
+  void editarSenha();
+  void editarEndereco();
+  void editarTelefone();
 
 // funções de produto
   void visualizarProdutos();
@@ -56,7 +60,6 @@ public:
 
   std::string getEmail();
   std::string getNome();
-  std::string getId();
 };
 
 

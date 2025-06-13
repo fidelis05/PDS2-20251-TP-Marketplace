@@ -8,54 +8,46 @@
 #include <string>
 #include <map>
 
-struct Status{
-    map<int, std::string> status; 
+struct Status
+{
+  std::map<int, std::string> status_map;
 
-    status{0} = "Esperando aprovação do pagamento";
-    status{1} = "Enviado";
-    status{2} = "Vendedor ciente";
-    status{3} = "Despachado";
-    status{4} = "A caminho";
-    status{5} = "Saiu para Entrega";
-    status{6} = "Entregue";
+  Status()
+  {
+    status_map[0] = "Esperando aprovação do pagamento";
+    status_map[1] = "Enviado";
+    status_map[2] = "Vendedor ciente";
+    status_map[3] = "Despachado";
+    status_map[4] = "A caminho";
+    status_map[5] = "Saiu para Entrega";
+    status_map[6] = "Entregue";
+  }
 };
 
 class Pedido
 {
-<<<<<<< Updated upstream
-public:
+private:
   int id;
   std::string createdAt;
   std::string codigoRastreio;
-    Carrinho Compra
-=======
-  private:
-  static long int id; //vai verificar qual o ultimo item id da lista
-  long int id; // sera atribuido o id com b
-  std::string createdAt;
-  std::string codigoRastreio;
-  Carrinho Compra
-  protected:
-    Status status; //so pra ter uma métrica
-    std::string Status; 
-  public:
-    void getId
-    void getcreatedAt
-    void getcodigoRastreio
+  Carrinho Compra;
 
->>>>>>> Stashed changes
+protected:
+  Status status; // so pra ter uma métrica
+  std::string Status;
+
+public:
+  void getId();
+  void getcreatedAt();
+  void getcodigoRastreio();
 
   Pedido(Usuario x, Carrinho y);
-<<<<<<< Updated upstream
 
   void cancelarPedido();
-=======
-    void statusdoPedido();
-    void devolverPedido();
-    void pagamentoConcluido();
-    void prazodeEntrega();
-    void cancelarpedido
->>>>>>> Stashed changes
+  void statusDoPedido();
+  void devolverPedido();
+  void pagamentoConcluido();
+  void prazoDeEntrega();
 };
 
 #endif

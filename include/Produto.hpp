@@ -15,8 +15,11 @@ public:
   std::string descricao;
   std::string endereco;
 
+  void exibirInformacoes();
+  void reduzirEstoque(int quantidade);
+
   Produto(int id, const std::string &nome, const std::string &marca, double valor,
-    double avaliacao, int quantidade, const std::string &descricao, const std::string &endereco);
+          double avaliacao, int quantidade, const std::string &descricao, const std::string &endereco);
 };
 
 #endif

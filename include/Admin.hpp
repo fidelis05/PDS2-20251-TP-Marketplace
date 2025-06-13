@@ -10,7 +10,7 @@ class Admin {
   // Usuário 
   void verListadeUsuarios();
   void filtrarListadeUsuarios();
-  void editarUsuario(Usuario usuario.ID);
+  void editarUsuario(Usuario usuario);
   {
     void deletarUsuario(); // RESTRINGIR ESSA FUNÇÃO AO ESCOPA DE EDITAR USUARIO
     void promoverUsuario();
@@ -20,7 +20,7 @@ class Admin {
   // Produtos
   void verListadeProdutos();
   void filtrarListadeUsuarios();
-  void editarProduto(Usuario usuario.ID);
+  void editarProduto(Usuario usuario);
   {
     void deletarProduto();
   }
@@ -28,16 +28,15 @@ class Admin {
   // Pedidos
   void verListadePedido();
   void filtrarListadePedidos();
-  void editarPedido(Usuario usuario.ID);
+  void editarPedido(Usuario usuario);
   {
     void deletarPedido();
   }
 
   // Resumo de Historia de usuario
 
-  void
-  verlistaresumoestártico(); //u sar para contar o total de usuario, produto e 
+  void verlistaresumoestártico(); //u sar para contar o total de usuario, produto e 
                              // edido, faz isso acessando o escopo de lista e 
                              // ontando quanto cada um tem
-
+};
 #endif

@@ -3,10 +3,14 @@
 
 #include <Pedido.hpp>
 
-class Correios : public Pedido
-{
-  int id;
-  int setStatus(int n){ this->Status = this->Status[n]; }
+class Correios : private Pedido {
+private:
+  int idCorreios;
+
+public:
+  int setStatus(int n);
+  int setcodigoRastreio(int x);
+  int getLista() {};
 };
 
 #endif

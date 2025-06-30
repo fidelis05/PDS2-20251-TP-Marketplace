@@ -1,6 +1,7 @@
 #include "Correios.hpp"
 #include <ctime>
 #include "Pedido.hpp"
+#include "exceptions/RunTimeException.hpp"
 
 int Correios::setStatus(int n)
 {
@@ -10,7 +11,7 @@ int Correios::setStatus(int n)
         {
             if (this->codigoRastreio == 0)
             {
-                throw std::runtime_error("Favor informe o Código de Rastreio antes de Prosseguir");
+                throw RunTimeException("Favor informe o Código de Rastreio antes de Prosseguir");
                 return -1;
             }
             else
@@ -25,7 +26,7 @@ int Correios::setStatus(int n)
     }
     else
     {
-        throw std::runtime_error("Defina um número válido");
+        throw RunTimeException("Defina um número válido");
         return -1;
     }
 

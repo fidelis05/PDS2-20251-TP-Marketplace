@@ -45,15 +45,20 @@ std::string Produto::exibirInformacoes()
 
   return info;
 }
-void Produto::reduzirEstoque(int quantidade)
+std::string Produto::reduzirEstoque(int quantidade)
 {
+  std::string info;
   if (quantidade > this->quantidade)
   {
-    std::cout << "Quantidade insuficiente em estoque.\n";
+    info = "Quantidade insuficiente em estoque.\n";
+    return info;
   }
   else if (this->quantidade <= quantidade)
   {
     this->quantidade -= quantidade;
-    std::cout << "Estoque reduzido. Nova quantidade: " << this->quantidade << "\n";
+    info = "Estoque reduzido. Nova quantidade: ";
+    this->quantidade;
+    "\n";
+    return info;
   }
 }

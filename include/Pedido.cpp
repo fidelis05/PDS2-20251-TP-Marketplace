@@ -30,7 +30,7 @@ void Pedido::cancelarPedido()
         this->statusInfo == status.status_map[5] ||
         this->statusInfo == status.status_map[6])
     {
-        throw std::runtime_error("Pedido não pode ser cancelado");
+        throw RunTimeException("Pedido não pode ser cancelado");
     }
     else
     {

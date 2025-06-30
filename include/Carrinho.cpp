@@ -1,8 +1,6 @@
 #include "Carrinho.hpp"
 #include "Produto.hpp"
 
-Carrinho::Carrinho() = default;
-
 void Carrinho::inserir(Produto &produto, int quantidade)
 {
   carrinhoProdutos[produto] = quantidade;

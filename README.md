@@ -28,6 +28,14 @@
 - Como administrador, quero listar, filtrar, editar e excluir produtos cadastrados, para garantir a qualidade e organização do marketplace.
 - Como administrador, quero listar, filtrar, editar e excluir pedidos realizados, para poder resolver problemas e manter o controle das operações.
 - Como administrador, quero visualizar um resumo estatístico (ex: total de usuários, produtos e pedidos), para ter uma visão geral do sistema.
+## Estrutura do Programa: 
+├── bin/                    # Executáveis compilados
+├── data/                   # Arquivos de dados persistentes
+├── include/                # Arquivos de cabeçalho (.hpp)
+├── src/                    # Código fonte (.cpp)
+├── tests/                  # Testes unitários
+├── Makefile               # Automação de build
+└── README.md              # Este arquivo
 
 ## Cartões CRC
 ![image](https://github.com/user-attachments/assets/2a512a95-cff4-4781-8a84-7f81776086c7)

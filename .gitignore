@@ -9,10 +9,8 @@
 !README
 
 # Build directories and outputs
-/bin/
-/build/
-/lib/
-*.o
+
+
 *.obj
 *.exe
 *.out

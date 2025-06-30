@@ -9,9 +9,10 @@ private:
   int idCorreios;
 
 public:
+  Correios();
   int setStatus(int n);
   int setcodigoRastreio(int x);
-  int getLista() {};
+  int getLista();
 };
 
 #endif

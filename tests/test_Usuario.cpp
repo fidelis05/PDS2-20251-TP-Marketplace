@@ -1,6 +1,6 @@
 #define DOCTEST_CONFIG_IMPLEMENT_WITH_MAIN
 #include "../external/doctest.h"
-#include "../PDS2-20251-TP-Marketplace/include/Usuario.hpp"
+#include "Usuario.hpp"
 
 TEST_CASE("Construtor padrão de Usuario")
 {

@@ -163,7 +163,7 @@ Pedido Pedido::lerPedidoPorId(const std::string& filename, int searchId) {
         std::string token;
         std::vector<std::string> tokens;
         
-        while (std::getline(ss, token, ',')) {
+        while (std::getline(ss, token, '|')) {
             tokens.push_back(token);
         }
         

@@ -1,6 +1,8 @@
 #include "Pedido.hpp"
+#include <iomanip>
+#include <sstream>
 
-Pedido::Pedido(int idComprador, int idVendedor, Carrinho y) {
+Pedido::Pedido(int idComprador, int idVendedor, const Carrinho& y) {
     this->idComprador = idComprador;
     this->idVendedor = idVendedor;
     this->compra = y;
@@ -56,4 +58,37 @@ void Pedido::enviarPedido(int usuarioId) {
     } else {
         throw std::runtime_error("Apenas o vendedor pode confirmar o pedido");
     }
+}
+
+std::string Pedido::timeToString(std::time_t time) {
+    std::stringstream ss;
+    ss << std::put_time(std::localtime(&time), "%Y-%m-%d %H:%M:%S");
+    return ss.str();
+}
+
+void Pedido::saveToCSV(const std::string& filename) const {
+    appendToCSV(filename, *this);
+}
+
+void Pedido::appendToCSV(const std::string& filename, const Pedido& pedido) {
+    bool fileExists = std::ifstream(filename).good();
+    std::ofstream file(filename, std::ios::app);
+    
+    // Write header if file is new
+    if (!fileExists) {
+        file << "ID,Comprador ID,Vendedor ID,Status,Codigo Rastreio,Data Criacao,Previsao Entrega,Data Entrega,Pagamento\n";
+    }
+    
+    // Write order data
+    file << pedido.getId() << ","
+         << pedido.getIdComprador() << ","
+         << pedido.getIdVendedor() << ","
+         << pedido.getStatus() << ","
+         << pedido.getCodigoRastreio() << ","
+         << timeToString(pedido.getCreatedAt()) << ","
+         << timeToString(pedido.getPrevisaoEntrega()) << ","
+         << timeToString(pedido.getDataEntrega()) << ","
+         << (pedido.getPagamento() ? "Sim" : "Não") << "\n";
+    
+    file.close();
 }

@@ -1,7 +1,7 @@
 #include "Carrinho.hpp"
 #include "Produto.hpp"
 
-void Carrinho::inserir(Produto &produto, int quantidade)
+void Carrinho::inserir(const Produto &produto, int quantidade)
 {
   carrinhoProdutos[produto] = quantidade;
 }

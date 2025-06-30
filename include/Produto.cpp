@@ -53,12 +53,14 @@ std::string Produto::reduzirEstoque(int quantidade)
     info = "Quantidade insuficiente em estoque.\n";
     return info;
   }
-  else if (this->quantidade <= quantidade)
+  else
   {
     this->quantidade -= quantidade;
-    info = "Estoque reduzido. Nova quantidade: ";
-    this->quantidade;
-    "\n";
-    return info;
+    std::cout << "Estoque reduzido. Nova quantidade: " << this->quantidade << "\n";
   }
+}
+
+bool operator<(const Produto &a, const Produto &other)
+{
+  return a.id < other.id;
 }

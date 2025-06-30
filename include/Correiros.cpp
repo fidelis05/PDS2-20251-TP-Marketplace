@@ -1,24 +1,25 @@
 #include "Correios.hpp"
+#include <ctime>
 
 int Correios::setStatus(int n) {
     if (n < 8) {
         if (n <= 3) {
             if (this->codigoRastreio == 0) {
-                throw "Favor informe o Código de Rastreio antes de Prosseguir";
+                throw std::runtime_error("Favor informe o Código de Rastreio antes de Prosseguir");
                 return -1;
             } else {
-                this->statusInfo = this->Status[n];
+                this->statusInfo = this->status.status_map[n];
             }
         } else {
-            this->statusInfo = this->Status[n];
+            this->statusInfo = this->status.status_map[n];
         }
     } else {
-        throw "Defina um número válido";
+        throw std::runtime_error("Defina um número válido");
         return -1;
     }
 
     if (n == 7) {
-        this->dataEntrega = std::chrono::year_month_day{std::chrono::system_clock::now()};
+        this->dataEntrega = std::time(nullptr);
     }
     return 0;
 }

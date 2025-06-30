@@ -4,7 +4,7 @@
 #include "Carrinho.hpp"
 #include "Produto.hpp"
 #include "Usuario.hpp"
-#include <chrono>
+#include <ctime>
 #include <iostream>
 #include <map>
 #include <string>
@@ -29,16 +29,16 @@ private:
     int id;
     int idVendedor, idComprador;
     bool pagamento = true;  // inicializado como true por padrão pra futuras implementações
-    std::chrono::year_month_day createdAt; // criado junto ao constructor
-    std::chrono::year_month_day previsaoEntrega; //cabe à Correios informar e futuramente poderia ser implementando um algoritmo atrelado ào CEP para estabelecer um tempo médio
-    std::chrono::year_month_day dataEntrega; // cabe à Correios mudar ou o próprio consumidor
+    std::time_t createdAt;
+    std::time_t previsaoEntrega;
+    std::time_t dataEntrega;
 
-    Carrinho compra; //herda as características inerentes ao carrinho
+    Carrinho compra;
 
 protected:
-    Status status; //composição que serve pra informar qual a situação do pedido
-    std::string statusInfo; // é igualado ào map do status e serve pra informar o status atual do pedido
-    int codigoRastreio; // cabe à Correios informar 
+    Status status;
+    std::string statusInfo;
+    int codigoRastreio;
 
 public:
     // Constructor
@@ -49,9 +49,9 @@ public:
     int getIdVendedor() { return this->idVendedor; }
     int getIdComprador() { return this->idComprador; }
     bool getPagamento() { return this->pagamento; }
-    std::chrono::year_month_day getCreatedAt() {return this->createdAt;}
-    std::chrono::year_month_day getPrevisaoEntrega() {return this->previsaoEntrega;}
-    std::chrono::year_month_day getDataEntrega() {return this->dataEntrega;}
+    std::time_t getCreatedAt() {return this->createdAt;}
+    std::time_t getPrevisaoEntrega() {return this->previsaoEntrega;}
+    std::time_t getDataEntrega() {return this->dataEntrega;}
     std::string getStatus() const {return this->statusInfo;}
     int getCodigoRastreio() const {return this->codigoRastreio;}
 

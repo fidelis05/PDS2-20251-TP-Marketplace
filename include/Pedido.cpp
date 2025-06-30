@@ -4,9 +4,9 @@ Pedido::Pedido(int idComprador, int idVendedor, Carrinho y) {
     this->idComprador = idComprador;
     this->idVendedor = idVendedor;
     this->compra = y;
-    this->createdAt = std::chrono::year_month_day{std::chrono::system_clock::now()};
+    this->createdAt = std::time(nullptr);
     this->statusInfo = status.status_map[0];
-    this->previsaoEntrega = 0; // Por simplicidade, mesmo dia por enquanto
+    this->previsaoEntrega = this->createdAt; // Por simplicidade, mesmo dia por enquanto
 }
 
 void Pedido::pagamentoConcluido() {
@@ -20,22 +20,21 @@ void Pedido::pagamentoConcluido() {
 
 void Pedido::cancelarPedido() {
     if (this->statusInfo == status.status_map[3] || 
-this->statusInfo == status.status_map[4] || 
-this->statusInfo == status.status_map[5] || 
-this->statusInfo == status.status_map[6]) {
+        this->statusInfo == status.status_map[4] || 
+        this->statusInfo == status.status_map[5] || 
+        this->statusInfo == status.status_map[6]) {
         throw std::runtime_error("Pedido não pode ser cancelado");
-    }else{
-    this->statusInfo = status.status_map[7]; //fica cancelado
+    } else {
+        this->statusInfo = status.status_map[7]; //fica cancelado
     }
 }
 
-void Pedido::devolverPedido(idComprador) {
+void Pedido::devolverPedido() {
     if (this->statusInfo == status.status_map[6]) {    
-        auto now = std::chrono::system_clock::now();
-        auto entrega = std::chrono::system_clock::from_time_t(std::chrono::system_clock::to_time_t(dataEntrega));
-        auto diff = std::chrono::duration_cast<std::chrono::hours>(now - entrega).count();
+        std::time_t now = std::time(nullptr);
+        double diff = std::difftime(now, this->dataEntrega);
         
-        if (diff <= 168) { // 7 days * 24 hours
+        if (diff <= 168 * 3600) { // 7 days * 24 hours * 3600 seconds
             this->statusInfo = "Em processo de devolução";
             // implementar a logística reversa 
         } else {

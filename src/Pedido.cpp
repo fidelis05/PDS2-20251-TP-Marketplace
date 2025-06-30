@@ -39,7 +39,7 @@ void Pedido::devolverPedido() {
         
         if (diff <= 168 * 3600) { // 7 days * 24 hours * 3600 seconds
             this->statusInfo = "Em processo de devolução";
-            statusInfo = status.status_map[7];  // Changed == to =
+            statusInfo == status.status_map[7];
             // implementar a logística reversa 
         } else {
             throw std::runtime_error("O tempo de devolução foi excedido (máximo 7 dias)");
@@ -69,7 +69,7 @@ std::string Pedido::timeToString(std::time_t time) {
 }
 
 void Pedido::SalvarPedidos(const std::string& filename) const {
-    SalvarPedidosCSV(filename, *this);
+    SalvarPedidosCSV(pedidos.csv, *this);
 }
 
 void Pedido::SalvarPedidosCSV(const std::string& filename, const Pedido& pedido) {
@@ -82,14 +82,14 @@ void Pedido::SalvarPedidosCSV(const std::string& filename, const Pedido& pedido)
     }
     
     // Write order data
-    file << pedido.getId() << ","
-         << pedido.getIdComprador() << ","
-         << pedido.getIdVendedor() << ","
-         << pedido.getStatus() << ","
-         << pedido.getCodigoRastreio() << ","
-         << timeToString(pedido.getCreatedAt()) << ","
-         << timeToString(pedido.getPrevisaoEntrega()) << ","
-         << timeToString(pedido.getDataEntrega()) << ","
+    file << pedido.getId() << "|"
+         << pedido.getIdComprador() << "|"
+         << pedido.getIdVendedor() << "|"
+         << pedido.getStatus() << "|"
+         << pedido.getCodigoRastreio() << "|"
+         << timeToString(pedido.getCreatedAt()) << "|"
+         << timeToString(pedido.getPrevisaoEntrega()) << "|"
+         << timeToString(pedido.getDataEntrega()) << "|"
          << (pedido.getPagamento() ? "Sim" : "Não") << "\n";
     
     file.close();
@@ -115,7 +115,7 @@ std::vector<Pedido> Pedido::lerTodosPedidos(const std::string& filename) {
         std::string token;
         std::vector<std::string> tokens;
         
-        while (std::getline(ss, token, ',')) {
+        while (std::getline(ss, token, '|')) {
             tokens.push_back(token);
         }
         
@@ -180,7 +180,7 @@ Pedido Pedido::lerPedidoPorId(const std::string& filename, int searchId) {
                 std::time_t dataEntrega = stringToTime(tokens[7]);
                 bool pagamento = (tokens[8] == "Sim");
                 
-                Carrinho carrinhoVazio;
+                // C               Carrinho carrinhoVazio;
                 Pedido pedido(compradorId, vendedorId, carrinhoVazio);
                 
                 // Set the remaining fields
@@ -213,31 +213,3 @@ void Pedido::iniciarLogisticaReversa() {
     }
 }
 
-void Pedido::atualizarStatusDevolucao(const std::string& novoStatus) {
-    if (this->devolucaoIniciada) {
-        this->statusInfo = novoStatus;
-        this->notificarMudancaStatus("Status da devolução atualizado: " + novoStatus);
-    } else {
-        throw std::runtime_error("Devolução ainda não foi iniciada");
-    }
-}
-
-void Pedido::avaliarPedido(int nota, const std::string& comentario) {
-    if (this->statusInfo == status.status_map[6]) { // Verifica se foi entregue
-        if (nota >= 1 && nota <= 5) {
-            this->avaliacaoProduto = nota;
-            this->comentarioAvaliacao = comentario;
-            this->notificarMudancaStatus("Avaliação registrada com sucesso");
-        } else {
-            throw std::runtime_error("Nota deve estar entre 1 e 5");
-        }
-    } else {
-        throw std::runtime_error("Só é possível avaliar pedidos entregues");
-    }
-}
-
-void Pedido::notificarMudancaStatus(const std::string& mensagem) {
-    // Por enquanto, apenas imprime no console
-    // Em uma implementação real, isso poderia enviar email, SMS, ou notificação push
-    std::cout << "Notificação para Pedido #" << this->id << ": " << mensagem << std::endl;
-}

@@ -34,7 +34,12 @@ void Produto::reduzirEstoque(int quantidade)
   }
   else
   {
-    this->quantidade <= quantidade;
+    this->quantidade -= quantidade;
     std::cout << "Estoque reduzido. Nova quantidade: " << this->quantidade << "\n";
   }
+}
+
+bool operator<(const Produto &a, const Produto &other)
+{
+  return a.id < other.id;
 }

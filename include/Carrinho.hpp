@@ -11,7 +11,7 @@ private:
 public:
   std::map<Produto, int> carrinhoProdutos;
   Carrinho() = default;
-  void inserir(Produto &produto, int quantidade);
+  void inserir(const Produto &produto, int quantidade);
   std::string exibir();
   void excluir(int id); // exclui um produto especifico
   void excluir();       // exclui todo o carrinho

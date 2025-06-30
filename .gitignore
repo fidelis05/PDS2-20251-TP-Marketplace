@@ -9,7 +9,9 @@
 !README
 
 # Build directories and outputs
+
 *.o
+
 *.obj
 *.exe
 *.out

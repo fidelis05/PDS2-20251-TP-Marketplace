@@ -15,22 +15,43 @@ Produto::Produto(int id, const std::string &nome, const std::string &marca, doub
 {
 }
 
-void Produto::exibirInformacoes()
+std::string Produto::exibirInformacoes()
 {
-  std::cout << "ID: " << id << "\n";
-  std::cout << "Nome: " << nome << "\n";
-  std::cout << "Marca: " << marca << "\n";
-  std::cout << "Valor: " << valor << "\n";
-  std::cout << "Avaliação: " << avaliacao << "\n";
-  std::cout << "Quantidade: " << quantidade << "\n";
-  std::cout << "Descrição: " << descricao << "\n";
-  std::cout << "Endereço: " << endereco << "\n";
+  std::string info;
+  info += "ID: ";
+  id;
+  "\n";
+  info += "Nome: ";
+  nome;
+  "\n";
+  info += "Marca: ";
+  marca;
+  "\n";
+  info += "Valor: ";
+  valor;
+  "\n";
+  info += "Avaliação: ";
+  avaliacao;
+  "\n";
+  info += "Quantidade: ";
+  quantidade;
+  "\n";
+  info += "Descrição: ";
+  descricao;
+  "\n";
+  info += "Endereço: ";
+  endereco;
+  "\n";
+
+  return info;
 }
-void Produto::reduzirEstoque(int quantidade)
+std::string Produto::reduzirEstoque(int quantidade)
 {
+  std::string info;
   if (quantidade > this->quantidade)
   {
-    std::cout << "Quantidade insuficiente em estoque.\n";
+    info = "Quantidade insuficiente em estoque.\n";
+    return info;
   }
   else
   {

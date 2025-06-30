@@ -1,16 +1,18 @@
 #ifndef CORREIOS_HPP
 #define CORREIOS_HPP
 
-#include <Pedido.hpp>
+#include "Pedido.hpp"
 
-class Correios : private Pedido {
+class Correios : private Pedido
+{
 private:
   int idCorreios;
 
 public:
+  Correios();
   int setStatus(int n);
   int setcodigoRastreio(int x);
-  int getLista() {};
+  int getLista();
 };
 
 #endif

@@ -1,9 +1,10 @@
 #ifndef CORREIOS_HPP
 #define CORREIOS_HPP
 
-#include <Pedido.hpp>
+#include "Pedido.hpp"
 
-class Correios : private Pedido {
+class Correios : private Pedido
+{
 private:
   int idCorreios;
 

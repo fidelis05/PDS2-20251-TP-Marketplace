@@ -1,33 +1,46 @@
 #include "Correios.hpp"
 
-int Correios::setStatus(int n) {
-    if (n < 8) {
-        if (n <= 3) {
-            if (this->codigoRastreio == 0) {
+int Correios::setStatus(int n)
+{
+    if (n < 8)
+    {
+        if (n <= 3)
+        {
+            if (this->codigoRastreio == 0)
+            {
                 throw "Favor informe o Código de Rastreio antes de Prosseguir";
                 return -1;
-            } else {
+            }
+            else
+            {
                 this->statusInfo = this->Status[n];
             }
-        } else {
+        }
+        else
+        {
             this->statusInfo = this->Status[n];
         }
-    } else {
+    }
+    else
+    {
         throw "Defina um número válido";
         return -1;
     }
 
-    if (n == 7) {
+    if (n == 7)
+    {
         this->dataEntrega = std::chrono::year_month_day{std::chrono::system_clock::now()};
     }
     return 0;
 }
 
-int Correios::setcodigoRastreio(int x) { 
-    this->codigoRastreio = x; 
+int Correios::setcodigoRastreio(int x)
+{
+    this->codigoRastreio = x;
     return 0;
 }
 
-int Correios::getLista() {
+int Correios::getLista()
+{
     return 0;
 }

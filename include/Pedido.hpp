@@ -32,9 +32,6 @@ private:
   int id;
   int idVendedor, idComprador;
   bool pagamento = true; // inicializado como true por padrão pra futuras implementações
-  std::time_t createdAt;
-  std::time_t previsaoEntrega;
-  std::time_t dataEntrega;
 
   Carrinho compra;
 
@@ -42,6 +39,9 @@ protected:
   Status status;
   std::string statusInfo;
   int codigoRastreio;
+  std::time_t createdAt;
+  std::time_t previsaoEntrega;
+  std::time_t dataEntrega;
 
 public:
   // Constructor

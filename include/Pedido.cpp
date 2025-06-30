@@ -38,7 +38,7 @@ void Pedido::cancelarPedido()
     }
 }
 
-void Pedido::devolverPedido()
+void Pedido::devolverPedido(int idComprador)
 {
     if (this->statusInfo == status.status_map[6])
     {

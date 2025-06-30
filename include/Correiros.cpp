@@ -1,5 +1,6 @@
 #include "Correios.hpp"
 #include <ctime>
+#include "Pedido.hpp"
 
 int Correios::setStatus(int n)
 {

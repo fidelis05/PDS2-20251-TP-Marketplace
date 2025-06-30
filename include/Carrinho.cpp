@@ -9,9 +9,13 @@ void Carrinho::inserir(const Produto &produto, int quantidade)
 std::string Carrinho::exibir()
 {
   std::string result;
-  for (const auto &item : carrinhoProdutos)
+
+  for (auto const &map : carrinhoProdutos)
   {
-    result += "Produto: " + item.first.nome + " Quantidade: " + std::to_string(item.second) + "\n";
+    const Produto &produto = map.first;
+    int quantidade = map.second;
+    result += "Produto: " + produto.nome + " Quantidade: " + std::to_string(quantidade) + "\n";
+
   }
   return result;
 }

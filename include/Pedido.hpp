@@ -9,6 +9,7 @@
 #include <map>
 #include <string>
 #include <fstream>  // Added for file operations
+#include <vector>   // Added for using vector
 
 struct Status {
     std::map<int, std::string> status_map;
@@ -40,6 +41,10 @@ protected:
     Status status;
     std::string statusInfo;
     int codigoRastreio;
+    std::string codigoPostagemDevolucao;
+    int avaliacaoProduto;
+    std::string comentarioAvaliacao;
+    bool devolucaoIniciada;
 
 public:
     // Constructor
@@ -55,7 +60,8 @@ public:
     std::time_t getDataEntrega() const {return this->dataEntrega;}
     std::string getStatus() const {return this->statusInfo;}
     int getCodigoRastreio() const {return this->codigoRastreio;}
-
+    std::string getCodigoPostagemDevolucao() const { return this->codigoPostagemDevolucao; }
+    bool getDevolucaoIniciada() const { return this->devolucaoIniciada; }
     // Ações básicas
     void pagamentoConcluido();
     void cancelarPedido();
@@ -63,11 +69,20 @@ public:
     // Ações específicas
     void devolverPedido(); // Remove parameter since it uses the stored idComprador
     void enviarPedido(int usuarioId);   // Verifica se é o vendedor
+    void iniciarLogisticaReversa();
+    void atualizarStatusDevolucao(const std::string& novoStatus);
+    void avaliarPedido(int nota, const std::string& comentario);
+    void notificarMudancaStatus(const std::string& mensagem);
 
-    // CSV operations
-    void saveToCSV(const std::string& filename) const;
-    static void appendToCSV(const std::string& filename, const Pedido& pedido);
+        // Métodos para salvar em CSV
+        void SalvarPedidos(const std::string& filename) const;
+        static void SalvarPedidosCSV(const std::string& filename, const Pedido& pedido);
     static std::string timeToString(std::time_t time);
+    
+    // New methods to read from CSV
+    static std::vector<Pedido> lerTodosPedidos(const std::string& filename);
+    static Pedido lerPedidoPorId(const std::string& filename, int id);
+    static std::time_t stringToTime(const std::string& timeStr);
 };
 
 #endif

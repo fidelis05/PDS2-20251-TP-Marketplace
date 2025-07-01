@@ -3,12 +3,12 @@
 #include <fstream>
 #include <sstream>
 
-void Admin::verListaDeUsuarios()
+std::vector<std::string> Admin::obterListaDeUsuarios()
 {
+  std::vector<std::string> usuarios;
   std::ifstream file("data/usuarios.txt");
   std::string line;
 
-  std::cout << "\n===== LISTA DE USUÁRIOS =====" << std::endl;
   while (std::getline(file, line))
   {
     std::stringstream ss(line);
@@ -21,23 +21,18 @@ void Admin::verListaDeUsuarios()
     std::getline(ss, cpf, '|');
     std::getline(ss, endereco, '|');
 
-    std::cout << "Nome: " << nome << " | Email: " << email << " | Telefone: " << telefone << std::endl;
+    usuarios.push_back("Nome: " + nome + " | Email: " + email + " | Telefone: " + telefone);
   }
   file.close();
+  return usuarios;
 }
 
-void Admin::filtrarListaDeUsuarios()
+std::vector<std::string> Admin::filtrarListaDeUsuarios(const std::string &filtro)
 {
-  std::string filtro;
-  std::cout << "Filtrar por nome: ";
-  std::cin.ignore();
-  std::getline(std::cin, filtro);
-
+  std::vector<std::string> usuarios;
   std::ifstream file("data/usuarios.txt");
   std::string line;
-  bool encontrou = false;
 
-  std::cout << "\n===== USUÁRIOS ENCONTRADOS =====" << std::endl;
   while (std::getline(file, line))
   {
     std::stringstream ss(line);
@@ -52,64 +47,41 @@ void Admin::filtrarListaDeUsuarios()
 
     if (nome.find(filtro) != std::string::npos)
     {
-      std::cout << "Nome: " << nome << " | Email: " << email << " | Telefone: " << telefone << std::endl;
-      encontrou = true;
+      usuarios.push_back("Nome: " + nome + " | Email: " + email + " | Telefone: " + telefone);
     }
   }
-
-  if (!encontrou)
-  {
-    std::cout << "Nenhum usuário encontrado." << std::endl;
-  }
   file.close();
+  return usuarios;
 }
 
 void Admin::editarUsuario(Usuario usuario)
 {
-  std::cout << "Funcionalidade de editar usuário não implementada completamente." << std::endl;
-  std::cout << "Usuário: " << usuario.getNome() << std::endl;
+  // Placeholder - functionality not fully implemented
 }
 
 void Admin::deletarUsuario(Usuario usuario)
 {
-  std::cout << "Funcionalidade de deletar usuário não implementada completamente." << std::endl;
-  std::cout << "Usuário: " << usuario.getNome() << std::endl;
+  // Placeholder - functionality not fully implemented
 }
 
 void Admin::promoverUsuario(Usuario usuario)
 {
-  std::cout << "Promovendo usuário: " << usuario.getNome() << " para administrador." << std::endl;
+  // Placeholder - functionality not fully implemented
 }
 
-void Admin::cadastrarUsuario()
+void Admin::cadastrarUsuario(const std::string &nome, const std::string &email, const std::string &senha,
+                             const std::string &telefone, const std::string &cpf, const std::string &endereco)
 {
   Usuario novoUsuario;
-  std::string nome, email, senha, telefone, cpf, endereco;
-
-  std::cout << "\n===== CADASTRAR USUÁRIO =====" << std::endl;
-  std::cout << "Nome: ";
-  std::cin.ignore();
-  std::getline(std::cin, nome);
-  std::cout << "Email: ";
-  std::getline(std::cin, email);
-  std::cout << "Senha: ";
-  std::getline(std::cin, senha);
-  std::cout << "Telefone: ";
-  std::getline(std::cin, telefone);
-  std::cout << "CPF/CNPJ: ";
-  std::getline(std::cin, cpf);
-  std::cout << "Endereço: ";
-  std::getline(std::cin, endereco);
-
   novoUsuario.cadastrar(nome, email, senha, telefone, cpf, endereco);
 }
 
-void Admin::verListaDeProdutos()
+std::vector<std::string> Admin::obterListaDeProdutos()
 {
+  std::vector<std::string> produtos;
   std::ifstream file("data/produtos.txt");
   std::string line;
 
-  std::cout << "\n===== LISTA DE PRODUTOS =====" << std::endl;
   while (std::getline(file, line))
   {
     std::stringstream ss(line);
@@ -124,24 +96,19 @@ void Admin::verListaDeProdutos()
     std::getline(ss, descricao, '|');
     std::getline(ss, endereco, '|');
 
-    std::cout << "ID: " << id << " | Nome: " << nome << " | Marca: " << marca
-              << " | Valor: R$" << valor << " | Quantidade: " << quantidade << std::endl;
+    produtos.push_back("ID: " + id + " | Nome: " + nome + " | Marca: " + marca +
+                       " | Valor: R$" + valor + " | Quantidade: " + quantidade);
   }
   file.close();
+  return produtos;
 }
 
-void Admin::filtrarListaDeProdutos()
+std::vector<std::string> Admin::filtrarListaDeProdutos(const std::string &filtro)
 {
-  std::string filtro;
-  std::cout << "Filtrar por nome: ";
-  std::cin.ignore();
-  std::getline(std::cin, filtro);
-
+  std::vector<std::string> produtos;
   std::ifstream file("data/produtos.txt");
   std::string line;
-  bool encontrou = false;
 
-  std::cout << "\n===== PRODUTOS ENCONTRADOS =====" << std::endl;
   while (std::getline(file, line))
   {
     std::stringstream ss(line);
@@ -158,79 +125,73 @@ void Admin::filtrarListaDeProdutos()
 
     if (nome.find(filtro) != std::string::npos)
     {
-      std::cout << "ID: " << id << " | Nome: " << nome << " | Valor: R$" << valor << std::endl;
-      encontrou = true;
+      produtos.push_back("ID: " + id + " | Nome: " + nome + " | Valor: R$" + valor);
     }
   }
-
-  if (!encontrou)
-  {
-    std::cout << "Nenhum produto encontrado." << std::endl;
-  }
   file.close();
+  return produtos;
 }
 
 void Admin::editarProduto(Usuario usuario)
 {
-  std::cout << "Funcionalidade de editar produto não implementada completamente." << std::endl;
-  std::cout << "Usuário: " << usuario.getNome() << std::endl;
+  // Placeholder - functionality not fully implemented
 }
 
 void Admin::deletarProduto(unsigned int idProduto)
 {
-  std::cout << "Funcionalidade de deletar produto não implementada completamente." << std::endl;
-  std::cout << "ID do produto: " << idProduto << std::endl;
+  // Placeholder - functionality not fully implemented
 }
 
-void Admin::verListaDePedido()
+std::vector<std::string> Admin::obterListaDePedidos()
 {
+  std::vector<std::string> pedidos;
+
   try
   {
-    auto pedidos = Pedido::lerTodosPedidos("data/pedidos.txt");
+    auto pedidosList = Pedido::lerTodosPedidos("data/pedidos.txt");
 
-    std::cout << "\n===== LISTA DE PEDIDOS =====" << std::endl;
-    for (const auto &pedido : pedidos)
+    for (const auto &pedido : pedidosList)
     {
-      std::cout << "Pedido ID: " << pedido.getId()
-                << " | Comprador: " << pedido.getIdComprador()
-                << " | Vendedor: " << pedido.getIdVendedor()
-                << " | Status: " << pedido.getStatus() << std::endl;
+      pedidos.push_back("Pedido ID: " + std::to_string(pedido.getId()) +
+                        " | Comprador: " + std::to_string(pedido.getIdComprador()) +
+                        " | Vendedor: " + std::to_string(pedido.getIdVendedor()) +
+                        " | Status: " + pedido.getStatus());
     }
-    std::cout << "============================" << std::endl;
   }
   catch (const std::exception &e)
   {
-    std::cout << "Nenhum pedido encontrado." << std::endl;
+    // Return empty list if no orders found
   }
+
+  return pedidos;
 }
 
-void Admin::filtrarListaDePedidos()
+std::vector<std::string> Admin::filtrarListaDePedidos()
 {
-  std::cout << "Funcionalidade de filtrar pedidos não implementada completamente." << std::endl;
+  // Placeholder - return empty for now
+  return std::vector<std::string>();
 }
 
 void Admin::editarPedido(Usuario usuario)
 {
-  std::cout << "Funcionalidade de editar pedido não implementada completamente." << std::endl;
-  std::cout << "Usuário: " << usuario.getNome() << std::endl;
+  // Placeholder - functionality not fully implemented
 }
 
 void Admin::deletarPedido(unsigned int idPedido)
 {
-  std::cout << "Funcionalidade de deletar pedido não implementada completamente." << std::endl;
-  std::cout << "ID do pedido: " << idPedido << std::endl;
+  // Placeholder - functionality not fully implemented
 }
 
-void Admin::verResumoEstatistico()
+Admin::EstatisticasResumo Admin::obterResumoEstatistico()
 {
-  int totalUsuarios = 0, totalProdutos = 0, totalPedidos = 0;
+  EstatisticasResumo resumo = {0, 0, 0};
 
   // Count users
   std::ifstream userFile("data/usuarios.txt");
   std::string line;
   while (std::getline(userFile, line))
   {
-    totalUsuarios++;
+    resumo.totalUsuarios++;
   }
   userFile.close();
 
@@ -238,7 +199,7 @@ void Admin::verResumoEstatistico()
   std::ifstream productFile("data/produtos.txt");
   while (std::getline(productFile, line))
   {
-    totalProdutos++;
+    resumo.totalProdutos++;
   }
   productFile.close();
 
@@ -246,16 +207,12 @@ void Admin::verResumoEstatistico()
   try
   {
     auto pedidos = Pedido::lerTodosPedidos("data/pedidos.txt");
-    totalPedidos = pedidos.size();
+    resumo.totalPedidos = pedidos.size();
   }
   catch (const std::exception &e)
   {
-    totalPedidos = 0;
+    resumo.totalPedidos = 0;
   }
 
-  std::cout << "\n===== RESUMO ESTATÍSTICO =====" << std::endl;
-  std::cout << "Total de usuários: " << totalUsuarios << std::endl;
-  std::cout << "Total de produtos: " << totalProdutos << std::endl;
-  std::cout << "Total de pedidos: " << totalPedidos << std::endl;
-  std::cout << "==============================" << std::endl;
+  return resumo;
 }

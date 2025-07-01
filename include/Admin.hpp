@@ -3,6 +3,8 @@
 
 #include "Usuario.hpp"
 #include "Pedido.hpp"
+#include <vector>
+#include <string>
 
 class Admin
 {
@@ -12,27 +14,34 @@ private:
 
 public:
     // Usuário
-    void verListaDeUsuarios();
-    void filtrarListaDeUsuarios();
+    std::vector<std::string> obterListaDeUsuarios();
+    std::vector<std::string> filtrarListaDeUsuarios(const std::string &filtro);
     void editarUsuario(Usuario usuario);
     void deletarUsuario(Usuario usuario);
     void promoverUsuario(Usuario usuario);
-    void cadastrarUsuario();
+    void cadastrarUsuario(const std::string &nome, const std::string &email, const std::string &senha,
+                          const std::string &telefone, const std::string &cpf, const std::string &endereco);
 
     // Produtos
-    void verListaDeProdutos();
-    void filtrarListaDeProdutos();
+    std::vector<std::string> obterListaDeProdutos();
+    std::vector<std::string> filtrarListaDeProdutos(const std::string &filtro);
     void editarProduto(Usuario usuario);
     void deletarProduto(unsigned int idProduto);
 
     // Pedidos
-    void verListaDePedido();
-    void filtrarListaDePedidos();
+    std::vector<std::string> obterListaDePedidos();
+    std::vector<std::string> filtrarListaDePedidos();
     void editarPedido(Usuario usuario);
     void deletarPedido(unsigned int idPedido);
 
     // Resumo estatístico
-    void verResumoEstatistico(); // Mostra total de usuários, produtos e pedidos
+    struct EstatisticasResumo
+    {
+        int totalUsuarios;
+        int totalProdutos;
+        int totalPedidos;
+    };
+    EstatisticasResumo obterResumoEstatistico();
 };
 
 #endif

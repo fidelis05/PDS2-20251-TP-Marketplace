@@ -7,7 +7,7 @@ INCLUDE	:= include
 LIB		:= lib
 TESTS   := tests
 
-LIBRARIES	:=
+LIBRARIES	:= -lncurses
 EXECUTABLE	:= main
 TEST_EXECUTABLE := test_runner
 COMPREHENSIVE_TEST := test_comprehensive

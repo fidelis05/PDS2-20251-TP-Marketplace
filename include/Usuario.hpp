@@ -33,37 +33,23 @@ public:
 
   void cadastrar(std::string nome, std::string email, std::string senha, std::string telefone, std::string cpf_cnpj, std::string endereco);
   bool login(std::string email, std::string senha);
-  void visualizarPerfil();
-  void editarPerfil();
-  void editarEmail();
-  void editarSenha();
-  void editarEndereco();
-  void editarTelefone();
 
-  // funções de produto
-  void visualizarProdutos();
-  void detalhesProduto();
-  void aplicarFiltroNome();
-  void aplicarFiltroCategoria();
-  void aplicarFiltroPreco();
-  void cadastrarProduto();
-  void editarProduto();
-  void excluirProduto();
+  std::vector<Produto> obterProdutos();
+  void adicionarProdutoAoCarrinho(unsigned int idProduto);
+  void removerProdutoDoCarrinho(unsigned int idProduto);
+  std::vector<std::shared_ptr<Pedido>> obterPedidos();
+  bool finalizarCompraBusiness();
+  void atualizarPerfil(const std::string &novoNome, const std::string &novoEmail,
+                       const std::string &novoTelefone, const std::string &novoEndereco);
+  void atualizarSenha(const std::string &novaSenha);
+  bool adicionarNovoProduto(const Produto &produto);
 
-  // funções do carrinho
-  void adicionarAoCarrinho();
-  void removerDoCarrinho();
-  void visualizarCarrinho();
-
-  // funções de pedido
-  void finalizarCompra();
-  void visualizarPedidos();
-  void cancelarPedido();
-
-  bool confirmarAcao();
-
-  std::string getEmail();
-  std::string getNome();
+  // Getters
+  std::string getEmail() const { return email; }
+  std::string getNome() const { return nome; }
+  std::string getTelefone() const { return telefone; }
+  std::string getCpfCnpj() const { return cpf_cnpj; }
+  std::string getEndereco() const { return endereco; }
   unsigned int getId() const { return id_usuario; }
 };
 

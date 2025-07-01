@@ -41,11 +41,17 @@ public:
   unsigned int setcodigoRastreio(unsigned int x);
   unsigned int getLista();
 
-  // New methods for Correios management
-  void consultarPedido(unsigned int idPedido);
-  void listarPedidosParaEntrega();
-  void confirmarEntrega(unsigned int idPedido);
-  void reportarProblemaEntrega(unsigned int idPedido, const std::string &problema);
+  struct InfoPedido
+  {
+    unsigned int id;
+    std::string status;
+    unsigned int codigoRastreio;
+    bool encontrado;
+  };
+  InfoPedido consultarPedido(unsigned int idPedido);
+  std::vector<std::string> obterPedidosParaEntrega();
+  bool confirmarEntrega(unsigned int idPedido);
+  bool reportarProblemaEntrega(unsigned int idPedido, const std::string &problema);
 
   // Getters
   unsigned int getId() const { return idCorreios; }

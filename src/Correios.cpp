@@ -18,7 +18,6 @@ bool Correios::login(const std::string &usuario, const std::string &senha)
     if (verificarBloqueio())
     {
         salvarLog("LOGIN_BLOCKED", "Tentativa de login durante bloqueio");
-        std::cout << "Conta bloqueada temporariamente. Tente novamente em alguns minutos." << std::endl;
         return false;
     }
 
@@ -29,7 +28,6 @@ bool Correios::login(const std::string &usuario, const std::string &senha)
         tentativasLogin = 0;
         registrarTentativaLogin(true);
         salvarLog("LOGIN_SUCCESS", "Login realizado com sucesso");
-        std::cout << "Login realizado com sucesso! Bem-vindo, " << usuario << std::endl;
         return true;
     }
     else
@@ -37,8 +35,6 @@ bool Correios::login(const std::string &usuario, const std::string &senha)
         tentativasLogin++;
         registrarTentativaLogin(false);
         salvarLog("LOGIN_FAILED", "Credenciais inválidas");
-        std::cout << "Credenciais inválidas. Tentativas restantes: "
-                  << (MAX_TENTATIVAS - tentativasLogin) << std::endl;
         return false;
     }
 }
@@ -49,7 +45,6 @@ void Correios::logout()
     {
         salvarLog("LOGOUT", "Logout realizado");
         isLoggedIn = false;
-        std::cout << "Logout realizado com sucesso." << std::endl;
     }
 }
 
@@ -78,7 +73,6 @@ void Correios::alterarSenha(const std::string &senhaAtual, const std::string &no
 
     senhaCorreios = novaSenha;
     salvarLog("PASSWORD_CHANGED", "Senha alterada com sucesso");
-    std::cout << "Senha alterada com sucesso." << std::endl;
 }
 
 // Authentication helper methods
@@ -194,96 +188,95 @@ unsigned int Correios::getLista()
 }
 
 // New methods for Correios management
-void Correios::consultarPedido(unsigned int idPedido)
+Correios::InfoPedido Correios::consultarPedido(unsigned int idPedido)
 {
+    InfoPedido info = {0, "", 0, false};
+
     if (!isAuthenticated())
     {
-        throw std::runtime_error("Acesso negado. Faça login primeiro.");
+        return info;
     }
 
     try
     {
         Pedido pedido = Pedido::lerPedidoPorId("data/pedidos.txt", idPedido);
-        std::cout << "=== CONSULTA DE PEDIDO ===" << std::endl;
-        std::cout << "ID: " << pedido.getId() << std::endl;
-        std::cout << "Status: " << pedido.getStatus() << std::endl;
-        std::cout << "Código de Rastreio: " << pedido.getCodigoRastreio() << std::endl;
-        std::cout << "=========================" << std::endl;
+        info.id = pedido.getId();
+        info.status = pedido.getStatus();
+        info.codigoRastreio = pedido.getCodigoRastreio();
+        info.encontrado = true;
 
         salvarLog("PEDIDO_CONSULTED", "Pedido consultado: " + std::to_string(idPedido));
     }
     catch (const std::exception &e)
     {
-        std::cout << "Erro ao consultar pedido: " << e.what() << std::endl;
         salvarLog("PEDIDO_CONSULTATION_ERROR", "Erro ao consultar pedido: " + std::to_string(idPedido));
     }
+
+    return info;
 }
 
-void Correios::listarPedidosParaEntrega()
+std::vector<std::string> Correios::obterPedidosParaEntrega()
 {
+    std::vector<std::string> pedidos;
+
     if (!isAuthenticated())
     {
-        throw std::runtime_error("Acesso negado. Faça login primeiro.");
+        return pedidos;
     }
 
     try
     {
-        auto pedidos = Pedido::lerTodosPedidos("data/pedidos.txt");
-        std::cout << "=== PEDIDOS PARA ENTREGA ===" << std::endl;
+        auto pedidosList = Pedido::lerTodosPedidos("data/pedidos.txt");
 
-        bool encontrouPedidos = false;
-        for (const auto &pedido : pedidos)
+        for (const auto &pedido : pedidosList)
         {
-            if (pedido.getStatus() == "A caminho" || pedido.getStatus() == "Saiu para Entrega")
+            // Check for statuses eligible for delivery
+            std::string status = pedido.getStatus();
+            if (status == "Enviado" || status == "Vendedor ciente" ||
+                status == "Despachado" || status == "A caminho" ||
+                status == "Saiu para Entrega")
             {
-                std::cout << "ID: " << pedido.getId()
-                          << " | Status: " << pedido.getStatus()
-                          << " | Código: " << pedido.getCodigoRastreio() << std::endl;
-                encontrouPedidos = true;
+                pedidos.push_back("Pedido ID: " + std::to_string(pedido.getId()) +
+                                  " | Status: " + pedido.getStatus() +
+                                  " | Rastreio: " + std::to_string(pedido.getCodigoRastreio()));
             }
         }
-
-        if (!encontrouPedidos)
-        {
-            std::cout << "Nenhum pedido para entrega encontrado." << std::endl;
-        }
-
-        std::cout << "=============================" << std::endl;
         salvarLog("DELIVERY_LIST_ACCESSED", "Lista de entregas acessada");
     }
     catch (const std::exception &e)
     {
-        std::cout << "Erro ao listar pedidos: " << e.what() << std::endl;
         salvarLog("DELIVERY_LIST_ERROR", "Erro ao acessar lista de entregas");
     }
+
+    return pedidos;
 }
 
-void Correios::confirmarEntrega(unsigned int idPedido)
+bool Correios::confirmarEntrega(unsigned int idPedido)
 {
     if (!isAuthenticated())
     {
-        throw std::runtime_error("Acesso negado. Faça login primeiro.");
+        return false;
     }
 
     try
     {
         // This would update the pedido status to "Entregue"
         setStatus(6); // Status 6 = "Entregue"
-        std::cout << "Entrega confirmada para o pedido #" << idPedido << std::endl;
         salvarLog("DELIVERY_CONFIRMED", "Entrega confirmada para pedido: " + std::to_string(idPedido));
+        return true;
     }
     catch (const std::exception &e)
     {
-        std::cout << "Erro ao confirmar entrega: " << e.what() << std::endl;
         salvarLog("DELIVERY_CONFIRMATION_ERROR", "Erro ao confirmar entrega: " + std::to_string(idPedido));
+        return false;
     }
 }
 
-void Correios::reportarProblemaEntrega(unsigned int idPedido, const std::string &problema)
+bool Correios::reportarProblemaEntrega(unsigned int idPedido, const std::string &problema)
 {
     if (!isAuthenticated())
     {
-        throw std::runtime_error("Acesso negado. Faça login primeiro.");
+        return false;
     }
 
     std::ofstream file("problemas_entrega.log", std::ios::app);
@@ -297,6 +290,6 @@ void Correios::reportarProblemaEntrega(unsigned int idPedido, const std::string 
 
     file.close();
 
-    std::cout << "Problema reportado para o pedido #" << idPedido << std::endl;
     salvarLog("PROBLEM_REPORTED", "Problema reportado para pedido: " + std::to_string(idPedido) + " - " + problema);
+    return true;
 }

@@ -8,13 +8,17 @@ void Carrinho::inserir(const Produto &produto, unsigned int quantidade)
 
 std::string Carrinho::exibir()
 {
+  int i = 1;
+  double total = 0.0;
   std::string result;
   for (auto const &map : carrinhoProdutos)
   {
     const Produto &produto = map.first;
     unsigned int quantidade = map.second;
-    result += "Produto: " + produto.nome + " Quantidade: " + std::to_string(quantidade) + "\n";
+    result += std::to_string(i++) + ". " + produto.nome + " -  R$" + std::to_string(produto.valor) + " x " + std::to_string(quantidade) + "\n";
+    total += produto.valor * quantidade;
   }
+  result += "Total: R$" + std::to_string(total) + "\n";
   return result;
 }
 
@@ -37,9 +41,5 @@ void Carrinho::excluir()
 
 void Carrinho::finalizarCompra()
 {
-  std::cout << "Finalizando compra..." << std::endl;
-  std::cout << "Itens no carrinho:" << std::endl;
-  std::cout << exibir() << std::endl;
-  std::cout << "Compra finalizada! O carrinho será limpo." << std::endl;
-  excluir(); // Clear the cart
+  carrinhoProdutos.clear();
 }

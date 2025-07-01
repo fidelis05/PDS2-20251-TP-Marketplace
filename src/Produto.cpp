@@ -15,27 +15,15 @@ Produto::Produto(unsigned int id, const std::string &nome, const std::string &ma
 {
 }
 
-void Produto::exibirInformacoes()
-{
-  std::cout << "ID: " << id << "\n";
-  std::cout << "Nome: " << nome << "\n";
-  std::cout << "Marca: " << marca << "\n";
-  std::cout << "Valor: " << valor << "\n";
-  std::cout << "Avaliação: " << avaliacao << "\n";
-  std::cout << "Quantidade: " << quantidade << "\n";
-  std::cout << "Descrição: " << descricao << "\n";
-  std::cout << "Endereço: " << endereco << "\n";
-}
 void Produto::reduzirEstoque(unsigned int quantidade)
 {
   if (quantidade > this->quantidade)
   {
-    std::cout << "Quantidade insuficiente em estoque.\n";
+    throw std::runtime_error("Estoque insuficiente para reduzir a quantidade solicitada.");
   }
   else
   {
     this->quantidade -= quantidade;
-    std::cout << "Estoque reduzido. Nova quantidade: " << this->quantidade << "\n";
   }
 }
 

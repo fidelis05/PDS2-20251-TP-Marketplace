@@ -17,16 +17,16 @@ public:
         : MarketPlaceException(msg) {}
 };
 
-class AdminException : public MarketPlaceException
+class ProdutoException : public MarketPlaceException
 {
 public:
-    explicit AdminException(const std::string &msg)
+    explicit ProdutoException(const std::string &msg)
         : MarketPlaceException(msg) {};
 };
 
-class UsuarioException : public MarketPlaceException
+class PedidoException : public MarketPlaceException
 {
 public:
-    explicit UsuarioException(const std::string &msg)
+    explicit PedidoException(const std::string &msg)
         : MarketPlaceException(msg) {};
 };

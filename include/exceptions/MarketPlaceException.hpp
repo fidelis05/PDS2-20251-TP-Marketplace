@@ -2,17 +2,31 @@
 #include <iostream>
 #include <string>
 
-class MarketPlaceException : public std::exception
+class MarketPlaceException : public std::runtime_error
 {
-private:
-    std::string message_;
 
 public:
     explicit MarketPlaceException(const std::string &msg)
-        : message_(msg) {}
+        : std::runtime_error(msg) {}
+};
 
-    const char *what() const noexcept override
-    {
-        return message_.c_str();
-    }
+class CorreiosException : public MarketPlaceException
+{
+public:
+    explicit CorreiosException(const std::string &msg)
+        : MarketPlaceException(msg) {}
+};
+
+class AdminException : public MarketPlaceException
+{
+public:
+    explicit AdminException(const std::string &msg)
+        : MarketPlaceException(msg) {};
+};
+
+class UsuarioException : public MarketPlaceException
+{
+public:
+    explicit UsuarioException(const std::string &msg)
+        : MarketPlaceException(msg) {};
 };

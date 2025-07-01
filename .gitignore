@@ -5,6 +5,7 @@
 
 # Explicitly keep important files without extensions (if any)
 !Makefile
+!Doxyfile
 !LICENSE
 !README
 

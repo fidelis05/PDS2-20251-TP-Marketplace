@@ -4,17 +4,18 @@
 #include "Produto.hpp"
 #include <map>
 
-class Carrinho {
+class Carrinho
+{
 private:
-  int id_usuario, id_vendedor;
+  unsigned int id_usuario, id_vendedor;
 
 public:
-  std::map<Produto, int> carrinhoProdutos;
+  std::map<Produto, unsigned int> carrinhoProdutos;
   Carrinho() = default;
-  void inserir(const Produto &produto, int quantidade);
+  void inserir(const Produto &produto, unsigned int quantidade);
   std::string exibir();
-  void excluir(int id); // exclui um produto especifico
-  void excluir();       // exclui todo o carrinho
+  void excluir(unsigned int id); // exclui um produto especifico
+  void excluir();                // exclui todo o carrinho
   void finalizarCompra();
 };
 

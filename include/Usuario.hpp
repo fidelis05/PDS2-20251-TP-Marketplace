@@ -3,14 +3,18 @@
 
 #include <string>
 #include <vector>
+#include <memory>
 
 #include "Produto.hpp"
-#include "Pedido.hpp"
 #include "Carrinho.hpp"
 
-class Usuario{
+// Forward declarations to avoid circular dependency
+class Pedido;
+
+class Usuario
+{
 private:
-  int id_usuario;
+  unsigned int id_usuario;
   std::string nome;
   std::string email;
   std::string senha;
@@ -19,15 +23,15 @@ private:
   std::string endereco;
 
   std::vector<Produto> meusProdutos;
-  std::vector<Pedido> meusPedidos;
-
-  Carrinho carrinho; 
+  std::vector<std::shared_ptr<Pedido>> meusPedidos;
 
 public:
+  Carrinho carrinho;
+
   Usuario();
   Usuario(std::string nome, std::string email, std::string senha);
 
-  void cadastrar(std::string nome, std::string email, std::string senha, std::string telefone, std::string cpf_cnpj, std::string endereco); 
+  void cadastrar(std::string nome, std::string email, std::string senha, std::string telefone, std::string cpf_cnpj, std::string endereco);
   bool login(std::string email, std::string senha);
   void visualizarPerfil();
   void editarPerfil();
@@ -36,9 +40,9 @@ public:
   void editarEndereco();
   void editarTelefone();
 
-// funções de produto
+  // funções de produto
   void visualizarProdutos();
-  void detalhesProduto(); 
+  void detalhesProduto();
   void aplicarFiltroNome();
   void aplicarFiltroCategoria();
   void aplicarFiltroPreco();
@@ -46,13 +50,13 @@ public:
   void editarProduto();
   void excluirProduto();
 
-// funções do carrinho
+  // funções do carrinho
   void adicionarAoCarrinho();
   void removerDoCarrinho();
   void visualizarCarrinho();
 
-// funções de pedido
-  void finalizarCompra();  
+  // funções de pedido
+  void finalizarCompra();
   void visualizarPedidos();
   void cancelarPedido();
 
@@ -60,7 +64,7 @@ public:
 
   std::string getEmail();
   std::string getNome();
+  unsigned int getId() const { return id_usuario; }
 };
-
 
 #endif

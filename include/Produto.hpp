@@ -6,22 +6,22 @@
 class Produto
 {
 public:
-  int id;
+  unsigned int id;
   std::string nome;
   std::string marca;
   double valor;
   double avaliacao;
-  int quantidade;
+  unsigned int quantidade;
   std::string descricao;
   std::string endereco;
 
   void exibirInformacoes();
-  void reduzirEstoque(int quantidade);
+  void reduzirEstoque(unsigned int quantidade);
 
-  Produto(int id, const std::string &nome, const std::string &marca, double valor,
-          double avaliacao, int quantidade, const std::string &descricao, const std::string &endereco);
+  Produto(unsigned int id, const std::string &nome, const std::string &marca, double valor,
+          double avaliacao, unsigned int quantidade, const std::string &descricao, const std::string &endereco);
 
-  bool operator<(const Produto& other) const;
+  bool operator<(const Produto &other) const;
 };
 
 #endif

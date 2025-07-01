@@ -1,0 +1,11 @@
+2025-06-30 23:39:24 | ID: 123 | Usuario: correios_user | Acao: LOGIN_FAILED | Detalhes: Credenciais inválidas
+2025-06-30 23:39:24 | ID: 123 | Usuario: correios_user | Acao: LOGIN_SUCCESS | Detalhes: Login realizado com sucesso
+2025-06-30 23:39:24 | ID: 123 | Usuario: correios_user | Acao: TRACKING_CODE_SET | Detalhes: Código de rastreio definido: 987654321
+2025-06-30 23:39:24 | ID: 123 | Usuario: correios_user | Acao: DELIVERY_LIST_ACCESSED | Detalhes: Lista de entregas acessada
+2025-06-30 23:39:24 | ID: 123 | Usuario: correios_user | Acao: PEDIDO_CONSULTATION_ERROR | Detalhes: Erro ao consultar pedido: 1
+2025-06-30 23:39:24 | ID: 123 | Usuario: correios_user | Acao: PASSWORD_CHANGED | Detalhes: Senha alterada com sucesso
+2025-06-30 23:39:24 | ID: 123 | Usuario: correios_user | Acao: LOGOUT | Detalhes: Logout realizado
+2025-06-30 23:39:24 | ID: 456 | Usuario: admin_correios | Acao: LOGIN_FAILED | Detalhes: Credenciais inválidas
+2025-06-30 23:39:24 | ID: 456 | Usuario: admin_correios | Acao: LOGIN_FAILED | Detalhes: Credenciais inválidas
+2025-06-30 23:39:24 | ID: 456 | Usuario: admin_correios | Acao: LOGIN_FAILED | Detalhes: Credenciais inválidas
+2025-06-30 23:39:24 | ID: 456 | Usuario: admin_correios | Acao: LOGIN_FAILED | Detalhes: Credenciais inválidas

@@ -1,0 +1,4 @@
+1001|Smartphone Samsung|Samsung|899.99|4.5|10|Smartphone com 128GB de armazenamento|São Paulo - SP
+1002|Notebook Dell|Dell|2499.90|4.0|5|Notebook i5 8GB RAM 256GB SSD|Rio de Janeiro - RJ
+1003|Fone de Ouvido|Sony|199.99|4.8|15|Fone de ouvido sem fio|Belo Horizonte - MG
+1004|Mouse Gamer|Logitech|89.90|4.2|20|Mouse gamer RGB|São Paulo - SP

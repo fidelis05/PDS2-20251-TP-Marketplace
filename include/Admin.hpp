@@ -2,14 +2,16 @@
 #define ADMIN_HPP
 
 #include "Usuario.hpp"
+#include "Pedido.hpp"
 
-class Admin {
+class Admin
+{
 private:
     bool autorizacao;
     Usuario admin;
 
 public:
-    // Usuário 
+    // Usuário
     void verListaDeUsuarios();
     void filtrarListaDeUsuarios();
     void editarUsuario(Usuario usuario);
@@ -21,13 +23,13 @@ public:
     void verListaDeProdutos();
     void filtrarListaDeProdutos();
     void editarProduto(Usuario usuario);
-    void deletarProduto(int idProduto);
+    void deletarProduto(unsigned int idProduto);
 
     // Pedidos
     void verListaDePedido();
     void filtrarListaDePedidos();
     void editarPedido(Usuario usuario);
-    void deletarPedido(int idPedido);
+    void deletarPedido(unsigned int idPedido);
 
     // Resumo estatístico
     void verResumoEstatistico(); // Mostra total de usuários, produtos e pedidos

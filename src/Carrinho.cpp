@@ -1,7 +1,7 @@
 #include "Carrinho.hpp"
 #include "Produto.hpp"
 
-void Carrinho::inserir(const Produto &produto, int quantidade)
+void Carrinho::inserir(const Produto &produto, unsigned int quantidade)
 {
   carrinhoProdutos[produto] = quantidade;
 }
@@ -12,13 +12,13 @@ std::string Carrinho::exibir()
   for (auto const &map : carrinhoProdutos)
   {
     const Produto &produto = map.first;
-    int quantidade = map.second;
+    unsigned int quantidade = map.second;
     result += "Produto: " + produto.nome + " Quantidade: " + std::to_string(quantidade) + "\n";
   }
   return result;
 }
 
-void Carrinho::excluir(int id)
+void Carrinho::excluir(unsigned int id)
 {
   for (auto it = carrinhoProdutos.begin(); it != carrinhoProdutos.end(); ++it)
   {
@@ -37,5 +37,9 @@ void Carrinho::excluir()
 
 void Carrinho::finalizarCompra()
 {
-  // TODO: carrinho -> pedido
+  std::cout << "Finalizando compra..." << std::endl;
+  std::cout << "Itens no carrinho:" << std::endl;
+  std::cout << exibir() << std::endl;
+  std::cout << "Compra finalizada! O carrinho será limpo." << std::endl;
+  excluir(); // Clear the cart
 }

@@ -1,0 +1,598 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="pt">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Sistema Marketplace PDS2: Referência à classe Admin</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">Sistema Marketplace PDS2<span id="projectnumber">&#160;1.0</span>
+   </div>
+   <div id="projectbrief">Sistema de marketplace desenvolvido para a disciplina PDS2</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Gerado por Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Localizar');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Carregando...</div>
+<div class="SRStatus" id="Searching">Procurando...</div>
+<div class="SRStatus" id="NoMatches">Nenhuma entrada encontrada</div>
+</div>
+</div>
+</div>
+</div>
+
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#nested-classes">Componentes</a> &#124;
+<a href="#pub-methods">Membros públicos</a> &#124;
+<a href="#pri-attribs">Atributos Privados</a> &#124;
+<a href="classAdmin-members.html">Mostrar lista completa dos membros</a>  </div>
+  <div class="headertitle"><div class="title">Referência à classe Admin</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>Classe que representa um administrador do sistema.  
+ <a href="classAdmin.html#details">Mais...</a></p>
+
+<p><code>#include &lt;<a class="el" href="Admin_8hpp_source.html">Admin.hpp</a>&gt;</code></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
+Componentes</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structAdmin_1_1EstatisticasResumo.html">EstatisticasResumo</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Estrutura para resumo de estatísticas do sistema.  <a href="structAdmin_1_1EstatisticasResumo.html#details">Mais...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Membros públicos</h2></td></tr>
+<tr class="memitem:aa8c10f037bf588c67d446f126f91c75e" id="r_aa8c10f037bf588c67d446f126f91c75e"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAdmin.html#aa8c10f037bf588c67d446f126f91c75e">obterListaDeUsuarios</a> ()</td></tr>
+<tr class="memdesc:aa8c10f037bf588c67d446f126f91c75e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Obtém a lista de todos os usuários cadastrados.  <br /></td></tr>
+<tr class="separator:aa8c10f037bf588c67d446f126f91c75e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af841ad449764f33ab061d98e556ae342" id="r_af841ad449764f33ab061d98e556ae342"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAdmin.html#af841ad449764f33ab061d98e556ae342">editarUsuario</a> (const std::string &amp;email, const std::string &amp;novoNome, const std::string &amp;novoTelefone, const std::string &amp;novoEndereco)</td></tr>
+<tr class="memdesc:af841ad449764f33ab061d98e556ae342"><td class="mdescLeft">&#160;</td><td class="mdescRight">Edita as informações de um usuário.  <br /></td></tr>
+<tr class="separator:af841ad449764f33ab061d98e556ae342"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aca1344aff6c652df80333e3bda0b1b85" id="r_aca1344aff6c652df80333e3bda0b1b85"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAdmin.html#aca1344aff6c652df80333e3bda0b1b85">deletarUsuario</a> (const std::string &amp;email)</td></tr>
+<tr class="memdesc:aca1344aff6c652df80333e3bda0b1b85"><td class="mdescLeft">&#160;</td><td class="mdescRight">Remove um usuário do sistema.  <br /></td></tr>
+<tr class="separator:aca1344aff6c652df80333e3bda0b1b85"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aabdbe13e8b67b28b5b742fc5e7563988" id="r_aabdbe13e8b67b28b5b742fc5e7563988"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAdmin.html#aabdbe13e8b67b28b5b742fc5e7563988">cadastrarUsuario</a> (const std::string &amp;nome, const std::string &amp;email, const std::string &amp;senha, const std::string &amp;telefone, const std::string &amp;cpf, const std::string &amp;endereco)</td></tr>
+<tr class="memdesc:aabdbe13e8b67b28b5b742fc5e7563988"><td class="mdescLeft">&#160;</td><td class="mdescRight">Cadastra um novo usuário no sistema.  <br /></td></tr>
+<tr class="separator:aabdbe13e8b67b28b5b742fc5e7563988"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af784750edaa9f59a45afd5b74ca2574e" id="r_af784750edaa9f59a45afd5b74ca2574e"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAdmin.html#af784750edaa9f59a45afd5b74ca2574e">obterListaDeProdutos</a> ()</td></tr>
+<tr class="memdesc:af784750edaa9f59a45afd5b74ca2574e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Obtém a lista de todos os produtos cadastrados.  <br /></td></tr>
+<tr class="separator:af784750edaa9f59a45afd5b74ca2574e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a810dbffd94437d41cb3c36439032b0ef" id="r_a810dbffd94437d41cb3c36439032b0ef"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAdmin.html#a810dbffd94437d41cb3c36439032b0ef">editarProduto</a> (unsigned int idProduto, const std::string &amp;novoNome, const std::string &amp;novaMarca, double novoValor, const std::string &amp;novaDescricao)</td></tr>
+<tr class="memdesc:a810dbffd94437d41cb3c36439032b0ef"><td class="mdescLeft">&#160;</td><td class="mdescRight">Edita as informações de um produto.  <br /></td></tr>
+<tr class="separator:a810dbffd94437d41cb3c36439032b0ef"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a85011a37d02c1f7b2b5ed22f58266131" id="r_a85011a37d02c1f7b2b5ed22f58266131"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAdmin.html#a85011a37d02c1f7b2b5ed22f58266131">deletarProduto</a> (unsigned int idProduto)</td></tr>
+<tr class="memdesc:a85011a37d02c1f7b2b5ed22f58266131"><td class="mdescLeft">&#160;</td><td class="mdescRight">Remove um produto do sistema.  <br /></td></tr>
+<tr class="separator:a85011a37d02c1f7b2b5ed22f58266131"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9e8ba844bf64619d322a729b6bb6ee6d" id="r_a9e8ba844bf64619d322a729b6bb6ee6d"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAdmin.html#a9e8ba844bf64619d322a729b6bb6ee6d">obterListaDePedidos</a> ()</td></tr>
+<tr class="memdesc:a9e8ba844bf64619d322a729b6bb6ee6d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Obtém a lista de todos os pedidos.  <br /></td></tr>
+<tr class="separator:a9e8ba844bf64619d322a729b6bb6ee6d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a65c93cda2a3ceae9176e46452fdc855d" id="r_a65c93cda2a3ceae9176e46452fdc855d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAdmin.html#a65c93cda2a3ceae9176e46452fdc855d">editarPedido</a> (unsigned int idPedido, const std::string &amp;novoStatus)</td></tr>
+<tr class="memdesc:a65c93cda2a3ceae9176e46452fdc855d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Edita o status de um pedido.  <br /></td></tr>
+<tr class="separator:a65c93cda2a3ceae9176e46452fdc855d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1b3b2916b5737f609d07e5c4ea1a82b5" id="r_a1b3b2916b5737f609d07e5c4ea1a82b5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAdmin.html#a1b3b2916b5737f609d07e5c4ea1a82b5">deletarPedido</a> (unsigned int idPedido)</td></tr>
+<tr class="memdesc:a1b3b2916b5737f609d07e5c4ea1a82b5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Remove um pedido do sistema.  <br /></td></tr>
+<tr class="separator:a1b3b2916b5737f609d07e5c4ea1a82b5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a73451bd89cef1439f16f99ca2013876f" id="r_a73451bd89cef1439f16f99ca2013876f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structAdmin_1_1EstatisticasResumo.html">EstatisticasResumo</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAdmin.html#a73451bd89cef1439f16f99ca2013876f">obterResumoEstatistico</a> ()</td></tr>
+<tr class="memdesc:a73451bd89cef1439f16f99ca2013876f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Obtém um resumo estatístico do sistema.  <br /></td></tr>
+<tr class="separator:a73451bd89cef1439f16f99ca2013876f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
+Atributos Privados</h2></td></tr>
+<tr class="memitem:ae3e83a4d830e9d19a8ff552f9252eafc" id="r_ae3e83a4d830e9d19a8ff552f9252eafc"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAdmin.html#ae3e83a4d830e9d19a8ff552f9252eafc">autorizacao</a></td></tr>
+<tr class="memdesc:ae3e83a4d830e9d19a8ff552f9252eafc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Flag de autorização do administrador.  <br /></td></tr>
+<tr class="separator:ae3e83a4d830e9d19a8ff552f9252eafc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6cf7557ec95e3f74192fff7ac07fbce3" id="r_a6cf7557ec95e3f74192fff7ac07fbce3"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classUsuario.html">Usuario</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAdmin.html#a6cf7557ec95e3f74192fff7ac07fbce3">admin</a></td></tr>
+<tr class="memdesc:a6cf7557ec95e3f74192fff7ac07fbce3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Dados do usuário administrador.  <br /></td></tr>
+<tr class="separator:a6cf7557ec95e3f74192fff7ac07fbce3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Descrição detalhada</h2>
+<div class="textblock"><p>Classe que representa um administrador do sistema. </p>
+<p>Esta classe fornece funcionalidades administrativas para gerenciar usuários, produtos e pedidos no marketplace. </p>
+
+<p class="definition">Definido na linha <a class="el" href="Admin_8hpp_source.html#l00023">23</a> do ficheiro <a class="el" href="Admin_8hpp_source.html">Admin.hpp</a>.</p>
+</div><h2 class="groupheader">Documentação das funções</h2>
+<a id="aabdbe13e8b67b28b5b742fc5e7563988" name="aabdbe13e8b67b28b5b742fc5e7563988"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aabdbe13e8b67b28b5b742fc5e7563988">&#9670;&#160;</a></span>cadastrarUsuario()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Admin::cadastrarUsuario </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>nome</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>email</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>senha</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>telefone</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>cpf</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>endereco</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Cadastra um novo usuário no sistema. </p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">nome</td><td>Nome do usuário </td></tr>
+    <tr><td class="paramname">email</td><td>Email único do usuário </td></tr>
+    <tr><td class="paramname">senha</td><td>Senha do usuário </td></tr>
+    <tr><td class="paramname">telefone</td><td>Telefone do usuário </td></tr>
+    <tr><td class="paramname">cpf</td><td>CPF do usuário </td></tr>
+    <tr><td class="paramname">endereco</td><td>Endereço do usuário </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definido na linha <a class="el" href="Admin_8cpp_source.html#l00096">96</a> do ficheiro <a class="el" href="Admin_8cpp_source.html">Admin.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a1b3b2916b5737f609d07e5c4ea1a82b5" name="a1b3b2916b5737f609d07e5c4ea1a82b5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1b3b2916b5737f609d07e5c4ea1a82b5">&#9670;&#160;</a></span>deletarPedido()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Admin::deletarPedido </td>
+          <td>(</td>
+          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramname"><em>idPedido</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Remove um pedido do sistema. </p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">idPedido</td><td>ID do pedido a ser removido </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definido na linha <a class="el" href="Admin_8cpp_source.html#l00287">287</a> do ficheiro <a class="el" href="Admin_8cpp_source.html">Admin.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a85011a37d02c1f7b2b5ed22f58266131" name="a85011a37d02c1f7b2b5ed22f58266131"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a85011a37d02c1f7b2b5ed22f58266131">&#9670;&#160;</a></span>deletarProduto()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Admin::deletarProduto </td>
+          <td>(</td>
+          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramname"><em>idProduto</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Remove um produto do sistema. </p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">idProduto</td><td>ID do produto a ser removido </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definido na linha <a class="el" href="Admin_8cpp_source.html#l00173">173</a> do ficheiro <a class="el" href="Admin_8cpp_source.html">Admin.cpp</a>.</p>
+
+</div>
+</div>
+<a id="aca1344aff6c652df80333e3bda0b1b85" name="aca1344aff6c652df80333e3bda0b1b85"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aca1344aff6c652df80333e3bda0b1b85">&#9670;&#160;</a></span>deletarUsuario()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Admin::deletarUsuario </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>email</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Remove um usuário do sistema. </p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">email</td><td>Email do usuário a ser removido </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definido na linha <a class="el" href="Admin_8cpp_source.html#l00069">69</a> do ficheiro <a class="el" href="Admin_8cpp_source.html">Admin.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a65c93cda2a3ceae9176e46452fdc855d" name="a65c93cda2a3ceae9176e46452fdc855d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a65c93cda2a3ceae9176e46452fdc855d">&#9670;&#160;</a></span>editarPedido()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Admin::editarPedido </td>
+          <td>(</td>
+          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramname"><em>idPedido</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>novoStatus</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Edita o status de um pedido. </p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">idPedido</td><td>ID do pedido a ser editado </td></tr>
+    <tr><td class="paramname">novoStatus</td><td>Novo status do pedido </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definido na linha <a class="el" href="Admin_8cpp_source.html#l00222">222</a> do ficheiro <a class="el" href="Admin_8cpp_source.html">Admin.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a810dbffd94437d41cb3c36439032b0ef" name="a810dbffd94437d41cb3c36439032b0ef"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a810dbffd94437d41cb3c36439032b0ef">&#9670;&#160;</a></span>editarProduto()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Admin::editarProduto </td>
+          <td>(</td>
+          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramname"><em>idProduto</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>novoNome</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>novaMarca</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>novoValor</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>novaDescricao</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Edita as informações de um produto. </p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">idProduto</td><td>ID do produto a ser editado </td></tr>
+    <tr><td class="paramname">novoNome</td><td>Novo nome do produto </td></tr>
+    <tr><td class="paramname">novaMarca</td><td>Nova marca do produto </td></tr>
+    <tr><td class="paramname">novoValor</td><td>Novo preço do produto </td></tr>
+    <tr><td class="paramname">novaDescricao</td><td>Nova descrição do produto </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definido na linha <a class="el" href="Admin_8cpp_source.html#l00130">130</a> do ficheiro <a class="el" href="Admin_8cpp_source.html">Admin.cpp</a>.</p>
+
+</div>
+</div>
+<a id="af841ad449764f33ab061d98e556ae342" name="af841ad449764f33ab061d98e556ae342"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af841ad449764f33ab061d98e556ae342">&#9670;&#160;</a></span>editarUsuario()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Admin::editarUsuario </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>email</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>novoNome</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>novoTelefone</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>novoEndereco</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Edita as informações de um usuário. </p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">email</td><td>Email do usuário a ser editado </td></tr>
+    <tr><td class="paramname">novoNome</td><td>Novo nome do usuário </td></tr>
+    <tr><td class="paramname">novoTelefone</td><td>Novo telefone do usuário </td></tr>
+    <tr><td class="paramname">novoEndereco</td><td>Novo endereço do usuário </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definido na linha <a class="el" href="Admin_8cpp_source.html#l00030">30</a> do ficheiro <a class="el" href="Admin_8cpp_source.html">Admin.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a9e8ba844bf64619d322a729b6bb6ee6d" name="a9e8ba844bf64619d322a729b6bb6ee6d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9e8ba844bf64619d322a729b6bb6ee6d">&#9670;&#160;</a></span>obterListaDePedidos()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt; std::string &gt; Admin::obterListaDePedidos </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Obtém a lista de todos os pedidos. </p>
+<dl class="section return"><dt>Retorna</dt><dd>Vetor com strings formatadas contendo informações dos pedidos </dd></dl>
+
+<p class="definition">Definido na linha <a class="el" href="Admin_8cpp_source.html#l00200">200</a> do ficheiro <a class="el" href="Admin_8cpp_source.html">Admin.cpp</a>.</p>
+
+</div>
+</div>
+<a id="af784750edaa9f59a45afd5b74ca2574e" name="af784750edaa9f59a45afd5b74ca2574e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af784750edaa9f59a45afd5b74ca2574e">&#9670;&#160;</a></span>obterListaDeProdutos()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt; std::string &gt; Admin::obterListaDeProdutos </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Obtém a lista de todos os produtos cadastrados. </p>
+<dl class="section return"><dt>Retorna</dt><dd>Vetor com strings formatadas contendo informações dos produtos </dd></dl>
+
+<p class="definition">Definido na linha <a class="el" href="Admin_8cpp_source.html#l00103">103</a> do ficheiro <a class="el" href="Admin_8cpp_source.html">Admin.cpp</a>.</p>
+
+</div>
+</div>
+<a id="aa8c10f037bf588c67d446f126f91c75e" name="aa8c10f037bf588c67d446f126f91c75e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa8c10f037bf588c67d446f126f91c75e">&#9670;&#160;</a></span>obterListaDeUsuarios()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt; std::string &gt; Admin::obterListaDeUsuarios </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Obtém a lista de todos os usuários cadastrados. </p>
+<dl class="section return"><dt>Retorna</dt><dd>Vetor com strings formatadas contendo informações dos usuários </dd></dl>
+
+<p class="definition">Definido na linha <a class="el" href="Admin_8cpp_source.html#l00006">6</a> do ficheiro <a class="el" href="Admin_8cpp_source.html">Admin.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a73451bd89cef1439f16f99ca2013876f" name="a73451bd89cef1439f16f99ca2013876f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a73451bd89cef1439f16f99ca2013876f">&#9670;&#160;</a></span>obterResumoEstatistico()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structAdmin_1_1EstatisticasResumo.html">Admin::EstatisticasResumo</a> Admin::obterResumoEstatistico </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Obtém um resumo estatístico do sistema. </p>
+<dl class="section return"><dt>Retorna</dt><dd>Estrutura com as estatísticas do sistema </dd></dl>
+
+<p class="definition">Definido na linha <a class="el" href="Admin_8cpp_source.html#l00319">319</a> do ficheiro <a class="el" href="Admin_8cpp_source.html">Admin.cpp</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Documentação dos dados membro</h2>
+<a id="a6cf7557ec95e3f74192fff7ac07fbce3" name="a6cf7557ec95e3f74192fff7ac07fbce3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6cf7557ec95e3f74192fff7ac07fbce3">&#9670;&#160;</a></span>admin</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classUsuario.html">Usuario</a> Admin::admin</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Dados do usuário administrador. </p>
+
+<p class="definition">Definido na linha <a class="el" href="Admin_8hpp_source.html#l00027">27</a> do ficheiro <a class="el" href="Admin_8hpp_source.html">Admin.hpp</a>.</p>
+
+</div>
+</div>
+<a id="ae3e83a4d830e9d19a8ff552f9252eafc" name="ae3e83a4d830e9d19a8ff552f9252eafc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae3e83a4d830e9d19a8ff552f9252eafc">&#9670;&#160;</a></span>autorizacao</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Admin::autorizacao</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Flag de autorização do administrador. </p>
+
+<p class="definition">Definido na linha <a class="el" href="Admin_8hpp_source.html#l00026">26</a> do ficheiro <a class="el" href="Admin_8hpp_source.html">Admin.hpp</a>.</p>
+
+</div>
+</div>
+<hr/>A documentação para esta classe foi gerada a partir dos seguintes ficheiros:<ul>
+<li>include/<a class="el" href="Admin_8hpp_source.html">Admin.hpp</a></li>
+<li>src/<a class="el" href="Admin_8cpp_source.html">Admin.cpp</a></li>
+</ul>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Gerado por&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+</small></address>
+</body>
+</html>

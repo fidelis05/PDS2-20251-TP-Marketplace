@@ -1,0 +1,141 @@
+\doxysection{Referência à classe Carrinho}
+\hypertarget{classCarrinho}{}\label{classCarrinho}\index{Carrinho@{Carrinho}}
+
+
+{\ttfamily \#include $<$Carrinho.\+hpp$>$}
+
+\doxysubsubsection*{Membros públicos}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classCarrinho_a8b4f69735eee86e22097b58b2c116224}{Carrinho}} ()=default
+\item 
+void \mbox{\hyperlink{classCarrinho_a9ef328b84d84ea12642beb164fe8fdac}{inserir}} (const \mbox{\hyperlink{classProduto}{Produto}} \&produto, unsigned int quantidade)
+\item 
+std\+::string \mbox{\hyperlink{classCarrinho_a87a2cc03a909bddb7eb7a3a69ef21d81}{exibir}} ()
+\item 
+void \mbox{\hyperlink{classCarrinho_af03a8284f9357c348ffa51ddb4fbf6a3}{excluir}} (unsigned int id)
+\item 
+void \mbox{\hyperlink{classCarrinho_a1d3a40f7a54ff3151abb38c5340e9f25}{excluir}} ()
+\item 
+void \mbox{\hyperlink{classCarrinho_a73107ed4d20a3b08800015711b584925}{finalizar\+Compra}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Atributos Públicos}
+\begin{DoxyCompactItemize}
+\item 
+std\+::map$<$ \mbox{\hyperlink{classProduto}{Produto}}, unsigned int $>$ \mbox{\hyperlink{classCarrinho_a00a9f7551fe6a070048351c7d727471a}{carrinho\+Produtos}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Atributos Privados}
+\begin{DoxyCompactItemize}
+\item 
+unsigned int \mbox{\hyperlink{classCarrinho_a3385d57a1898c444c63720b5fb5c172a}{id\+\_\+usuario}}
+\item 
+unsigned int \mbox{\hyperlink{classCarrinho_a034033fd6d053dd9fb5ece12c24b1603}{id\+\_\+vendedor}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Descrição detalhada}
+
+
+Definido na linha \mbox{\hyperlink{Carrinho_8hpp_source_l00007}{7}} do ficheiro \mbox{\hyperlink{Carrinho_8hpp_source}{Carrinho.\+hpp}}.
+
+
+
+\doxysubsection{Documentação dos Construtores \& Destrutor}
+\Hypertarget{classCarrinho_a8b4f69735eee86e22097b58b2c116224}\label{classCarrinho_a8b4f69735eee86e22097b58b2c116224} 
+\index{Carrinho@{Carrinho}!Carrinho@{Carrinho}}
+\index{Carrinho@{Carrinho}!Carrinho@{Carrinho}}
+\doxysubsubsection{\texorpdfstring{Carrinho()}{Carrinho()}}
+{\footnotesize\ttfamily Carrinho\+::\+Carrinho (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+
+
+\doxysubsection{Documentação das funções}
+\Hypertarget{classCarrinho_a1d3a40f7a54ff3151abb38c5340e9f25}\label{classCarrinho_a1d3a40f7a54ff3151abb38c5340e9f25} 
+\index{Carrinho@{Carrinho}!excluir@{excluir}}
+\index{excluir@{excluir}!Carrinho@{Carrinho}}
+\doxysubsubsection{\texorpdfstring{excluir()}{excluir()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void Carrinho\+::excluir (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definido na linha \mbox{\hyperlink{Carrinho_8cpp_source_l00037}{37}} do ficheiro \mbox{\hyperlink{Carrinho_8cpp_source}{Carrinho.\+cpp}}.
+
+\Hypertarget{classCarrinho_af03a8284f9357c348ffa51ddb4fbf6a3}\label{classCarrinho_af03a8284f9357c348ffa51ddb4fbf6a3} 
+\index{Carrinho@{Carrinho}!excluir@{excluir}}
+\index{excluir@{excluir}!Carrinho@{Carrinho}}
+\doxysubsubsection{\texorpdfstring{excluir()}{excluir()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void Carrinho\+::excluir (\begin{DoxyParamCaption}\item[{unsigned int}]{id }\end{DoxyParamCaption})}
+
+
+
+Definido na linha \mbox{\hyperlink{Carrinho_8cpp_source_l00025}{25}} do ficheiro \mbox{\hyperlink{Carrinho_8cpp_source}{Carrinho.\+cpp}}.
+
+\Hypertarget{classCarrinho_a87a2cc03a909bddb7eb7a3a69ef21d81}\label{classCarrinho_a87a2cc03a909bddb7eb7a3a69ef21d81} 
+\index{Carrinho@{Carrinho}!exibir@{exibir}}
+\index{exibir@{exibir}!Carrinho@{Carrinho}}
+\doxysubsubsection{\texorpdfstring{exibir()}{exibir()}}
+{\footnotesize\ttfamily std\+::string Carrinho\+::exibir (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definido na linha \mbox{\hyperlink{Carrinho_8cpp_source_l00009}{9}} do ficheiro \mbox{\hyperlink{Carrinho_8cpp_source}{Carrinho.\+cpp}}.
+
+\Hypertarget{classCarrinho_a73107ed4d20a3b08800015711b584925}\label{classCarrinho_a73107ed4d20a3b08800015711b584925} 
+\index{Carrinho@{Carrinho}!finalizarCompra@{finalizarCompra}}
+\index{finalizarCompra@{finalizarCompra}!Carrinho@{Carrinho}}
+\doxysubsubsection{\texorpdfstring{finalizarCompra()}{finalizarCompra()}}
+{\footnotesize\ttfamily void Carrinho\+::finalizar\+Compra (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definido na linha \mbox{\hyperlink{Carrinho_8cpp_source_l00042}{42}} do ficheiro \mbox{\hyperlink{Carrinho_8cpp_source}{Carrinho.\+cpp}}.
+
+\Hypertarget{classCarrinho_a9ef328b84d84ea12642beb164fe8fdac}\label{classCarrinho_a9ef328b84d84ea12642beb164fe8fdac} 
+\index{Carrinho@{Carrinho}!inserir@{inserir}}
+\index{inserir@{inserir}!Carrinho@{Carrinho}}
+\doxysubsubsection{\texorpdfstring{inserir()}{inserir()}}
+{\footnotesize\ttfamily void Carrinho\+::inserir (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classProduto}{Produto}} \&}]{produto,  }\item[{unsigned int}]{quantidade }\end{DoxyParamCaption})}
+
+
+
+Definido na linha \mbox{\hyperlink{Carrinho_8cpp_source_l00004}{4}} do ficheiro \mbox{\hyperlink{Carrinho_8cpp_source}{Carrinho.\+cpp}}.
+
+
+
+\doxysubsection{Documentação dos dados membro}
+\Hypertarget{classCarrinho_a00a9f7551fe6a070048351c7d727471a}\label{classCarrinho_a00a9f7551fe6a070048351c7d727471a} 
+\index{Carrinho@{Carrinho}!carrinhoProdutos@{carrinhoProdutos}}
+\index{carrinhoProdutos@{carrinhoProdutos}!Carrinho@{Carrinho}}
+\doxysubsubsection{\texorpdfstring{carrinhoProdutos}{carrinhoProdutos}}
+{\footnotesize\ttfamily std\+::map$<$\mbox{\hyperlink{classProduto}{Produto}}, unsigned int$>$ Carrinho\+::carrinho\+Produtos}
+
+
+
+Definido na linha \mbox{\hyperlink{Carrinho_8hpp_source_l00013}{13}} do ficheiro \mbox{\hyperlink{Carrinho_8hpp_source}{Carrinho.\+hpp}}.
+
+\Hypertarget{classCarrinho_a3385d57a1898c444c63720b5fb5c172a}\label{classCarrinho_a3385d57a1898c444c63720b5fb5c172a} 
+\index{Carrinho@{Carrinho}!id\_usuario@{id\_usuario}}
+\index{id\_usuario@{id\_usuario}!Carrinho@{Carrinho}}
+\doxysubsubsection{\texorpdfstring{id\_usuario}{id\_usuario}}
+{\footnotesize\ttfamily unsigned int Carrinho\+::id\+\_\+usuario\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definido na linha \mbox{\hyperlink{Carrinho_8hpp_source_l00010}{10}} do ficheiro \mbox{\hyperlink{Carrinho_8hpp_source}{Carrinho.\+hpp}}.
+
+\Hypertarget{classCarrinho_a034033fd6d053dd9fb5ece12c24b1603}\label{classCarrinho_a034033fd6d053dd9fb5ece12c24b1603} 
+\index{Carrinho@{Carrinho}!id\_vendedor@{id\_vendedor}}
+\index{id\_vendedor@{id\_vendedor}!Carrinho@{Carrinho}}
+\doxysubsubsection{\texorpdfstring{id\_vendedor}{id\_vendedor}}
+{\footnotesize\ttfamily unsigned int Carrinho\+::id\+\_\+vendedor\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definido na linha \mbox{\hyperlink{Carrinho_8hpp_source_l00010}{10}} do ficheiro \mbox{\hyperlink{Carrinho_8hpp_source}{Carrinho.\+hpp}}.
+
+
+
+A documentação para esta classe foi gerada a partir dos seguintes ficheiros\+:\begin{DoxyCompactItemize}
+\item 
+include/\mbox{\hyperlink{Carrinho_8hpp}{Carrinho.\+hpp}}\item 
+src/\mbox{\hyperlink{Carrinho_8cpp}{Carrinho.\+cpp}}\end{DoxyCompactItemize}

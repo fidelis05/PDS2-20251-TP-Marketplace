@@ -1,0 +1,266 @@
+\doxysection{Referência à classe Produto}
+\hypertarget{classProduto}{}\label{classProduto}\index{Produto@{Produto}}
+
+
+Classe que representa um produto no marketplace.  
+
+
+
+
+{\ttfamily \#include $<$Produto.\+hpp$>$}
+
+\doxysubsubsection*{Membros públicos}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classProduto_a6b52fcd9818aa142ab7d8780a4a9d45b}{exibir\+Informacoes}} ()
+\begin{DoxyCompactList}\small\item\em Exibe as informações do produto. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classProduto_ac851afe271622f69ab7c3e0de09530fe}{reduzir\+Estoque}} (unsigned int \mbox{\hyperlink{classProduto_a94b641781a11229ce853a17744f2e194}{quantidade}})
+\begin{DoxyCompactList}\small\item\em Reduz o estoque do produto. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classProduto_a7acf08de6f1ac95df3ea4fb466a872cb}{Produto}} (unsigned int \mbox{\hyperlink{classProduto_aef1b70591f2cf530204ea8b864507843}{id}}, const std\+::string \&\mbox{\hyperlink{classProduto_aaa929e3f52f5a677310e30a89d2d7814}{nome}}, const std\+::string \&\mbox{\hyperlink{classProduto_a6a1081da785989fea33633f2a16c9cce}{marca}}, double \mbox{\hyperlink{classProduto_ac44dc5dc979f828a8d2ebc40799ce869}{valor}}, double \mbox{\hyperlink{classProduto_a36fb903f4891960f8284b3303cb70f9a}{avaliacao}}, unsigned int \mbox{\hyperlink{classProduto_a94b641781a11229ce853a17744f2e194}{quantidade}}, const std\+::string \&\mbox{\hyperlink{classProduto_ab04a024e24feb7f79774e280356f6bc7}{descricao}}, const std\+::string \&\mbox{\hyperlink{classProduto_adb2791172d50731d296fa04129134cab}{endereco}})
+\begin{DoxyCompactList}\small\item\em Construtor do produto. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classProduto_a3bf23db215bb3537ee6039f1d2bfe05d}{operator$<$}} (const \mbox{\hyperlink{classProduto}{Produto}} \&other) const
+\begin{DoxyCompactList}\small\item\em Operador de comparação para ordenação. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Atributos Públicos}
+\begin{DoxyCompactItemize}
+\item 
+unsigned int \mbox{\hyperlink{classProduto_aef1b70591f2cf530204ea8b864507843}{id}}
+\begin{DoxyCompactList}\small\item\em Identificador único do produto. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classProduto_aaa929e3f52f5a677310e30a89d2d7814}{nome}}
+\begin{DoxyCompactList}\small\item\em Nome do produto. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classProduto_a6a1081da785989fea33633f2a16c9cce}{marca}}
+\begin{DoxyCompactList}\small\item\em Marca do produto. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{classProduto_ac44dc5dc979f828a8d2ebc40799ce869}{valor}}
+\begin{DoxyCompactList}\small\item\em Preço do produto. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{classProduto_a36fb903f4891960f8284b3303cb70f9a}{avaliacao}}
+\begin{DoxyCompactList}\small\item\em Avaliação média do produto (0-\/5) \end{DoxyCompactList}\item 
+unsigned int \mbox{\hyperlink{classProduto_a94b641781a11229ce853a17744f2e194}{quantidade}}
+\begin{DoxyCompactList}\small\item\em Quantidade em estoque. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classProduto_ab04a024e24feb7f79774e280356f6bc7}{descricao}}
+\begin{DoxyCompactList}\small\item\em Descrição detalhada do produto. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classProduto_adb2791172d50731d296fa04129134cab}{endereco}}
+\begin{DoxyCompactList}\small\item\em Localização do produto/vendedor. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Descrição detalhada}
+Classe que representa um produto no marketplace. 
+
+Esta classe gerencia todas as informações relacionadas aos produtos disponíveis no sistema, incluindo preço, estoque, avaliações e localização. 
+
+Definido na linha \mbox{\hyperlink{Produto_8hpp_source_l00020}{20}} do ficheiro \mbox{\hyperlink{Produto_8hpp_source}{Produto.\+hpp}}.
+
+
+
+\doxysubsection{Documentação dos Construtores \& Destrutor}
+\Hypertarget{classProduto_a7acf08de6f1ac95df3ea4fb466a872cb}\label{classProduto_a7acf08de6f1ac95df3ea4fb466a872cb} 
+\index{Produto@{Produto}!Produto@{Produto}}
+\index{Produto@{Produto}!Produto@{Produto}}
+\doxysubsubsection{\texorpdfstring{Produto()}{Produto()}}
+{\footnotesize\ttfamily Produto\+::\+Produto (\begin{DoxyParamCaption}\item[{unsigned int}]{id,  }\item[{const std\+::string \&}]{nome,  }\item[{const std\+::string \&}]{marca,  }\item[{double}]{valor,  }\item[{double}]{avaliacao,  }\item[{unsigned int}]{quantidade,  }\item[{const std\+::string \&}]{descricao,  }\item[{const std\+::string \&}]{endereco }\end{DoxyParamCaption})}
+
+
+
+Construtor do produto. 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em id} & Identificador único do produto \\
+\hline
+{\em nome} & Nome do produto \\
+\hline
+{\em marca} & Marca do produto \\
+\hline
+{\em valor} & Preço do produto \\
+\hline
+{\em avaliacao} & Avaliação inicial do produto \\
+\hline
+{\em quantidade} & Quantidade inicial em estoque \\
+\hline
+{\em descricao} & Descrição do produto \\
+\hline
+{\em endereco} & Localização do produto \\
+\hline
+\end{DoxyParams}
+
+
+Definido na linha \mbox{\hyperlink{Produto_8cpp_source_l00006}{6}} do ficheiro \mbox{\hyperlink{Produto_8cpp_source}{Produto.\+cpp}}.
+
+
+
+\doxysubsection{Documentação das funções}
+\Hypertarget{classProduto_a6b52fcd9818aa142ab7d8780a4a9d45b}\label{classProduto_a6b52fcd9818aa142ab7d8780a4a9d45b} 
+\index{Produto@{Produto}!exibirInformacoes@{exibirInformacoes}}
+\index{exibirInformacoes@{exibirInformacoes}!Produto@{Produto}}
+\doxysubsubsection{\texorpdfstring{exibirInformacoes()}{exibirInformacoes()}}
+{\footnotesize\ttfamily void Produto\+::exibir\+Informacoes (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Exibe as informações do produto. 
+
+\Hypertarget{classProduto_a3bf23db215bb3537ee6039f1d2bfe05d}\label{classProduto_a3bf23db215bb3537ee6039f1d2bfe05d} 
+\index{Produto@{Produto}!operator$<$@{operator$<$}}
+\index{operator$<$@{operator$<$}!Produto@{Produto}}
+\doxysubsubsection{\texorpdfstring{operator$<$()}{operator<()}}
+{\footnotesize\ttfamily bool Produto\+::operator$<$ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classProduto}{Produto}} \&}]{other }\end{DoxyParamCaption}) const}
+
+
+
+Operador de comparação para ordenação. 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em other} & Outro produto para comparação \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+true se este produto tem ID menor que o outro 
+\end{DoxyReturn}
+
+
+Definido na linha \mbox{\hyperlink{Produto_8cpp_source_l00028}{28}} do ficheiro \mbox{\hyperlink{Produto_8cpp_source}{Produto.\+cpp}}.
+
+\Hypertarget{classProduto_ac851afe271622f69ab7c3e0de09530fe}\label{classProduto_ac851afe271622f69ab7c3e0de09530fe} 
+\index{Produto@{Produto}!reduzirEstoque@{reduzirEstoque}}
+\index{reduzirEstoque@{reduzirEstoque}!Produto@{Produto}}
+\doxysubsubsection{\texorpdfstring{reduzirEstoque()}{reduzirEstoque()}}
+{\footnotesize\ttfamily void Produto\+::reduzir\+Estoque (\begin{DoxyParamCaption}\item[{unsigned int}]{quantidade }\end{DoxyParamCaption})}
+
+
+
+Reduz o estoque do produto. 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em quantidade} & Quantidade a ser reduzida do estoque \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Excepções}
+{\em \doxylink{classProdutoException}{Produto\+Exception}} & Se a quantidade for maior que o estoque disponível \\
+\hline
+\end{DoxyExceptions}
+
+
+Definido na linha \mbox{\hyperlink{Produto_8cpp_source_l00019}{19}} do ficheiro \mbox{\hyperlink{Produto_8cpp_source}{Produto.\+cpp}}.
+
+
+
+\doxysubsection{Documentação dos dados membro}
+\Hypertarget{classProduto_a36fb903f4891960f8284b3303cb70f9a}\label{classProduto_a36fb903f4891960f8284b3303cb70f9a} 
+\index{Produto@{Produto}!avaliacao@{avaliacao}}
+\index{avaliacao@{avaliacao}!Produto@{Produto}}
+\doxysubsubsection{\texorpdfstring{avaliacao}{avaliacao}}
+{\footnotesize\ttfamily double Produto\+::avaliacao}
+
+
+
+Avaliação média do produto (0-\/5) 
+
+
+
+Definido na linha \mbox{\hyperlink{Produto_8hpp_source_l00027}{27}} do ficheiro \mbox{\hyperlink{Produto_8hpp_source}{Produto.\+hpp}}.
+
+\Hypertarget{classProduto_ab04a024e24feb7f79774e280356f6bc7}\label{classProduto_ab04a024e24feb7f79774e280356f6bc7} 
+\index{Produto@{Produto}!descricao@{descricao}}
+\index{descricao@{descricao}!Produto@{Produto}}
+\doxysubsubsection{\texorpdfstring{descricao}{descricao}}
+{\footnotesize\ttfamily std\+::string Produto\+::descricao}
+
+
+
+Descrição detalhada do produto. 
+
+
+
+Definido na linha \mbox{\hyperlink{Produto_8hpp_source_l00029}{29}} do ficheiro \mbox{\hyperlink{Produto_8hpp_source}{Produto.\+hpp}}.
+
+\Hypertarget{classProduto_adb2791172d50731d296fa04129134cab}\label{classProduto_adb2791172d50731d296fa04129134cab} 
+\index{Produto@{Produto}!endereco@{endereco}}
+\index{endereco@{endereco}!Produto@{Produto}}
+\doxysubsubsection{\texorpdfstring{endereco}{endereco}}
+{\footnotesize\ttfamily std\+::string Produto\+::endereco}
+
+
+
+Localização do produto/vendedor. 
+
+
+
+Definido na linha \mbox{\hyperlink{Produto_8hpp_source_l00030}{30}} do ficheiro \mbox{\hyperlink{Produto_8hpp_source}{Produto.\+hpp}}.
+
+\Hypertarget{classProduto_aef1b70591f2cf530204ea8b864507843}\label{classProduto_aef1b70591f2cf530204ea8b864507843} 
+\index{Produto@{Produto}!id@{id}}
+\index{id@{id}!Produto@{Produto}}
+\doxysubsubsection{\texorpdfstring{id}{id}}
+{\footnotesize\ttfamily unsigned int Produto\+::id}
+
+
+
+Identificador único do produto. 
+
+
+
+Definido na linha \mbox{\hyperlink{Produto_8hpp_source_l00023}{23}} do ficheiro \mbox{\hyperlink{Produto_8hpp_source}{Produto.\+hpp}}.
+
+\Hypertarget{classProduto_a6a1081da785989fea33633f2a16c9cce}\label{classProduto_a6a1081da785989fea33633f2a16c9cce} 
+\index{Produto@{Produto}!marca@{marca}}
+\index{marca@{marca}!Produto@{Produto}}
+\doxysubsubsection{\texorpdfstring{marca}{marca}}
+{\footnotesize\ttfamily std\+::string Produto\+::marca}
+
+
+
+Marca do produto. 
+
+
+
+Definido na linha \mbox{\hyperlink{Produto_8hpp_source_l00025}{25}} do ficheiro \mbox{\hyperlink{Produto_8hpp_source}{Produto.\+hpp}}.
+
+\Hypertarget{classProduto_aaa929e3f52f5a677310e30a89d2d7814}\label{classProduto_aaa929e3f52f5a677310e30a89d2d7814} 
+\index{Produto@{Produto}!nome@{nome}}
+\index{nome@{nome}!Produto@{Produto}}
+\doxysubsubsection{\texorpdfstring{nome}{nome}}
+{\footnotesize\ttfamily std\+::string Produto\+::nome}
+
+
+
+Nome do produto. 
+
+
+
+Definido na linha \mbox{\hyperlink{Produto_8hpp_source_l00024}{24}} do ficheiro \mbox{\hyperlink{Produto_8hpp_source}{Produto.\+hpp}}.
+
+\Hypertarget{classProduto_a94b641781a11229ce853a17744f2e194}\label{classProduto_a94b641781a11229ce853a17744f2e194} 
+\index{Produto@{Produto}!quantidade@{quantidade}}
+\index{quantidade@{quantidade}!Produto@{Produto}}
+\doxysubsubsection{\texorpdfstring{quantidade}{quantidade}}
+{\footnotesize\ttfamily unsigned int Produto\+::quantidade}
+
+
+
+Quantidade em estoque. 
+
+
+
+Definido na linha \mbox{\hyperlink{Produto_8hpp_source_l00028}{28}} do ficheiro \mbox{\hyperlink{Produto_8hpp_source}{Produto.\+hpp}}.
+
+\Hypertarget{classProduto_ac44dc5dc979f828a8d2ebc40799ce869}\label{classProduto_ac44dc5dc979f828a8d2ebc40799ce869} 
+\index{Produto@{Produto}!valor@{valor}}
+\index{valor@{valor}!Produto@{Produto}}
+\doxysubsubsection{\texorpdfstring{valor}{valor}}
+{\footnotesize\ttfamily double Produto\+::valor}
+
+
+
+Preço do produto. 
+
+
+
+Definido na linha \mbox{\hyperlink{Produto_8hpp_source_l00026}{26}} do ficheiro \mbox{\hyperlink{Produto_8hpp_source}{Produto.\+hpp}}.
+
+
+
+A documentação para esta classe foi gerada a partir dos seguintes ficheiros\+:\begin{DoxyCompactItemize}
+\item 
+include/\mbox{\hyperlink{Produto_8hpp}{Produto.\+hpp}}\item 
+src/\mbox{\hyperlink{Produto_8cpp}{Produto.\+cpp}}\end{DoxyCompactItemize}

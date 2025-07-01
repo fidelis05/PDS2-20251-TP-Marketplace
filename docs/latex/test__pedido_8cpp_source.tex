@@ -1,0 +1,145 @@
+\doxysection{test\+\_\+pedido.\+cpp}
+\hypertarget{test__pedido_8cpp_source}{}\label{test__pedido_8cpp_source}\index{tests/test\_pedido.cpp@{tests/test\_pedido.cpp}}
+\mbox{\hyperlink{test__pedido_8cpp}{Ir para a documentação deste ficheiro.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{test__pedido_8cpp_source_l00001}00001\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{doctest_8h}{doctest.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{test__pedido_8cpp_source_l00002}00002\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{Pedido_8hpp}{Pedido.hpp}}"{}}}
+\DoxyCodeLine{\Hypertarget{test__pedido_8cpp_source_l00003}00003\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{Carrinho_8hpp}{Carrinho.hpp}}"{}}}
+\DoxyCodeLine{\Hypertarget{test__pedido_8cpp_source_l00004}00004\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{Produto_8hpp}{Produto.hpp}}"{}}}
+\DoxyCodeLine{\Hypertarget{test__pedido_8cpp_source_l00005}00005\ \textcolor{preprocessor}{\#include\ <fstream>}}
+\DoxyCodeLine{\Hypertarget{test__pedido_8cpp_source_l00006}00006\ }
+\DoxyCodeLine{\Hypertarget{test__pedido_8cpp_source_l00007}\mbox{\hyperlink{test__pedido_8cpp_a669f5b983332da4c815b0bc1192c7456}{00007}}\ \mbox{\hyperlink{doctest_8h_af640e6ea35d0c6511986d40ce36e2afc}{TEST\_SUITE}}(\textcolor{stringliteral}{"{}Pedido\ Advanced\ Tests"{}})}
+\DoxyCodeLine{\Hypertarget{test__pedido_8cpp_source_l00008}00008\ \{}
+\DoxyCodeLine{\Hypertarget{test__pedido_8cpp_source_l00009}00009\ \ \ \mbox{\hyperlink{doctest_8h_a8bc255ff55721571e878568d2b5dcb35}{TEST\_CASE}}(\textcolor{stringliteral}{"{}Pedido\ status\ management"{}})}
+\DoxyCodeLine{\Hypertarget{test__pedido_8cpp_source_l00010}00010\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{test__pedido_8cpp_source_l00011}00011\ \ \ \ \ \mbox{\hyperlink{classCarrinho}{Carrinho}}\ carrinho;}
+\DoxyCodeLine{\Hypertarget{test__pedido_8cpp_source_l00012}00012\ \ \ \ \ \mbox{\hyperlink{classProduto}{Produto}}\ produto(200,\ \textcolor{stringliteral}{"{}Status\ Test\ Product"{}},\ \textcolor{stringliteral}{"{}Status\ Brand"{}},\ 150.0,\ 4.3,\ 5,\ \textcolor{stringliteral}{"{}Status\ testing"{}},\ \textcolor{stringliteral}{"{}Status\ Location"{}});}
+\DoxyCodeLine{\Hypertarget{test__pedido_8cpp_source_l00013}00013\ \ \ \ \ carrinho.\mbox{\hyperlink{classCarrinho_a9ef328b84d84ea12642beb164fe8fdac}{inserir}}(produto,\ 1);}
+\DoxyCodeLine{\Hypertarget{test__pedido_8cpp_source_l00014}00014\ }
+\DoxyCodeLine{\Hypertarget{test__pedido_8cpp_source_l00015}00015\ \ \ \ \ \mbox{\hyperlink{classPedido}{Pedido}}\ pedido(10,\ 20,\ carrinho);}
+\DoxyCodeLine{\Hypertarget{test__pedido_8cpp_source_l00016}00016\ }
+\DoxyCodeLine{\Hypertarget{test__pedido_8cpp_source_l00017}00017\ \ \ \ \ \mbox{\hyperlink{doctest_8h_a4147381e5cb6f68c1a315a852c63bf70}{SUBCASE}}(\textcolor{stringliteral}{"{}Initial\ status"{}})}
+\DoxyCodeLine{\Hypertarget{test__pedido_8cpp_source_l00018}00018\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{test__pedido_8cpp_source_l00019}00019\ \ \ \ \ \ \ \mbox{\hyperlink{doctest_8h_a836cca6b6ed3a1706353f6d1bca0935f}{CHECK}}(pedido.\mbox{\hyperlink{classPedido_abab6213c1a30367f4a2afda215e31005}{getStatus}}()\ ==\ \textcolor{stringliteral}{"{}Esperando\ aprovação\ do\ pagamento"{}});}
+\DoxyCodeLine{\Hypertarget{test__pedido_8cpp_source_l00020}00020\ \ \ \ \ \ \ \mbox{\hyperlink{doctest_8h_a836cca6b6ed3a1706353f6d1bca0935f}{CHECK}}(pedido.\mbox{\hyperlink{classPedido_a8b120910f346848d091019f03b5f2e2e}{getPagamento}}()\ ==\ \textcolor{keyword}{true});}
+\DoxyCodeLine{\Hypertarget{test__pedido_8cpp_source_l00021}00021\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{test__pedido_8cpp_source_l00022}00022\ }
+\DoxyCodeLine{\Hypertarget{test__pedido_8cpp_source_l00023}00023\ \ \ \ \ \mbox{\hyperlink{doctest_8h_a4147381e5cb6f68c1a315a852c63bf70}{SUBCASE}}(\textcolor{stringliteral}{"{}Payment\ confirmation\ changes\ status"{}})}
+\DoxyCodeLine{\Hypertarget{test__pedido_8cpp_source_l00024}00024\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{test__pedido_8cpp_source_l00025}00025\ \ \ \ \ \ \ pedido.\mbox{\hyperlink{classPedido_a988c116b0fc7223b025487e0d1c4c5ba}{pagamentoConcluido}}();}
+\DoxyCodeLine{\Hypertarget{test__pedido_8cpp_source_l00026}00026\ \ \ \ \ \ \ \mbox{\hyperlink{doctest_8h_a836cca6b6ed3a1706353f6d1bca0935f}{CHECK}}(pedido.\mbox{\hyperlink{classPedido_abab6213c1a30367f4a2afda215e31005}{getStatus}}()\ ==\ \textcolor{stringliteral}{"{}Enviado"{}});}
+\DoxyCodeLine{\Hypertarget{test__pedido_8cpp_source_l00027}00027\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{test__pedido_8cpp_source_l00028}00028\ }
+\DoxyCodeLine{\Hypertarget{test__pedido_8cpp_source_l00029}00029\ \ \ \ \ \mbox{\hyperlink{doctest_8h_a4147381e5cb6f68c1a315a852c63bf70}{SUBCASE}}(\textcolor{stringliteral}{"{}Seller\ shipment\ confirmation"{}})}
+\DoxyCodeLine{\Hypertarget{test__pedido_8cpp_source_l00030}00030\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{test__pedido_8cpp_source_l00031}00031\ \ \ \ \ \ \ pedido.\mbox{\hyperlink{classPedido_a988c116b0fc7223b025487e0d1c4c5ba}{pagamentoConcluido}}();}
+\DoxyCodeLine{\Hypertarget{test__pedido_8cpp_source_l00032}00032\ \ \ \ \ \ \ \mbox{\hyperlink{doctest_8h_a78e70f011f20c4ade1d1ac2b8fd33626}{CHECK\_NOTHROW}}(pedido.\mbox{\hyperlink{classPedido_a41e0bee3f9fe185615168dd5a723529b}{enviarPedido}}(20));\ \textcolor{comment}{//\ Correct\ seller\ ID}}
+\DoxyCodeLine{\Hypertarget{test__pedido_8cpp_source_l00033}00033\ \ \ \ \ \ \ \mbox{\hyperlink{doctest_8h_a836cca6b6ed3a1706353f6d1bca0935f}{CHECK}}(pedido.\mbox{\hyperlink{classPedido_abab6213c1a30367f4a2afda215e31005}{getStatus}}()\ ==\ \textcolor{stringliteral}{"{}Vendedor\ ciente"{}});}
+\DoxyCodeLine{\Hypertarget{test__pedido_8cpp_source_l00034}00034\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{test__pedido_8cpp_source_l00035}00035\ }
+\DoxyCodeLine{\Hypertarget{test__pedido_8cpp_source_l00036}00036\ \ \ \ \ \mbox{\hyperlink{doctest_8h_a4147381e5cb6f68c1a315a852c63bf70}{SUBCASE}}(\textcolor{stringliteral}{"{}Wrong\ seller\ cannot\ confirm\ shipment"{}})}
+\DoxyCodeLine{\Hypertarget{test__pedido_8cpp_source_l00037}00037\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{test__pedido_8cpp_source_l00038}00038\ \ \ \ \ \ \ pedido.\mbox{\hyperlink{classPedido_a988c116b0fc7223b025487e0d1c4c5ba}{pagamentoConcluido}}();}
+\DoxyCodeLine{\Hypertarget{test__pedido_8cpp_source_l00039}00039\ \ \ \ \ \ \ \mbox{\hyperlink{doctest_8h_aabaaa591d46f29cf307dbed1a5abba83}{CHECK\_THROWS\_AS}}(pedido.\mbox{\hyperlink{classPedido_a41e0bee3f9fe185615168dd5a723529b}{enviarPedido}}(99),\ std::runtime\_error);}
+\DoxyCodeLine{\Hypertarget{test__pedido_8cpp_source_l00040}00040\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{test__pedido_8cpp_source_l00041}00041\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{test__pedido_8cpp_source_l00042}00042\ }
+\DoxyCodeLine{\Hypertarget{test__pedido_8cpp_source_l00043}00043\ \ \ \mbox{\hyperlink{doctest_8h_a8bc255ff55721571e878568d2b5dcb35}{TEST\_CASE}}(\textcolor{stringliteral}{"{}Pedido\ cancellation\ rules"{}})}
+\DoxyCodeLine{\Hypertarget{test__pedido_8cpp_source_l00044}00044\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{test__pedido_8cpp_source_l00045}00045\ \ \ \ \ \mbox{\hyperlink{classCarrinho}{Carrinho}}\ carrinho;}
+\DoxyCodeLine{\Hypertarget{test__pedido_8cpp_source_l00046}00046\ \ \ \ \ \mbox{\hyperlink{classProduto}{Produto}}\ produto(201,\ \textcolor{stringliteral}{"{}Cancel\ Test\ Product"{}},\ \textcolor{stringliteral}{"{}Cancel\ Brand"{}},\ 75.0,\ 4.1,\ 3,\ \textcolor{stringliteral}{"{}Cancel\ testing"{}},\ \textcolor{stringliteral}{"{}Cancel\ Location"{}});}
+\DoxyCodeLine{\Hypertarget{test__pedido_8cpp_source_l00047}00047\ \ \ \ \ carrinho.\mbox{\hyperlink{classCarrinho_a9ef328b84d84ea12642beb164fe8fdac}{inserir}}(produto,\ 1);}
+\DoxyCodeLine{\Hypertarget{test__pedido_8cpp_source_l00048}00048\ }
+\DoxyCodeLine{\Hypertarget{test__pedido_8cpp_source_l00049}00049\ \ \ \ \ \mbox{\hyperlink{classPedido}{Pedido}}\ pedido(11,\ 21,\ carrinho);}
+\DoxyCodeLine{\Hypertarget{test__pedido_8cpp_source_l00050}00050\ }
+\DoxyCodeLine{\Hypertarget{test__pedido_8cpp_source_l00051}00051\ \ \ \ \ \mbox{\hyperlink{doctest_8h_a4147381e5cb6f68c1a315a852c63bf70}{SUBCASE}}(\textcolor{stringliteral}{"{}Early\ cancellation\ allowed"{}})}
+\DoxyCodeLine{\Hypertarget{test__pedido_8cpp_source_l00052}00052\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{test__pedido_8cpp_source_l00053}00053\ \ \ \ \ \ \ \mbox{\hyperlink{doctest_8h_a78e70f011f20c4ade1d1ac2b8fd33626}{CHECK\_NOTHROW}}(pedido.\mbox{\hyperlink{classPedido_ac7cac1ba0941237253cef2f13e4c07dc}{cancelarPedido}}());}
+\DoxyCodeLine{\Hypertarget{test__pedido_8cpp_source_l00054}00054\ \ \ \ \ \ \ \mbox{\hyperlink{doctest_8h_a836cca6b6ed3a1706353f6d1bca0935f}{CHECK}}(pedido.\mbox{\hyperlink{classPedido_abab6213c1a30367f4a2afda215e31005}{getStatus}}()\ ==\ \textcolor{stringliteral}{"{}Cancelado"{}});}
+\DoxyCodeLine{\Hypertarget{test__pedido_8cpp_source_l00055}00055\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{test__pedido_8cpp_source_l00056}00056\ }
+\DoxyCodeLine{\Hypertarget{test__pedido_8cpp_source_l00057}00057\ \ \ \ \ \mbox{\hyperlink{doctest_8h_a4147381e5cb6f68c1a315a852c63bf70}{SUBCASE}}(\textcolor{stringliteral}{"{}Cannot\ cancel\ after\ dispatch"{}})}
+\DoxyCodeLine{\Hypertarget{test__pedido_8cpp_source_l00058}00058\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{test__pedido_8cpp_source_l00059}00059\ \ \ \ \ \ \ \textcolor{comment}{//\ Simulate\ advanced\ status}}
+\DoxyCodeLine{\Hypertarget{test__pedido_8cpp_source_l00060}00060\ \ \ \ \ \ \ pedido.\mbox{\hyperlink{classPedido_a988c116b0fc7223b025487e0d1c4c5ba}{pagamentoConcluido}}();}
+\DoxyCodeLine{\Hypertarget{test__pedido_8cpp_source_l00061}00061\ \ \ \ \ \ \ pedido.\mbox{\hyperlink{classPedido_a41e0bee3f9fe185615168dd5a723529b}{enviarPedido}}(21);}
+\DoxyCodeLine{\Hypertarget{test__pedido_8cpp_source_l00062}00062\ \ \ \ \ \ \ \textcolor{comment}{//\ Manually\ set\ to\ dispatched\ status\ (would\ normally\ be\ done\ by\ shipping\ system)}}
+\DoxyCodeLine{\Hypertarget{test__pedido_8cpp_source_l00063}00063\ \ \ \ \ \ \ \textcolor{comment}{//\ This\ is\ a\ limitation\ of\ current\ implementation\ -\/\ status\ progression\ is\ not\ fully\ automated}}
+\DoxyCodeLine{\Hypertarget{test__pedido_8cpp_source_l00064}00064\ \ \ \ \ \ \ \mbox{\hyperlink{doctest_8h_a78e70f011f20c4ade1d1ac2b8fd33626}{CHECK\_NOTHROW}}(pedido.\mbox{\hyperlink{classPedido_ac7cac1ba0941237253cef2f13e4c07dc}{cancelarPedido}}());\ \textcolor{comment}{//\ Should\ still\ work\ in\ current\ implementation}}
+\DoxyCodeLine{\Hypertarget{test__pedido_8cpp_source_l00065}00065\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{test__pedido_8cpp_source_l00066}00066\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{test__pedido_8cpp_source_l00067}00067\ }
+\DoxyCodeLine{\Hypertarget{test__pedido_8cpp_source_l00068}00068\ \ \ \mbox{\hyperlink{doctest_8h_a8bc255ff55721571e878568d2b5dcb35}{TEST\_CASE}}(\textcolor{stringliteral}{"{}Pedido\ evaluation\ system"{}})}
+\DoxyCodeLine{\Hypertarget{test__pedido_8cpp_source_l00069}00069\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{test__pedido_8cpp_source_l00070}00070\ \ \ \ \ \mbox{\hyperlink{classCarrinho}{Carrinho}}\ carrinho;}
+\DoxyCodeLine{\Hypertarget{test__pedido_8cpp_source_l00071}00071\ \ \ \ \ \mbox{\hyperlink{classProduto}{Produto}}\ produto(202,\ \textcolor{stringliteral}{"{}Rating\ Product"{}},\ \textcolor{stringliteral}{"{}Rating\ Brand"{}},\ 99.99,\ 4.0,\ 2,\ \textcolor{stringliteral}{"{}Rating\ test"{}},\ \textcolor{stringliteral}{"{}Rating\ Location"{}});}
+\DoxyCodeLine{\Hypertarget{test__pedido_8cpp_source_l00072}00072\ \ \ \ \ carrinho.\mbox{\hyperlink{classCarrinho_a9ef328b84d84ea12642beb164fe8fdac}{inserir}}(produto,\ 1);}
+\DoxyCodeLine{\Hypertarget{test__pedido_8cpp_source_l00073}00073\ }
+\DoxyCodeLine{\Hypertarget{test__pedido_8cpp_source_l00074}00074\ \ \ \ \ \mbox{\hyperlink{classPedido}{Pedido}}\ pedido(12,\ 22,\ carrinho);}
+\DoxyCodeLine{\Hypertarget{test__pedido_8cpp_source_l00075}00075\ }
+\DoxyCodeLine{\Hypertarget{test__pedido_8cpp_source_l00076}00076\ \ \ \ \ \mbox{\hyperlink{doctest_8h_a4147381e5cb6f68c1a315a852c63bf70}{SUBCASE}}(\textcolor{stringliteral}{"{}Valid\ ratings"{}})}
+\DoxyCodeLine{\Hypertarget{test__pedido_8cpp_source_l00077}00077\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{test__pedido_8cpp_source_l00078}00078\ \ \ \ \ \ \ \mbox{\hyperlink{doctest_8h_a78e70f011f20c4ade1d1ac2b8fd33626}{CHECK\_NOTHROW}}(pedido.\mbox{\hyperlink{classPedido_a27aea9f155f0eea845b737169fb077a2}{avaliarPedido}}(1,\ \textcolor{stringliteral}{"{}Poor"{}}));}
+\DoxyCodeLine{\Hypertarget{test__pedido_8cpp_source_l00079}00079\ \ \ \ \ \ \ \mbox{\hyperlink{doctest_8h_a78e70f011f20c4ade1d1ac2b8fd33626}{CHECK\_NOTHROW}}(pedido.\mbox{\hyperlink{classPedido_a27aea9f155f0eea845b737169fb077a2}{avaliarPedido}}(3,\ \textcolor{stringliteral}{"{}Average"{}}));}
+\DoxyCodeLine{\Hypertarget{test__pedido_8cpp_source_l00080}00080\ \ \ \ \ \ \ \mbox{\hyperlink{doctest_8h_a78e70f011f20c4ade1d1ac2b8fd33626}{CHECK\_NOTHROW}}(pedido.\mbox{\hyperlink{classPedido_a27aea9f155f0eea845b737169fb077a2}{avaliarPedido}}(5,\ \textcolor{stringliteral}{"{}Excellent"{}}));}
+\DoxyCodeLine{\Hypertarget{test__pedido_8cpp_source_l00081}00081\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{test__pedido_8cpp_source_l00082}00082\ }
+\DoxyCodeLine{\Hypertarget{test__pedido_8cpp_source_l00083}00083\ \ \ \ \ \mbox{\hyperlink{doctest_8h_a4147381e5cb6f68c1a315a852c63bf70}{SUBCASE}}(\textcolor{stringliteral}{"{}Invalid\ ratings"{}})}
+\DoxyCodeLine{\Hypertarget{test__pedido_8cpp_source_l00084}00084\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{test__pedido_8cpp_source_l00085}00085\ \ \ \ \ \ \ \mbox{\hyperlink{doctest_8h_aabaaa591d46f29cf307dbed1a5abba83}{CHECK\_THROWS\_AS}}(pedido.\mbox{\hyperlink{classPedido_a27aea9f155f0eea845b737169fb077a2}{avaliarPedido}}(0,\ \textcolor{stringliteral}{"{}Invalid\ low"{}}),\ std::runtime\_error);}
+\DoxyCodeLine{\Hypertarget{test__pedido_8cpp_source_l00086}00086\ \ \ \ \ \ \ \mbox{\hyperlink{doctest_8h_aabaaa591d46f29cf307dbed1a5abba83}{CHECK\_THROWS\_AS}}(pedido.\mbox{\hyperlink{classPedido_a27aea9f155f0eea845b737169fb077a2}{avaliarPedido}}(6,\ \textcolor{stringliteral}{"{}Invalid\ high"{}}),\ std::runtime\_error);}
+\DoxyCodeLine{\Hypertarget{test__pedido_8cpp_source_l00087}00087\ \ \ \ \ \ \ \mbox{\hyperlink{doctest_8h_aabaaa591d46f29cf307dbed1a5abba83}{CHECK\_THROWS\_AS}}(pedido.\mbox{\hyperlink{classPedido_a27aea9f155f0eea845b737169fb077a2}{avaliarPedido}}(-\/1,\ \textcolor{stringliteral}{"{}Negative"{}}),\ std::runtime\_error);}
+\DoxyCodeLine{\Hypertarget{test__pedido_8cpp_source_l00088}00088\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{test__pedido_8cpp_source_l00089}00089\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{test__pedido_8cpp_source_l00090}00090\ }
+\DoxyCodeLine{\Hypertarget{test__pedido_8cpp_source_l00091}00091\ \ \ \mbox{\hyperlink{doctest_8h_a8bc255ff55721571e878568d2b5dcb35}{TEST\_CASE}}(\textcolor{stringliteral}{"{}Pedido\ CSV\ persistence"{}})}
+\DoxyCodeLine{\Hypertarget{test__pedido_8cpp_source_l00092}00092\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{test__pedido_8cpp_source_l00093}00093\ \ \ \ \ \mbox{\hyperlink{classCarrinho}{Carrinho}}\ carrinho;}
+\DoxyCodeLine{\Hypertarget{test__pedido_8cpp_source_l00094}00094\ \ \ \ \ \mbox{\hyperlink{classProduto}{Produto}}\ produto(203,\ \textcolor{stringliteral}{"{}CSV\ Product"{}},\ \textcolor{stringliteral}{"{}CSV\ Brand"{}},\ 33.33,\ 3.5,\ 7,\ \textcolor{stringliteral}{"{}CSV\ testing"{}},\ \textcolor{stringliteral}{"{}CSV\ Location"{}});}
+\DoxyCodeLine{\Hypertarget{test__pedido_8cpp_source_l00095}00095\ \ \ \ \ carrinho.\mbox{\hyperlink{classCarrinho_a9ef328b84d84ea12642beb164fe8fdac}{inserir}}(produto,\ 1);}
+\DoxyCodeLine{\Hypertarget{test__pedido_8cpp_source_l00096}00096\ }
+\DoxyCodeLine{\Hypertarget{test__pedido_8cpp_source_l00097}00097\ \ \ \ \ \mbox{\hyperlink{classPedido}{Pedido}}\ pedido(13,\ 23,\ carrinho);}
+\DoxyCodeLine{\Hypertarget{test__pedido_8cpp_source_l00098}00098\ }
+\DoxyCodeLine{\Hypertarget{test__pedido_8cpp_source_l00099}00099\ \ \ \ \ \mbox{\hyperlink{doctest_8h_a4147381e5cb6f68c1a315a852c63bf70}{SUBCASE}}(\textcolor{stringliteral}{"{}Save\ pedido\ to\ CSV"{}})}
+\DoxyCodeLine{\Hypertarget{test__pedido_8cpp_source_l00100}00100\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{test__pedido_8cpp_source_l00101}00101\ \ \ \ \ \ \ \mbox{\hyperlink{doctest_8h_a78e70f011f20c4ade1d1ac2b8fd33626}{CHECK\_NOTHROW}}(pedido.\mbox{\hyperlink{classPedido_a798532ab82c7d87eb887de061fd4650e}{SalvarPedidos}}(\textcolor{stringliteral}{"{}data/pedidos.txt"{}}));}
+\DoxyCodeLine{\Hypertarget{test__pedido_8cpp_source_l00102}00102\ }
+\DoxyCodeLine{\Hypertarget{test__pedido_8cpp_source_l00103}00103\ \ \ \ \ \ \ \textcolor{comment}{//\ Verify\ file\ was\ created\ and\ contains\ data}}
+\DoxyCodeLine{\Hypertarget{test__pedido_8cpp_source_l00104}00104\ \ \ \ \ \ \ std::ifstream\ file(\textcolor{stringliteral}{"{}data/pedidos.txt"{}});}
+\DoxyCodeLine{\Hypertarget{test__pedido_8cpp_source_l00105}00105\ \ \ \ \ \ \ \mbox{\hyperlink{doctest_8h_a836cca6b6ed3a1706353f6d1bca0935f}{CHECK}}(file.good());}
+\DoxyCodeLine{\Hypertarget{test__pedido_8cpp_source_l00106}00106\ }
+\DoxyCodeLine{\Hypertarget{test__pedido_8cpp_source_l00107}00107\ \ \ \ \ \ \ std::string\ line;}
+\DoxyCodeLine{\Hypertarget{test__pedido_8cpp_source_l00108}00108\ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ lineCount\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{test__pedido_8cpp_source_l00109}00109\ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (std::getline(file,\ line))}
+\DoxyCodeLine{\Hypertarget{test__pedido_8cpp_source_l00110}00110\ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{test__pedido_8cpp_source_l00111}00111\ \ \ \ \ \ \ \ \ lineCount++;}
+\DoxyCodeLine{\Hypertarget{test__pedido_8cpp_source_l00112}00112\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{test__pedido_8cpp_source_l00113}00113\ \ \ \ \ \ \ \mbox{\hyperlink{doctest_8h_a836cca6b6ed3a1706353f6d1bca0935f}{CHECK}}(lineCount\ >=\ 1);\ \textcolor{comment}{//\ At\ least\ header\ should\ exist}}
+\DoxyCodeLine{\Hypertarget{test__pedido_8cpp_source_l00114}00114\ \ \ \ \ \ \ file.close();}
+\DoxyCodeLine{\Hypertarget{test__pedido_8cpp_source_l00115}00115\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{test__pedido_8cpp_source_l00116}00116\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{test__pedido_8cpp_source_l00117}00117\ }
+\DoxyCodeLine{\Hypertarget{test__pedido_8cpp_source_l00118}00118\ \ \ \mbox{\hyperlink{doctest_8h_a8bc255ff55721571e878568d2b5dcb35}{TEST\_CASE}}(\textcolor{stringliteral}{"{}Pedido\ reverse\ logistics"{}})}
+\DoxyCodeLine{\Hypertarget{test__pedido_8cpp_source_l00119}00119\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{test__pedido_8cpp_source_l00120}00120\ \ \ \ \ \mbox{\hyperlink{classCarrinho}{Carrinho}}\ carrinho;}
+\DoxyCodeLine{\Hypertarget{test__pedido_8cpp_source_l00121}00121\ \ \ \ \ \mbox{\hyperlink{classProduto}{Produto}}\ produto(204,\ \textcolor{stringliteral}{"{}Return\ Product"{}},\ \textcolor{stringliteral}{"{}Return\ Brand"{}},\ 88.88,\ 4.7,\ 4,\ \textcolor{stringliteral}{"{}Return\ testing"{}},\ \textcolor{stringliteral}{"{}Return\ Location"{}});}
+\DoxyCodeLine{\Hypertarget{test__pedido_8cpp_source_l00122}00122\ \ \ \ \ carrinho.\mbox{\hyperlink{classCarrinho_a9ef328b84d84ea12642beb164fe8fdac}{inserir}}(produto,\ 1);}
+\DoxyCodeLine{\Hypertarget{test__pedido_8cpp_source_l00123}00123\ }
+\DoxyCodeLine{\Hypertarget{test__pedido_8cpp_source_l00124}00124\ \ \ \ \ \mbox{\hyperlink{classPedido}{Pedido}}\ pedido(14,\ 24,\ carrinho);}
+\DoxyCodeLine{\Hypertarget{test__pedido_8cpp_source_l00125}00125\ }
+\DoxyCodeLine{\Hypertarget{test__pedido_8cpp_source_l00126}00126\ \ \ \ \ \mbox{\hyperlink{doctest_8h_a4147381e5cb6f68c1a315a852c63bf70}{SUBCASE}}(\textcolor{stringliteral}{"{}Initialize\ reverse\ logistics"{}})}
+\DoxyCodeLine{\Hypertarget{test__pedido_8cpp_source_l00127}00127\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{test__pedido_8cpp_source_l00128}00128\ \ \ \ \ \ \ \mbox{\hyperlink{doctest_8h_a78e70f011f20c4ade1d1ac2b8fd33626}{CHECK\_NOTHROW}}(pedido.\mbox{\hyperlink{classPedido_a6d354da3ab79912309360f208818baeb}{iniciarLogisticaReversa}}());}
+\DoxyCodeLine{\Hypertarget{test__pedido_8cpp_source_l00129}00129\ \ \ \ \ \ \ \mbox{\hyperlink{doctest_8h_a836cca6b6ed3a1706353f6d1bca0935f}{CHECK}}(pedido.\mbox{\hyperlink{classPedido_ac58f366537cb3f10a5b58abe8a7284c9}{getDevolucaoIniciada}}()\ ==\ \textcolor{keyword}{true});}
+\DoxyCodeLine{\Hypertarget{test__pedido_8cpp_source_l00130}00130\ \ \ \ \ \ \ \mbox{\hyperlink{doctest_8h_a7bf095d8512cb180f8ff3a2258a6eaac}{CHECK\_FALSE}}(pedido.\mbox{\hyperlink{classPedido_a8b44c6d8bf03e51002a7a61eb6203ed8}{getCodigoPostagemDevolucao}}().empty());}
+\DoxyCodeLine{\Hypertarget{test__pedido_8cpp_source_l00131}00131\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{test__pedido_8cpp_source_l00132}00132\ }
+\DoxyCodeLine{\Hypertarget{test__pedido_8cpp_source_l00133}00133\ \ \ \ \ \mbox{\hyperlink{doctest_8h_a4147381e5cb6f68c1a315a852c63bf70}{SUBCASE}}(\textcolor{stringliteral}{"{}Cannot\ initialize\ reverse\ logistics\ twice"{}})}
+\DoxyCodeLine{\Hypertarget{test__pedido_8cpp_source_l00134}00134\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{test__pedido_8cpp_source_l00135}00135\ \ \ \ \ \ \ pedido.\mbox{\hyperlink{classPedido_a6d354da3ab79912309360f208818baeb}{iniciarLogisticaReversa}}();}
+\DoxyCodeLine{\Hypertarget{test__pedido_8cpp_source_l00136}00136\ \ \ \ \ \ \ \mbox{\hyperlink{doctest_8h_aabaaa591d46f29cf307dbed1a5abba83}{CHECK\_THROWS\_AS}}(pedido.\mbox{\hyperlink{classPedido_a6d354da3ab79912309360f208818baeb}{iniciarLogisticaReversa}}(),\ std::runtime\_error);}
+\DoxyCodeLine{\Hypertarget{test__pedido_8cpp_source_l00137}00137\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{test__pedido_8cpp_source_l00138}00138\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{test__pedido_8cpp_source_l00139}00139\ \}}
+
+\end{DoxyCode}

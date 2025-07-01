@@ -1,0 +1,77 @@
+\doxysection{Usuario.\+hpp}
+\hypertarget{Usuario_8hpp_source}{}\label{Usuario_8hpp_source}\index{include/Usuario.hpp@{include/Usuario.hpp}}
+\mbox{\hyperlink{Usuario_8hpp}{Ir para a documentação deste ficheiro.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{Usuario_8hpp_source_l00001}00001\ }
+\DoxyCodeLine{\Hypertarget{Usuario_8hpp_source_l00009}00009\ \textcolor{preprocessor}{\#ifndef\ USUARIO\_HPP}}
+\DoxyCodeLine{\Hypertarget{Usuario_8hpp_source_l00010}00010\ \textcolor{preprocessor}{\#define\ USUARIO\_HPP}}
+\DoxyCodeLine{\Hypertarget{Usuario_8hpp_source_l00011}00011\ }
+\DoxyCodeLine{\Hypertarget{Usuario_8hpp_source_l00012}00012\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{\Hypertarget{Usuario_8hpp_source_l00013}00013\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{\Hypertarget{Usuario_8hpp_source_l00014}00014\ \textcolor{preprocessor}{\#include\ <memory>}}
+\DoxyCodeLine{\Hypertarget{Usuario_8hpp_source_l00015}00015\ }
+\DoxyCodeLine{\Hypertarget{Usuario_8hpp_source_l00016}00016\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{Produto_8hpp}{Produto.hpp}}"{}}}
+\DoxyCodeLine{\Hypertarget{Usuario_8hpp_source_l00017}00017\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{Carrinho_8hpp}{Carrinho.hpp}}"{}}}
+\DoxyCodeLine{\Hypertarget{Usuario_8hpp_source_l00018}00018\ }
+\DoxyCodeLine{\Hypertarget{Usuario_8hpp_source_l00019}00019\ \textcolor{comment}{//\ Forward\ declarations\ to\ avoid\ circular\ dependency}}
+\DoxyCodeLine{\Hypertarget{Usuario_8hpp_source_l00020}00020\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classPedido}{Pedido}};}
+\DoxyCodeLine{\Hypertarget{Usuario_8hpp_source_l00021}00021\ }
+\DoxyCodeLine{\Hypertarget{Usuario_8hpp_source_l00029}\mbox{\hyperlink{classUsuario}{00029}}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classUsuario}{Usuario}}}
+\DoxyCodeLine{\Hypertarget{Usuario_8hpp_source_l00030}00030\ \{}
+\DoxyCodeLine{\Hypertarget{Usuario_8hpp_source_l00031}00031\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{Usuario_8hpp_source_l00032}\mbox{\hyperlink{classUsuario_a28d271b074f1db352be45de127a1c3d2}{00032}}\ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classUsuario_a28d271b074f1db352be45de127a1c3d2}{id\_usuario}};\ \ \ \ }
+\DoxyCodeLine{\Hypertarget{Usuario_8hpp_source_l00033}\mbox{\hyperlink{classUsuario_a6fb4c3a94f863e6d7e12821cb2362e28}{00033}}\ \ \ std::string\ \mbox{\hyperlink{classUsuario_a6fb4c3a94f863e6d7e12821cb2362e28}{nome}};\ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{Usuario_8hpp_source_l00034}\mbox{\hyperlink{classUsuario_aa068d5dd3ec8f4cb1f45147d6ee74f1b}{00034}}\ \ \ std::string\ \mbox{\hyperlink{classUsuario_aa068d5dd3ec8f4cb1f45147d6ee74f1b}{email}};\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{Usuario_8hpp_source_l00035}\mbox{\hyperlink{classUsuario_a5f324af32e988e55160d5f3651b5d2b1}{00035}}\ \ \ std::string\ \mbox{\hyperlink{classUsuario_a5f324af32e988e55160d5f3651b5d2b1}{senha}};\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{Usuario_8hpp_source_l00036}\mbox{\hyperlink{classUsuario_aa92f56c7412bb4ac6be92f0871840400}{00036}}\ \ \ std::string\ \mbox{\hyperlink{classUsuario_aa92f56c7412bb4ac6be92f0871840400}{telefone}};\ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{Usuario_8hpp_source_l00037}\mbox{\hyperlink{classUsuario_a41298617300f5e97e122dd27c803b9f8}{00037}}\ \ \ std::string\ \mbox{\hyperlink{classUsuario_a41298617300f5e97e122dd27c803b9f8}{cpf\_cnpj}};\ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{Usuario_8hpp_source_l00038}\mbox{\hyperlink{classUsuario_a073aa7d9301606e384c5d0a644f292ca}{00038}}\ \ \ std::string\ \mbox{\hyperlink{classUsuario_a073aa7d9301606e384c5d0a644f292ca}{endereco}};\ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{Usuario_8hpp_source_l00039}00039\ }
+\DoxyCodeLine{\Hypertarget{Usuario_8hpp_source_l00040}\mbox{\hyperlink{classUsuario_a3e7405dfa0a32087ec911e7159c9451e}{00040}}\ \ \ std::vector<Produto>\ \mbox{\hyperlink{classUsuario_a3e7405dfa0a32087ec911e7159c9451e}{meusProdutos}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{Usuario_8hpp_source_l00041}\mbox{\hyperlink{classUsuario_ab8cedb9f6359ff9b385586001b4e4f18}{00041}}\ \ \ std::vector<std::shared\_ptr<Pedido>>\ \mbox{\hyperlink{classUsuario_ab8cedb9f6359ff9b385586001b4e4f18}{meusPedidos}};\ \ \ \ }
+\DoxyCodeLine{\Hypertarget{Usuario_8hpp_source_l00042}00042\ }
+\DoxyCodeLine{\Hypertarget{Usuario_8hpp_source_l00043}00043\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{Usuario_8hpp_source_l00044}\mbox{\hyperlink{classUsuario_a60191520d306ddd78211ab16cb1f02a8}{00044}}\ \ \ \mbox{\hyperlink{classCarrinho}{Carrinho}}\ \mbox{\hyperlink{classUsuario_a60191520d306ddd78211ab16cb1f02a8}{carrinho}};\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{Usuario_8hpp_source_l00045}00045\ }
+\DoxyCodeLine{\Hypertarget{Usuario_8hpp_source_l00047}00047\ \ \ \mbox{\hyperlink{classUsuario_aa85a5371a098dfba5449140d9b8a472f}{Usuario}}();}
+\DoxyCodeLine{\Hypertarget{Usuario_8hpp_source_l00048}00048\ \ \ }
+\DoxyCodeLine{\Hypertarget{Usuario_8hpp_source_l00055}00055\ \ \ \mbox{\hyperlink{classUsuario_aa85a5371a098dfba5449140d9b8a472f}{Usuario}}(std::string\ \mbox{\hyperlink{classUsuario_a6fb4c3a94f863e6d7e12821cb2362e28}{nome}},\ std::string\ \mbox{\hyperlink{classUsuario_aa068d5dd3ec8f4cb1f45147d6ee74f1b}{email}},\ std::string\ \mbox{\hyperlink{classUsuario_a5f324af32e988e55160d5f3651b5d2b1}{senha}});}
+\DoxyCodeLine{\Hypertarget{Usuario_8hpp_source_l00056}00056\ }
+\DoxyCodeLine{\Hypertarget{Usuario_8hpp_source_l00066}00066\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classUsuario_a181823955eaeae8631c263773423b2eb}{cadastrar}}(std::string\ \mbox{\hyperlink{classUsuario_a6fb4c3a94f863e6d7e12821cb2362e28}{nome}},\ std::string\ \mbox{\hyperlink{classUsuario_aa068d5dd3ec8f4cb1f45147d6ee74f1b}{email}},\ std::string\ \mbox{\hyperlink{classUsuario_a5f324af32e988e55160d5f3651b5d2b1}{senha}},\ std::string\ \mbox{\hyperlink{classUsuario_aa92f56c7412bb4ac6be92f0871840400}{telefone}},\ std::string\ \mbox{\hyperlink{classUsuario_a41298617300f5e97e122dd27c803b9f8}{cpf\_cnpj}},\ std::string\ \mbox{\hyperlink{classUsuario_a073aa7d9301606e384c5d0a644f292ca}{endereco}});}
+\DoxyCodeLine{\Hypertarget{Usuario_8hpp_source_l00067}00067\ \ \ }
+\DoxyCodeLine{\Hypertarget{Usuario_8hpp_source_l00074}00074\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classUsuario_a0d6fa1232b45ff90d645a7fa5204f53d}{login}}(std::string\ \mbox{\hyperlink{classUsuario_aa068d5dd3ec8f4cb1f45147d6ee74f1b}{email}},\ std::string\ \mbox{\hyperlink{classUsuario_a5f324af32e988e55160d5f3651b5d2b1}{senha}});}
+\DoxyCodeLine{\Hypertarget{Usuario_8hpp_source_l00075}00075\ }
+\DoxyCodeLine{\Hypertarget{Usuario_8hpp_source_l00080}00080\ \ \ std::vector<Produto>\ \mbox{\hyperlink{classUsuario_aa5ccaa9c102e4ed82af00e801bb04bad}{obterProdutos}}();}
+\DoxyCodeLine{\Hypertarget{Usuario_8hpp_source_l00081}00081\ \ \ }
+\DoxyCodeLine{\Hypertarget{Usuario_8hpp_source_l00086}00086\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classUsuario_a4411413d8b95c063591c974824e6ee39}{adicionarProdutoAoCarrinho}}(\textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ idProduto);}
+\DoxyCodeLine{\Hypertarget{Usuario_8hpp_source_l00087}00087\ \ \ }
+\DoxyCodeLine{\Hypertarget{Usuario_8hpp_source_l00092}00092\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classUsuario_aa669dc08bed39979419017d2b274f28f}{removerProdutoDoCarrinho}}(\textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ idProduto);}
+\DoxyCodeLine{\Hypertarget{Usuario_8hpp_source_l00093}00093\ \ \ }
+\DoxyCodeLine{\Hypertarget{Usuario_8hpp_source_l00098}00098\ \ \ std::vector<std::shared\_ptr<Pedido>>\ \mbox{\hyperlink{classUsuario_ad96bfff3b0d38e7135333037c1af6adf}{obterPedidos}}();}
+\DoxyCodeLine{\Hypertarget{Usuario_8hpp_source_l00099}00099\ \ \ }
+\DoxyCodeLine{\Hypertarget{Usuario_8hpp_source_l00104}00104\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classUsuario_af912b8adb495ede76047bf6b581363f3}{finalizarCompraBusiness}}();}
+\DoxyCodeLine{\Hypertarget{Usuario_8hpp_source_l00105}00105\ \ \ }
+\DoxyCodeLine{\Hypertarget{Usuario_8hpp_source_l00113}00113\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classUsuario_a48c1dd69324729bc32bfb195a4af954f}{atualizarPerfil}}(\textcolor{keyword}{const}\ std::string\ \&novoNome,\ \textcolor{keyword}{const}\ std::string\ \&novoEmail,}
+\DoxyCodeLine{\Hypertarget{Usuario_8hpp_source_l00114}00114\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::string\ \&novoTelefone,\ \textcolor{keyword}{const}\ std::string\ \&novoEndereco);}
+\DoxyCodeLine{\Hypertarget{Usuario_8hpp_source_l00115}00115\ \ \ }
+\DoxyCodeLine{\Hypertarget{Usuario_8hpp_source_l00120}00120\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classUsuario_a86dbe517f28583fd9a03359c84fc04fe}{atualizarSenha}}(\textcolor{keyword}{const}\ std::string\ \&novaSenha);}
+\DoxyCodeLine{\Hypertarget{Usuario_8hpp_source_l00121}00121\ \ \ }
+\DoxyCodeLine{\Hypertarget{Usuario_8hpp_source_l00127}00127\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classUsuario_aa6092d2479927e11b8c08c555620b48f}{adicionarNovoProduto}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classProduto}{Produto}}\ \&produto);}
+\DoxyCodeLine{\Hypertarget{Usuario_8hpp_source_l00128}00128\ }
+\DoxyCodeLine{\Hypertarget{Usuario_8hpp_source_l00129}00129\ \ \ \textcolor{comment}{//\ Getters}}
+\DoxyCodeLine{\Hypertarget{Usuario_8hpp_source_l00131}\mbox{\hyperlink{classUsuario_ab2539a1ac5c44f6d59271ed641243b56}{00131}}\ \ \ std::string\ \mbox{\hyperlink{classUsuario_ab2539a1ac5c44f6d59271ed641243b56}{getEmail}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classUsuario_aa068d5dd3ec8f4cb1f45147d6ee74f1b}{email}};\ \}}
+\DoxyCodeLine{\Hypertarget{Usuario_8hpp_source_l00132}00132\ \ \ }
+\DoxyCodeLine{\Hypertarget{Usuario_8hpp_source_l00134}\mbox{\hyperlink{classUsuario_a7ecc74b7950190ce12e3cd6cc551238b}{00134}}\ \ \ std::string\ \mbox{\hyperlink{classUsuario_a7ecc74b7950190ce12e3cd6cc551238b}{getNome}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classUsuario_a6fb4c3a94f863e6d7e12821cb2362e28}{nome}};\ \}}
+\DoxyCodeLine{\Hypertarget{Usuario_8hpp_source_l00135}00135\ \ \ }
+\DoxyCodeLine{\Hypertarget{Usuario_8hpp_source_l00137}\mbox{\hyperlink{classUsuario_afec2f262a44c3fa6f01884dfac3e1a84}{00137}}\ \ \ std::string\ \mbox{\hyperlink{classUsuario_afec2f262a44c3fa6f01884dfac3e1a84}{getTelefone}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classUsuario_aa92f56c7412bb4ac6be92f0871840400}{telefone}};\ \}}
+\DoxyCodeLine{\Hypertarget{Usuario_8hpp_source_l00138}00138\ \ \ }
+\DoxyCodeLine{\Hypertarget{Usuario_8hpp_source_l00140}\mbox{\hyperlink{classUsuario_ae22fbb4535ea0ebb6daca66ba0398c45}{00140}}\ \ \ std::string\ \mbox{\hyperlink{classUsuario_ae22fbb4535ea0ebb6daca66ba0398c45}{getCpfCnpj}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classUsuario_a41298617300f5e97e122dd27c803b9f8}{cpf\_cnpj}};\ \}}
+\DoxyCodeLine{\Hypertarget{Usuario_8hpp_source_l00141}00141\ \ \ }
+\DoxyCodeLine{\Hypertarget{Usuario_8hpp_source_l00143}\mbox{\hyperlink{classUsuario_a7014102ce77e99143a8f378c235f8a18}{00143}}\ \ \ std::string\ \mbox{\hyperlink{classUsuario_a7014102ce77e99143a8f378c235f8a18}{getEndereco}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classUsuario_a073aa7d9301606e384c5d0a644f292ca}{endereco}};\ \}}
+\DoxyCodeLine{\Hypertarget{Usuario_8hpp_source_l00144}00144\ \ \ }
+\DoxyCodeLine{\Hypertarget{Usuario_8hpp_source_l00146}\mbox{\hyperlink{classUsuario_a134a666a23a88990ca5eb10d82cf22c5}{00146}}\ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classUsuario_a134a666a23a88990ca5eb10d82cf22c5}{getId}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classUsuario_a28d271b074f1db352be45de127a1c3d2}{id\_usuario}};\ \}}
+\DoxyCodeLine{\Hypertarget{Usuario_8hpp_source_l00147}00147\ \};}
+\DoxyCodeLine{\Hypertarget{Usuario_8hpp_source_l00148}00148\ }
+\DoxyCodeLine{\Hypertarget{Usuario_8hpp_source_l00149}00149\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

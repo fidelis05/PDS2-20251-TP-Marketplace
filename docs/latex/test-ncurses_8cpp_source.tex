@@ -1,0 +1,444 @@
+\doxysection{test-\/ncurses.cpp}
+\hypertarget{test-ncurses_8cpp_source}{}\label{test-ncurses_8cpp_source}\mbox{\hyperlink{test-ncurses_8cpp}{Ir para a documentação deste ficheiro.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00001}00001\ \textcolor{preprocessor}{\#include\ <ncurses.h>}}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00002}00002\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00003}00003\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00004}00004\ \textcolor{preprocessor}{\#include\ <algorithm>}\ \textcolor{comment}{//\ Required\ for\ std::transform\ and\ std::string::find}}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00005}00005\ \textcolor{preprocessor}{\#include\ <cstdlib>}\ \ \ \textcolor{comment}{//\ Required\ for\ system()}}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00006}00006\ \textcolor{preprocessor}{\#include\ <cstring>}}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00007}00007\ }
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00008}00008\ \textcolor{comment}{//\ Mock\ data\ for\ products}}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00009}\mbox{\hyperlink{structProduct}{00009}}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structProduct}{Product}}}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00010}00010\ \{}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00011}\mbox{\hyperlink{structProduct_a6f88e6ff8cb26b1cce49a41e72e4fcb8}{00011}}\ \ \ \ \ std::string\ \mbox{\hyperlink{structProduct_a6f88e6ff8cb26b1cce49a41e72e4fcb8}{name}};}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00012}\mbox{\hyperlink{structProduct_abb2572df7a832a509944905603ba5e4f}{00012}}\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{structProduct_abb2572df7a832a509944905603ba5e4f}{price}};}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00013}00013\ \};}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00014}00014\ }
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00015}\mbox{\hyperlink{test-ncurses_8cpp_a38226ac54644d0ba89a286f40e4d250b}{00015}}\ std::vector<Product>\ \mbox{\hyperlink{test-ncurses_8cpp_a38226ac54644d0ba89a286f40e4d250b}{getMockProducts}}()}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00016}00016\ \{}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00017}00017\ \ \ \ \ \textcolor{keywordflow}{return}\ \{}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00018}00018\ \ \ \ \ \ \ \ \ \{\textcolor{stringliteral}{"{}Laptop"{}},\ 1200.99\},}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00019}00019\ \ \ \ \ \ \ \ \ \{\textcolor{stringliteral}{"{}Mouse"{}},\ 25.50\},}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00020}00020\ \ \ \ \ \ \ \ \ \{\textcolor{stringliteral}{"{}Keyboard"{}},\ 75.00\},}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00021}00021\ \ \ \ \ \ \ \ \ \{\textcolor{stringliteral}{"{}Monitor"{}},\ 300.20\},}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00022}00022\ \ \ \ \ \ \ \ \ \{\textcolor{stringliteral}{"{}Webcam"{}},\ 50.00\}\};}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00023}00023\ \}}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00024}00024\ }
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00025}00025\ \textcolor{comment}{//\ Function\ to\ filter\ products\ based\ on\ a\ search\ term}}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00026}\mbox{\hyperlink{test-ncurses_8cpp_a109b2ed76818674ba2931cf620c2af3a}{00026}}\ std::vector<Product>\ \mbox{\hyperlink{test-ncurses_8cpp_a109b2ed76818674ba2931cf620c2af3a}{filterProducts}}(\textcolor{keyword}{const}\ std::vector<Product>\ \&allProducts,\ \textcolor{keyword}{const}\ std::string\ \&searchTerm)}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00027}00027\ \{}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00028}00028\ \ \ \ \ \textcolor{keywordflow}{if}\ (searchTerm.empty())}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00029}00029\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00030}00030\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ allProducts;}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00031}00031\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00032}00032\ \ \ \ \ std::vector<Product>\ filtered;}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00033}00033\ \ \ \ \ std::string\ lowerSearchTerm\ =\ searchTerm;}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00034}00034\ \ \ \ \ std::transform(lowerSearchTerm.begin(),\ lowerSearchTerm.end(),\ lowerSearchTerm.begin(),\ ::tolower);}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00035}00035\ }
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00036}00036\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{const}\ \textcolor{keyword}{auto}\ \&product\ :\ allProducts)}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00037}00037\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00038}00038\ \ \ \ \ \ \ \ \ std::string\ lowerProductName\ =\ product.name;}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00039}00039\ \ \ \ \ \ \ \ \ std::transform(lowerProductName.begin(),\ lowerProductName.end(),\ lowerProductName.begin(),\ ::tolower);}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00040}00040\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (lowerProductName.find(lowerSearchTerm)\ !=\ std::string::npos)}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00041}00041\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00042}00042\ \ \ \ \ \ \ \ \ \ \ \ \ filtered.push\_back(product);}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00043}00043\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00044}00044\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00045}00045\ \ \ \ \ \textcolor{keywordflow}{return}\ filtered;}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00046}00046\ \}}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00047}00047\ }
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00048}\mbox{\hyperlink{test-ncurses_8cpp_a10761585e393d73e4d4581b69d5844ff}{00048}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{test-ncurses_8cpp_a10761585e393d73e4d4581b69d5844ff}{draw\_profile\_info}}(WINDOW\ *win,\ \textcolor{keyword}{const}\ std::string\ \&userName,\ \textcolor{keyword}{const}\ std::string\ \&userEmail,\ \textcolor{keywordtype}{int}\ ordersCount)}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00049}00049\ \{}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00050}00050\ \ \ \ \ werase(win);}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00051}00051\ \ \ \ \ wbkgd(win,\ COLOR\_PAIR(1));}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00052}00052\ \ \ \ \ box(win,\ 0,\ 0);}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00053}00053\ \ \ \ \ wattron(win,\ A\_BOLD);}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00054}00054\ \ \ \ \ mvwprintw(win,\ 0,\ 2,\ \textcolor{stringliteral}{"{}\ Perfil\ "{}});}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00055}00055\ \ \ \ \ wattroff(win,\ A\_BOLD);}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00056}00056\ \ \ \ \ \textcolor{keywordtype}{int}\ info\_start\_y\ =\ 3;}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00057}00057\ \ \ \ \ mvwprintw(win,\ info\_start\_y,\ 2,\ \textcolor{stringliteral}{"{}Nome:\ \%s"{}},\ userName.c\_str());}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00058}00058\ \ \ \ \ mvwprintw(win,\ info\_start\_y\ +\ 1,\ 2,\ \textcolor{stringliteral}{"{}Email:\ \%s"{}},\ userEmail.c\_str());}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00059}00059\ \ \ \ \ mvwprintw(win,\ info\_start\_y\ +\ 2,\ 2,\ \textcolor{stringliteral}{"{}Pedidos:\ \%d"{}},\ ordersCount);}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00060}00060\ \}}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00061}00061\ }
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00062}\mbox{\hyperlink{test-ncurses_8cpp_a8257500ffc773abe46b7eaddd6f98461}{00062}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{test-ncurses_8cpp_a8257500ffc773abe46b7eaddd6f98461}{draw\_product\_list}}(WINDOW\ *win,\ \textcolor{keyword}{const}\ std::vector<Product>\ \&displayedProducts,\ \textcolor{keywordtype}{int}\ highlight,\ \textcolor{keyword}{const}\ std::string\ \&searchTerm,\ \textcolor{keywordtype}{bool}\ searching,\ \textcolor{keyword}{const}\ std::vector<Product>\ \&allProducts)}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00063}00063\ \{}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00064}00064\ \ \ \ \ werase(win);}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00065}00065\ \ \ \ \ wbkgd(win,\ COLOR\_PAIR(1));}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00066}00066\ \ \ \ \ box(win,\ 0,\ 0);}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00067}00067\ \ \ \ \ wattron(win,\ A\_BOLD);}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00068}00068\ \ \ \ \ mvwprintw(win,\ 0,\ 2,\ \textcolor{stringliteral}{"{}\ Marketplace\ "{}});}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00069}00069\ \ \ \ \ wattroff(win,\ A\_BOLD);}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00070}00070\ }
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00071}00071\ \ \ \ \ mvwprintw(win,\ 2,\ 2,\ \textcolor{stringliteral}{"{}Pesquisa:\ \%s"{}},\ searchTerm.c\_str());}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00072}00072\ }
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00073}00073\ \ \ \ \ \textcolor{keywordflow}{if}\ (displayedProducts.empty()\ \&\&\ !searchTerm.empty())}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00074}00074\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00075}00075\ \ \ \ \ \ \ \ \ mvwprintw(win,\ 4,\ 2,\ \textcolor{stringliteral}{"{}No\ products\ match\ your\ search."{}});}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00076}00076\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00077}00077\ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (displayedProducts.empty()\ \&\&\ searchTerm.empty()\ \&\&\ !allProducts.empty())}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00078}00078\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00079}00079\ \ \ \ \ \ \ \ \ mvwprintw(win,\ 4,\ 2,\ \textcolor{stringliteral}{"{}No\ products\ available."{}});}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00080}00080\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00081}00081\ }
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00082}00082\ \ \ \ \ \textcolor{keywordtype}{int}\ product\_win\_width\ =\ getmaxx(win);}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00083}00083\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ displayedProducts.size();\ ++i)}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00084}00084\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00085}00085\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (i\ ==\ highlight)}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00086}00086\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00087}00087\ \ \ \ \ \ \ \ \ \ \ \ \ wattron(win,\ A\_REVERSE);}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00088}00088\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00089}00089\ \ \ \ \ \ \ \ \ std::string\ product\_line\ =\ displayedProducts[i].name\ +\ \textcolor{stringliteral}{"{}\ -\/\ \$"{}}\ +\ std::to\_string(displayedProducts[i].price).substr(0,\ std::to\_string(displayedProducts[i].price).find(\textcolor{stringliteral}{"{}."{}})\ +\ 3);}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00090}00090\ \ \ \ \ \ \ \ \ mvwprintw(win,\ i\ +\ 4,\ 2,\ \textcolor{stringliteral}{"{}\%.*s"{}},\ product\_win\_width\ -\/\ 4,\ product\_line.c\_str());}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00091}00091\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (i\ ==\ highlight)}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00092}00092\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00093}00093\ \ \ \ \ \ \ \ \ \ \ \ \ wattroff(win,\ A\_REVERSE);}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00094}00094\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00095}00095\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00096}00096\ }
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00097}00097\ \ \ \ \ \textcolor{keywordflow}{if}\ (searching)}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00098}00098\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00099}00099\ \ \ \ \ \ \ \ \ mvwprintw(win,\ LINES\ -\/\ 3,\ 2,\ \textcolor{stringliteral}{"{}Digite\ para\ pesquisar."{}});}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00100}00100\ \ \ \ \ \ \ \ \ mvwprintw(win,\ LINES\ -\/\ 2,\ 2,\ \textcolor{stringliteral}{"{}\`{}Esc`\ -\/\ limpa\ pesquisa.\ \`{}q`\ para\ sair."{}});}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00101}00101\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00102}00102\ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00103}00103\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00104}00104\ \ \ \ \ \ \ \ \ mvwprintw(win,\ LINES\ -\/\ 3,\ 2,\ \textcolor{stringliteral}{"{}Setas\ para\ navegar.\ Enter\ para\ selecionar."{}});}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00105}00105\ \ \ \ \ \ \ \ \ mvwprintw(win,\ LINES\ -\/\ 2,\ 2,\ \textcolor{stringliteral}{"{}\`{}/`\ para\ pesquisar.\ \`{}q`\ para\ sair."{}});}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00106}00106\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00107}00107\ \}}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00108}00108\ }
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00109}\mbox{\hyperlink{test-ncurses_8cpp_aa4676621415ae2b04113d51b136e671d}{00109}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{test-ncurses_8cpp_aa4676621415ae2b04113d51b136e671d}{draw\_product\_details}}(WINDOW\ *win,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{structProduct}{Product}}\ \&product)}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00110}00110\ \{}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00111}00111\ \ \ \ \ werase(win);}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00112}00112\ \ \ \ \ wbkgd(win,\ COLOR\_PAIR(1));}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00113}00113\ \ \ \ \ box(win,\ 0,\ 0);}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00114}00114\ }
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00115}00115\ \ \ \ \ wattron(win,\ A\_BOLD);}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00116}00116\ \ \ \ \ std::string\ title\ =\ \textcolor{stringliteral}{"{}\ "{}}\ +\ product.\mbox{\hyperlink{structProduct_a6f88e6ff8cb26b1cce49a41e72e4fcb8}{name}}\ +\ \textcolor{stringliteral}{"{}\ "{}};}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00117}00117\ \ \ \ \ mvwprintw(win,\ 0,\ 2,\ \textcolor{stringliteral}{"{}\%.*s"{}},\ getmaxx(win)\ -\/\ 4,\ title.c\_str());}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00118}00118\ \ \ \ \ wattroff(win,\ A\_BOLD);}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00119}00119\ }
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00120}00120\ \ \ \ \ mvwprintw(win,\ 2,\ 2,\ \textcolor{stringliteral}{"{}Nome:\ \%s"{}},\ product.\mbox{\hyperlink{structProduct_a6f88e6ff8cb26b1cce49a41e72e4fcb8}{name}}.c\_str());}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00121}00121\ \ \ \ \ mvwprintw(win,\ 3,\ 2,\ \textcolor{stringliteral}{"{}Preco:\ \$\%.2f"{}},\ product.\mbox{\hyperlink{structProduct_abb2572df7a832a509944905603ba5e4f}{price}});}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00122}00122\ \ \ \ \ mvwprintw(win,\ 5,\ 2,\ \textcolor{stringliteral}{"{}Pressione\ qualquer\ tecla\ para\ voltar."{}});}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00123}00123\ \}}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00124}00124\ }
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00125}\mbox{\hyperlink{test-ncurses_8cpp_a13a55494402dc86aac66ea9f349965e8}{00125}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{test-ncurses_8cpp_a13a55494402dc86aac66ea9f349965e8}{show\_product\_details\_view}}(}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00126}00126\ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{structProduct}{Product}}\ \&selectedProduct,}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00127}00127\ \ \ \ \ \textcolor{keyword}{const}\ std::string\ \&userName,\ \textcolor{keyword}{const}\ std::string\ \&userEmail,\ \textcolor{keywordtype}{int}\ ordersCount,}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00128}00128\ \ \ \ \ \textcolor{keyword}{const}\ std::vector<Product>\ \&displayedProducts,\ \textcolor{keywordtype}{int}\ highlight,\ \textcolor{keyword}{const}\ std::string\ \&searchTerm,\ \textcolor{keywordtype}{bool}\ searching,}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00129}00129\ \ \ \ \ \textcolor{keyword}{const}\ std::vector<Product>\ \&allProducts)}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00130}00130\ \{}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00131}00131\ \ \ \ \ clear();}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00132}00132\ \ \ \ \ refresh();}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00133}00133\ }
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00134}00134\ \ \ \ \ \textcolor{keywordtype}{int}\ profile\_w\ =\ COLS\ /\ 4;}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00135}00135\ \ \ \ \ \textcolor{keywordtype}{int}\ product\_w\ =\ COLS\ /\ 3;}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00136}00136\ \ \ \ \ \textcolor{keywordtype}{int}\ details\_w\ =\ COLS\ -\/\ profile\_w\ -\/\ product\_w;}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00137}00137\ }
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00138}00138\ \ \ \ \ WINDOW\ *profile\_win\ =\ newwin(LINES,\ profile\_w,\ 0,\ 0);}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00139}00139\ \ \ \ \ WINDOW\ *product\_win\ =\ newwin(LINES,\ product\_w,\ 0,\ profile\_w);}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00140}00140\ \ \ \ \ WINDOW\ *details\_win\ =\ newwin(LINES,\ details\_w,\ 0,\ profile\_w\ +\ product\_w);}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00141}00141\ \ \ \ \ keypad(details\_win,\ TRUE);}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00142}00142\ }
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00143}00143\ \ \ \ \ \mbox{\hyperlink{test-ncurses_8cpp_a10761585e393d73e4d4581b69d5844ff}{draw\_profile\_info}}(profile\_win,\ userName,\ userEmail,\ ordersCount);}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00144}00144\ \ \ \ \ \mbox{\hyperlink{test-ncurses_8cpp_a8257500ffc773abe46b7eaddd6f98461}{draw\_product\_list}}(product\_win,\ displayedProducts,\ highlight,\ searchTerm,\ searching,\ allProducts);}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00145}00145\ \ \ \ \ \mbox{\hyperlink{test-ncurses_8cpp_aa4676621415ae2b04113d51b136e671d}{draw\_product\_details}}(details\_win,\ selectedProduct);}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00146}00146\ }
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00147}00147\ \ \ \ \ wrefresh(profile\_win);}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00148}00148\ \ \ \ \ wrefresh(product\_win);}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00149}00149\ \ \ \ \ wrefresh(details\_win);}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00150}00150\ }
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00151}00151\ \ \ \ \ wgetch(details\_win);}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00152}00152\ }
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00153}00153\ \ \ \ \ delwin(profile\_win);}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00154}00154\ \ \ \ \ delwin(product\_win);}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00155}00155\ \ \ \ \ delwin(details\_win);}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00156}00156\ }
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00157}00157\ \ \ \ \ clear();}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00158}00158\ \ \ \ \ refresh();}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00159}00159\ \}}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00160}00160\ }
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00161}00161\ \textcolor{comment}{//\ Function\ to\ display\ login\ screen\ and\ handle\ credentials}}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00162}\mbox{\hyperlink{test-ncurses_8cpp_a3c709e6338086898deb1635f5a28a25e}{00162}}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{test-ncurses_8cpp_a3c709e6338086898deb1635f5a28a25e}{show\_login\_screen}}()}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00163}00163\ \{}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00164}00164\ \ \ \ \ WINDOW\ *login\_win\ =\ newwin(10,\ 40,\ (LINES\ -\/\ 10)\ /\ 2,\ (COLS\ -\/\ 40)\ /\ 2);}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00165}00165\ \ \ \ \ keypad(login\_win,\ TRUE);}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00166}00166\ \ \ \ \ wbkgd(login\_win,\ COLOR\_PAIR(1));}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00167}00167\ \ \ \ \ box(login\_win,\ 0,\ 0);}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00168}00168\ }
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00169}00169\ \ \ \ \ mvwprintw(login\_win,\ 1,\ (40\ -\/\ 5)\ /\ 2,\ \textcolor{stringliteral}{"{}LOGIN"{}});}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00170}00170\ }
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00171}00171\ \ \ \ \ \textcolor{keywordtype}{char}\ username\_c[21]\ =\ \{0\};}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00172}00172\ \ \ \ \ \textcolor{keywordtype}{char}\ password\_c[21]\ =\ \{0\};}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00173}00173\ \ \ \ \ \textcolor{keywordtype}{int}\ user\_len\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00174}00174\ \ \ \ \ \textcolor{keywordtype}{int}\ pass\_len\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00175}00175\ }
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00176}00176\ \ \ \ \ \textcolor{keyword}{enum\ class}\ State}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00177}00177\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00178}00178\ \ \ \ \ \ \ \ \ USERNAME,}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00179}00179\ \ \ \ \ \ \ \ \ PASSWORD,}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00180}00180\ \ \ \ \ \ \ \ \ DONE}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00181}00181\ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00182}00182\ \ \ \ \ State\ state\ =\ State::USERNAME;}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00183}00183\ }
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00184}00184\ \ \ \ \ mvwprintw(login\_win,\ 3,\ 2,\ \textcolor{stringliteral}{"{}Username:\ "{}});}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00185}00185\ \ \ \ \ mvwprintw(login\_win,\ 4,\ 2,\ \textcolor{stringliteral}{"{}Password:\ "{}});}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00186}00186\ \ \ \ \ wmove(login\_win,\ 3,\ 12);\ \textcolor{comment}{//\ Start\ at\ username\ field}}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00187}00187\ \ \ \ \ wrefresh(login\_win);}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00188}00188\ }
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00189}00189\ \ \ \ \ \textcolor{keywordtype}{int}\ ch;}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00190}00190\ \ \ \ \ \textcolor{keywordflow}{while}\ (state\ !=\ State::DONE)}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00191}00191\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00192}00192\ \ \ \ \ \ \ \ \ ch\ =\ wgetch(login\_win);}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00193}00193\ }
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00194}00194\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (ch\ ==\ KEY\_RESIZE)}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00195}00195\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00196}00196\ \ \ \ \ \ \ \ \ \ \ \ \ clear();}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00197}00197\ \ \ \ \ \ \ \ \ \ \ \ \ refresh();}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00198}00198\ \ \ \ \ \ \ \ \ \ \ \ \ mvwin(login\_win,\ (LINES\ -\/\ 10)\ /\ 2,\ (COLS\ -\/\ 40)\ /\ 2);}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00199}00199\ \ \ \ \ \ \ \ \ \ \ \ \ werase(login\_win);}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00200}00200\ \ \ \ \ \ \ \ \ \ \ \ \ box(login\_win,\ 0,\ 0);}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00201}00201\ \ \ \ \ \ \ \ \ \ \ \ \ mvwprintw(login\_win,\ 1,\ (40\ -\/\ 5)\ /\ 2,\ \textcolor{stringliteral}{"{}LOGIN"{}});}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00202}00202\ \ \ \ \ \ \ \ \ \ \ \ \ mvwprintw(login\_win,\ 3,\ 2,\ \textcolor{stringliteral}{"{}Username:\ \%s"{}},\ username\_c);}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00203}00203\ \ \ \ \ \ \ \ \ \ \ \ \ std::string\ pass\_mask(pass\_len,\ \textcolor{charliteral}{'*'});}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00204}00204\ \ \ \ \ \ \ \ \ \ \ \ \ mvwprintw(login\_win,\ 4,\ 2,\ \textcolor{stringliteral}{"{}Password:\ \%s"{}},\ pass\_mask.c\_str());}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00205}00205\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (state\ ==\ State::USERNAME)}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00206}00206\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00207}00207\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ wmove(login\_win,\ 3,\ 12\ +\ user\_len);}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00208}00208\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00209}00209\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00210}00210\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00211}00211\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ wmove(login\_win,\ 4,\ 12\ +\ pass\_len);}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00212}00212\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00213}00213\ \ \ \ \ \ \ \ \ \ \ \ \ wrefresh(login\_win);}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00214}00214\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00215}00215\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00216}00216\ }
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00217}00217\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{switch}\ (state)}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00218}00218\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00219}00219\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ State::USERNAME:}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00220}00220\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (ch\ ==\ \textcolor{charliteral}{'\(\backslash\)n'})}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00221}00221\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00222}00222\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ state\ =\ State::PASSWORD;}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00223}00223\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ wmove(login\_win,\ 4,\ 12);}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00224}00224\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00225}00225\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (ch\ ==\ KEY\_BACKSPACE\ ||\ ch\ ==\ 127\ ||\ ch\ ==\ 8)}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00226}00226\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00227}00227\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (user\_len\ >\ 0)}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00228}00228\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00229}00229\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ user\_len-\/-\/;}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00230}00230\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ username\_c[user\_len]\ =\ \textcolor{charliteral}{'\(\backslash\)0'};}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00231}00231\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ mvwaddch(login\_win,\ 3,\ 12\ +\ user\_len,\ \textcolor{charliteral}{'\ '});}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00232}00232\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ wmove(login\_win,\ 3,\ 12\ +\ user\_len);}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00233}00233\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00234}00234\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00235}00235\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (isprint(ch)\ \&\&\ user\_len\ <\ 20)}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00236}00236\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00237}00237\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ username\_c[user\_len++]\ =\ ch;}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00238}00238\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ waddch(login\_win,\ ch);}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00239}00239\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00240}00240\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00241}00241\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ State::PASSWORD:}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00242}00242\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (ch\ ==\ \textcolor{charliteral}{'\(\backslash\)n'})}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00243}00243\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00244}00244\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ state\ =\ State::DONE;}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00245}00245\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00246}00246\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (ch\ ==\ KEY\_BACKSPACE\ ||\ ch\ ==\ 127\ ||\ ch\ ==\ 8)}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00247}00247\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00248}00248\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (pass\_len\ >\ 0)}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00249}00249\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00250}00250\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ pass\_len-\/-\/;}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00251}00251\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ password\_c[pass\_len]\ =\ \textcolor{charliteral}{'\(\backslash\)0'};}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00252}00252\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ mvwaddch(login\_win,\ 4,\ 12\ +\ pass\_len,\ \textcolor{charliteral}{'\ '});}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00253}00253\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ wmove(login\_win,\ 4,\ 12\ +\ pass\_len);}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00254}00254\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00255}00255\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00256}00256\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (isprint(ch)\ \&\&\ pass\_len\ <\ 20)}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00257}00257\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00258}00258\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ password\_c[pass\_len++]\ =\ ch;}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00259}00259\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ waddch(login\_win,\ \textcolor{charliteral}{'*'});}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00260}00260\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00261}00261\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00262}00262\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ State::DONE:}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00263}00263\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Should\ not\ happen}}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00264}00264\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00265}00265\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00266}00266\ \ \ \ \ \ \ \ \ wrefresh(login\_win);}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00267}00267\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00268}00268\ }
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00269}00269\ \ \ \ \ \textcolor{comment}{//\ Hardcoded\ credentials\ for\ demonstration}}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00270}00270\ \ \ \ \ \textcolor{keywordflow}{if}\ (strcmp(username\_c,\ \textcolor{stringliteral}{"{}user"{}})\ ==\ 0\ \&\&\ strcmp(password\_c,\ \textcolor{stringliteral}{"{}pass"{}})\ ==\ 0)}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00271}00271\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00272}00272\ \ \ \ \ \ \ \ \ delwin(login\_win);}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00273}00273\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00274}00274\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00275}00275\ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00276}00276\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00277}00277\ \ \ \ \ \ \ \ \ mvwprintw(login\_win,\ 6,\ 2,\ \textcolor{stringliteral}{"{}Invalid\ credentials.\ Press\ any\ key."{}});}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00278}00278\ \ \ \ \ \ \ \ \ wrefresh(login\_win);}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00279}00279\ \ \ \ \ \ \ \ \ wgetch(login\_win);}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00280}00280\ \ \ \ \ \ \ \ \ delwin(login\_win);}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00281}00281\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00282}00282\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00283}00283\ \}}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00284}00284\ }
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00285}\mbox{\hyperlink{test-ncurses_8cpp_a06f8e0578e67c10afbf24ff4efbcf120}{00285}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{test-ncurses_8cpp_a06f8e0578e67c10afbf24ff4efbcf120}{draw\_borders}}(WINDOW\ *win)}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00286}00286\ \{}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00287}00287\ \ \ \ \ box(win,\ 0,\ 0);}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00288}00288\ \ \ \ \ wrefresh(win);}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00289}00289\ \}}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00290}00290\ }
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00291}\mbox{\hyperlink{test-ncurses_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{00291}}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{test-ncurses_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}}()}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00292}00292\ \{}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00293}00293\ \ \ \ \ initscr();\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Initialize\ ncurses}}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00294}00294\ \ \ \ \ noecho();\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Don't\ echo\ key\ presses}}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00295}00295\ \ \ \ \ cbreak();\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Line\ buffering\ disabled,\ pass\ on\ everything}}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00296}00296\ \ \ \ \ start\_color();\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Enable\ color}}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00297}00297\ \ \ \ \ init\_pair(1,\ COLOR\_GREEN,\ COLOR\_BLACK);\ \textcolor{comment}{//\ Define\ a\ color\ pair\ for\ borders/titles}}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00298}00298\ \ \ \ \ init\_pair(3,\ COLOR\_BLACK,\ COLOR\_BLACK);\ \textcolor{comment}{//\ Color\ for\ image\ text}}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00299}00299\ }
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00300}00300\ \ \ \ \ \textcolor{comment}{//\ Show\ login\ screen\ first}}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00301}00301\ \ \ \ \ \textcolor{keywordflow}{if}\ (!\mbox{\hyperlink{test-ncurses_8cpp_a3c709e6338086898deb1635f5a28a25e}{show\_login\_screen}}())}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00302}00302\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00303}00303\ \ \ \ \ \ \ \ \ endwin();}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00304}00304\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00305}00305\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00306}00306\ \ \ \ \ clear();\ \ \ \textcolor{comment}{//\ Clear\ the\ screen\ after\ login}}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00307}00307\ \ \ \ \ refresh();\ \textcolor{comment}{//\ Refresh\ to\ show\ the\ cleared\ screen}}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00308}00308\ }
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00309}00309\ \ \ \ \ \textcolor{keywordtype}{int}\ profile\_win\_width\ =\ COLS\ /\ 4;}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00310}00310\ \ \ \ \ \textcolor{keywordtype}{int}\ product\_win\_width\ =\ COLS\ -\/\ profile\_win\_width;}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00311}00311\ }
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00312}00312\ \ \ \ \ WINDOW\ *profile\_win\ =\ newwin(LINES,\ profile\_win\_width,\ 0,\ 0);}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00313}00313\ \ \ \ \ WINDOW\ *product\_win\ =\ newwin(LINES,\ product\_win\_width,\ 0,\ profile\_win\_width);}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00314}00314\ }
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00315}00315\ \ \ \ \ keypad(product\_win,\ TRUE);\ \textcolor{comment}{//\ Enable\ function\ keys\ for\ product\ window}}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00316}00316\ }
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00317}00317\ \ \ \ \ std::vector<Product>\ allProducts\ =\ \mbox{\hyperlink{test-ncurses_8cpp_a38226ac54644d0ba89a286f40e4d250b}{getMockProducts}}();}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00318}00318\ \ \ \ \ std::vector<Product>\ displayedProducts\ =\ allProducts;}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00319}00319\ \ \ \ \ std::string\ searchTerm\ =\ \textcolor{stringliteral}{"{}"{}};}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00320}00320\ \ \ \ \ \textcolor{keywordtype}{int}\ highlight\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00321}00321\ \ \ \ \ \textcolor{keywordtype}{int}\ choice\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00322}00322\ \ \ \ \ \textcolor{keywordtype}{int}\ c;}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00323}00323\ \ \ \ \ \textcolor{keywordtype}{bool}\ searching\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00324}00324\ }
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00325}00325\ \ \ \ \ \textcolor{comment}{//\ Mock\ profile\ data}}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00326}00326\ \ \ \ \ std::string\ userName\ =\ \textcolor{stringliteral}{"{}User123"{}};}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00327}00327\ \ \ \ \ std::string\ userEmail\ =\ \textcolor{stringliteral}{"{}user123@example.com"{}};}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00328}00328\ \ \ \ \ \textcolor{keywordtype}{int}\ ordersCount\ =\ 5;}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00329}00329\ }
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00330}00330\ \ \ \ \ \textcolor{keywordflow}{while}\ (\textcolor{keyword}{true})}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00331}00331\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00332}00332\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{test-ncurses_8cpp_a10761585e393d73e4d4581b69d5844ff}{draw\_profile\_info}}(profile\_win,\ userName,\ userEmail,\ ordersCount);}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00333}00333\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{test-ncurses_8cpp_a8257500ffc773abe46b7eaddd6f98461}{draw\_product\_list}}(product\_win,\ displayedProducts,\ highlight,\ searchTerm,\ searching,\ allProducts);}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00334}00334\ }
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00335}00335\ \ \ \ \ \ \ \ \ wrefresh(profile\_win);}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00336}00336\ \ \ \ \ \ \ \ \ wrefresh(product\_win);}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00337}00337\ }
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00338}00338\ \ \ \ \ \ \ \ \ wmove(product\_win,\ 2,\ 12\ +\ searchTerm.length());}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00339}00339\ }
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00340}00340\ \ \ \ \ \ \ \ \ c\ =\ wgetch(product\_win);\ \textcolor{comment}{//\ Get\ input\ from\ the\ product\ window}}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00341}00341\ }
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00342}00342\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (searching)}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00343}00343\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00344}00344\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (c\ ==\ 10)}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00345}00345\ \ \ \ \ \ \ \ \ \ \ \ \ \{\ \textcolor{comment}{//\ Enter\ key\ -\/\ finish\ searching}}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00346}00346\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ searching\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00347}00347\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (highlight\ >=\ displayedProducts.size()\ \&\&\ !displayedProducts.empty())}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00348}00348\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00349}00349\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ highlight\ =\ displayedProducts.size()\ -\/\ 1;}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00350}00350\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00351}00351\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (displayedProducts.empty())}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00352}00352\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00353}00353\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ highlight\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00354}00354\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00355}00355\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00356}00356\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (c\ ==\ 27)}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00357}00357\ \ \ \ \ \ \ \ \ \ \ \ \ \{\ \textcolor{comment}{//\ Escape\ key\ -\/\ clear\ search}}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00358}00358\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ searchTerm\ =\ \textcolor{stringliteral}{"{}"{}};}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00359}00359\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ displayedProducts\ =\ \mbox{\hyperlink{test-ncurses_8cpp_a109b2ed76818674ba2931cf620c2af3a}{filterProducts}}(allProducts,\ searchTerm);}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00360}00360\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ highlight\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00361}00361\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ searching\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00362}00362\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00363}00363\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (c\ ==\ KEY\_BACKSPACE\ ||\ c\ ==\ 127\ ||\ c\ ==\ 8)}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00364}00364\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00365}00365\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!searchTerm.empty())}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00366}00366\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00367}00367\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ searchTerm.pop\_back();}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00368}00368\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ displayedProducts\ =\ \mbox{\hyperlink{test-ncurses_8cpp_a109b2ed76818674ba2931cf620c2af3a}{filterProducts}}(allProducts,\ searchTerm);}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00369}00369\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ highlight\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00370}00370\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00371}00371\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00372}00372\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (isprint(c))}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00373}00373\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00374}00374\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ searchTerm\ +=\ c;}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00375}00375\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ displayedProducts\ =\ \mbox{\hyperlink{test-ncurses_8cpp_a109b2ed76818674ba2931cf620c2af3a}{filterProducts}}(allProducts,\ searchTerm);}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00376}00376\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ highlight\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00377}00377\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00378}00378\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00379}00379\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00380}00380\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00381}00381\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{switch}\ (c)}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00382}00382\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00383}00383\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ KEY\_UP:}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00384}00384\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!displayedProducts.empty())}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00385}00385\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00386}00386\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (highlight\ ==\ 0)}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00387}00387\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00388}00388\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ highlight\ =\ displayedProducts.size()\ -\/\ 1;}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00389}00389\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00390}00390\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00391}00391\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00392}00392\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ highlight-\/-\/;}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00393}00393\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00394}00394\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00395}00395\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00396}00396\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ KEY\_DOWN:}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00397}00397\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!displayedProducts.empty())}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00398}00398\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00399}00399\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (highlight\ ==\ displayedProducts.size()\ -\/\ 1)}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00400}00400\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00401}00401\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ highlight\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00402}00402\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00403}00403\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00404}00404\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00405}00405\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ highlight++;}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00406}00406\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00407}00407\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00408}00408\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00409}00409\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ 10:\ \textcolor{comment}{//\ Enter\ key}}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00410}00410\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!displayedProducts.empty()\ \&\&\ highlight\ <\ displayedProducts.size())}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00411}00411\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00412}00412\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ choice\ =\ highlight;}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00413}00413\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{test-ncurses_8cpp_a13a55494402dc86aac66ea9f349965e8}{show\_product\_details\_view}}(}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00414}00414\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ displayedProducts[choice],}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00415}00415\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ userName,\ userEmail,\ ordersCount,}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00416}00416\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ displayedProducts,\ highlight,\ searchTerm,\ searching,}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00417}00417\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ allProducts);}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00418}00418\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ touchwin(stdscr);}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00419}00419\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ refresh();}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00420}00420\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00421}00421\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00422}00422\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \textcolor{charliteral}{'/'}:}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00423}00423\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ searching\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00424}00424\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00425}00425\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \textcolor{charliteral}{'q'}:}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00426}00426\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \textcolor{charliteral}{'Q'}:}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00427}00427\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ delwin(product\_win);}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00428}00428\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ delwin(profile\_win);}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00429}00429\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ endwin();}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00430}00430\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00431}00431\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00432}00432\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00433}00433\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00434}00434\ }
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00435}00435\ \ \ \ \ delwin(product\_win);}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00436}00436\ \ \ \ \ delwin(profile\_win);}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00437}00437\ \ \ \ \ endwin();}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00438}00438\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{\Hypertarget{test-ncurses_8cpp_source_l00439}00439\ \}}
+
+\end{DoxyCode}

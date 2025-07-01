@@ -1,0 +1,173 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="pt">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Sistema Marketplace PDS2: Código-Fonte de include/Admin.hpp</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">Sistema Marketplace PDS2<span id="projectnumber">&#160;1.0</span>
+   </div>
+   <div id="projectbrief">Sistema de marketplace desenvolvido para a disciplina PDS2</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Gerado por Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Localizar');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function() { init_codefold(0); });
+/* @license-end */
+</script>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Carregando...</div>
+<div class="SRStatus" id="Searching">Procurando...</div>
+<div class="SRStatus" id="NoMatches">Nenhuma entrada encontrada</div>
+</div>
+</div>
+</div>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle"><div class="title">Admin.hpp</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="Admin_8hpp.html">Ir para a documentação deste ficheiro.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#ifndef ADMIN_HPP</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="preprocessor">#define ADMIN_HPP</span></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span> </div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="preprocessor">#include &quot;<a class="code" href="Usuario_8hpp.html">Usuario.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="preprocessor">#include &quot;<a class="code" href="Pedido_8hpp.html">Pedido.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="preprocessor">#include &lt;vector&gt;</span></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="preprocessor">#include &lt;string&gt;</span></div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span> </div>
+<div class="foldopen" id="foldopen00023" data-start="{" data-end="};">
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno"><a class="line" href="classAdmin.html">   23</a></span><span class="keyword">class </span><a class="code hl_class" href="classAdmin.html">Admin</a></div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>{</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno"><a class="line" href="classAdmin.html#ae3e83a4d830e9d19a8ff552f9252eafc">   26</a></span>    <span class="keywordtype">bool</span> <a class="code hl_variable" href="classAdmin.html#ae3e83a4d830e9d19a8ff552f9252eafc">autorizacao</a>;    </div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno"><a class="line" href="classAdmin.html#a6cf7557ec95e3f74192fff7ac07fbce3">   27</a></span>    <a class="code hl_class" href="classUsuario.html">Usuario</a> <a class="code hl_variable" href="classAdmin.html#a6cf7557ec95e3f74192fff7ac07fbce3">admin</a>;       </div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span> </div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>    <span class="comment">// Gerenciamento de Usuários</span></div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>    </div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>    std::vector&lt;std::string&gt; <a class="code hl_function" href="classAdmin.html#aa8c10f037bf588c67d446f126f91c75e">obterListaDeUsuarios</a>();</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>    </div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classAdmin.html#af841ad449764f33ab061d98e556ae342">editarUsuario</a>(<span class="keyword">const</span> std::string &amp;email, <span class="keyword">const</span> std::string &amp;novoNome, <span class="keyword">const</span> std::string &amp;novoTelefone, <span class="keyword">const</span> std::string &amp;novoEndereco);</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>    </div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classAdmin.html#aca1344aff6c652df80333e3bda0b1b85">deletarUsuario</a>(<span class="keyword">const</span> std::string &amp;email);</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>    </div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classAdmin.html#aabdbe13e8b67b28b5b742fc5e7563988">cadastrarUsuario</a>(<span class="keyword">const</span> std::string &amp;nome, <span class="keyword">const</span> std::string &amp;email, <span class="keyword">const</span> std::string &amp;senha,</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>                          <span class="keyword">const</span> std::string &amp;telefone, <span class="keyword">const</span> std::string &amp;cpf, <span class="keyword">const</span> std::string &amp;endereco);</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span> </div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>    <span class="comment">// Gerenciamento de Produtos</span></div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>    </div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>    std::vector&lt;std::string&gt; <a class="code hl_function" href="classAdmin.html#af784750edaa9f59a45afd5b74ca2574e">obterListaDeProdutos</a>();</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>    </div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classAdmin.html#a810dbffd94437d41cb3c36439032b0ef">editarProduto</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> idProduto, <span class="keyword">const</span> std::string &amp;novoNome, <span class="keyword">const</span> std::string &amp;novaMarca,</div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>                       <span class="keywordtype">double</span> novoValor, <span class="keyword">const</span> std::string &amp;novaDescricao);</div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>    </div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classAdmin.html#a85011a37d02c1f7b2b5ed22f58266131">deletarProduto</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> idProduto);</div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span> </div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>    <span class="comment">// Gerenciamento de Pedidos</span></div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>    </div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>    std::vector&lt;std::string&gt; <a class="code hl_function" href="classAdmin.html#a9e8ba844bf64619d322a729b6bb6ee6d">obterListaDePedidos</a>();</div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>    </div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classAdmin.html#a65c93cda2a3ceae9176e46452fdc855d">editarPedido</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> idPedido, <span class="keyword">const</span> std::string &amp;novoStatus);</div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>    </div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classAdmin.html#a1b3b2916b5737f609d07e5c4ea1a82b5">deletarPedido</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> idPedido);</div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span> </div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>    <span class="comment">// Estatísticas do Sistema</span></div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>    </div>
+<div class="foldopen" id="foldopen00116" data-start="{" data-end="};">
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno"><a class="line" href="structAdmin_1_1EstatisticasResumo.html">  116</a></span>    <span class="keyword">struct </span><a class="code hl_struct" href="structAdmin_1_1EstatisticasResumo.html">EstatisticasResumo</a></div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span>    {</div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno"><a class="line" href="structAdmin_1_1EstatisticasResumo.html#a88fd7a70a6a40f03af4d9863812bcf44">  118</a></span>        <span class="keywordtype">int</span> <a class="code hl_variable" href="structAdmin_1_1EstatisticasResumo.html#a88fd7a70a6a40f03af4d9863812bcf44">totalUsuarios</a>;   </div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno"><a class="line" href="structAdmin_1_1EstatisticasResumo.html#a5dba05fcee323e2c77be20cc25b85156">  119</a></span>        <span class="keywordtype">int</span> <a class="code hl_variable" href="structAdmin_1_1EstatisticasResumo.html#a5dba05fcee323e2c77be20cc25b85156">totalProdutos</a>;   </div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno"><a class="line" href="structAdmin_1_1EstatisticasResumo.html#afc02b31567a94dfac758ead29d713432">  120</a></span>        <span class="keywordtype">int</span> <a class="code hl_variable" href="structAdmin_1_1EstatisticasResumo.html#afc02b31567a94dfac758ead29d713432">totalPedidos</a>;    </div>
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span>    };</div>
+</div>
+<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span>    </div>
+<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span>    <a class="code hl_struct" href="structAdmin_1_1EstatisticasResumo.html">EstatisticasResumo</a> <a class="code hl_function" href="classAdmin.html#a73451bd89cef1439f16f99ca2013876f">obterResumoEstatistico</a>();</div>
+<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span>};</div>
+</div>
+<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span> </div>
+<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span><span class="preprocessor">#endif</span></div>
+<div class="ttc" id="aPedido_8hpp_html"><div class="ttname"><a href="Pedido_8hpp.html">Pedido.hpp</a></div></div>
+<div class="ttc" id="aUsuario_8hpp_html"><div class="ttname"><a href="Usuario_8hpp.html">Usuario.hpp</a></div><div class="ttdoc">Declaração da classe Usuario.</div></div>
+<div class="ttc" id="aclassAdmin_html"><div class="ttname"><a href="classAdmin.html">Admin</a></div><div class="ttdoc">Classe que representa um administrador do sistema.</div><div class="ttdef"><b>Definição</b> <a href="Admin_8hpp_source.html#l00023">Admin.hpp:24</a></div></div>
+<div class="ttc" id="aclassAdmin_html_a1b3b2916b5737f609d07e5c4ea1a82b5"><div class="ttname"><a href="classAdmin.html#a1b3b2916b5737f609d07e5c4ea1a82b5">Admin::deletarPedido</a></div><div class="ttdeci">void deletarPedido(unsigned int idPedido)</div><div class="ttdoc">Remove um pedido do sistema.</div><div class="ttdef"><b>Definição</b> <a href="Admin_8cpp_source.html#l00287">Admin.cpp:287</a></div></div>
+<div class="ttc" id="aclassAdmin_html_a65c93cda2a3ceae9176e46452fdc855d"><div class="ttname"><a href="classAdmin.html#a65c93cda2a3ceae9176e46452fdc855d">Admin::editarPedido</a></div><div class="ttdeci">void editarPedido(unsigned int idPedido, const std::string &amp;novoStatus)</div><div class="ttdoc">Edita o status de um pedido.</div><div class="ttdef"><b>Definição</b> <a href="Admin_8cpp_source.html#l00222">Admin.cpp:222</a></div></div>
+<div class="ttc" id="aclassAdmin_html_a6cf7557ec95e3f74192fff7ac07fbce3"><div class="ttname"><a href="classAdmin.html#a6cf7557ec95e3f74192fff7ac07fbce3">Admin::admin</a></div><div class="ttdeci">Usuario admin</div><div class="ttdoc">Dados do usuário administrador.</div><div class="ttdef"><b>Definição</b> <a href="Admin_8hpp_source.html#l00027">Admin.hpp:27</a></div></div>
+<div class="ttc" id="aclassAdmin_html_a73451bd89cef1439f16f99ca2013876f"><div class="ttname"><a href="classAdmin.html#a73451bd89cef1439f16f99ca2013876f">Admin::obterResumoEstatistico</a></div><div class="ttdeci">EstatisticasResumo obterResumoEstatistico()</div><div class="ttdoc">Obtém um resumo estatístico do sistema.</div><div class="ttdef"><b>Definição</b> <a href="Admin_8cpp_source.html#l00319">Admin.cpp:319</a></div></div>
+<div class="ttc" id="aclassAdmin_html_a810dbffd94437d41cb3c36439032b0ef"><div class="ttname"><a href="classAdmin.html#a810dbffd94437d41cb3c36439032b0ef">Admin::editarProduto</a></div><div class="ttdeci">void editarProduto(unsigned int idProduto, const std::string &amp;novoNome, const std::string &amp;novaMarca, double novoValor, const std::string &amp;novaDescricao)</div><div class="ttdoc">Edita as informações de um produto.</div><div class="ttdef"><b>Definição</b> <a href="Admin_8cpp_source.html#l00130">Admin.cpp:130</a></div></div>
+<div class="ttc" id="aclassAdmin_html_a85011a37d02c1f7b2b5ed22f58266131"><div class="ttname"><a href="classAdmin.html#a85011a37d02c1f7b2b5ed22f58266131">Admin::deletarProduto</a></div><div class="ttdeci">void deletarProduto(unsigned int idProduto)</div><div class="ttdoc">Remove um produto do sistema.</div><div class="ttdef"><b>Definição</b> <a href="Admin_8cpp_source.html#l00173">Admin.cpp:173</a></div></div>
+<div class="ttc" id="aclassAdmin_html_a9e8ba844bf64619d322a729b6bb6ee6d"><div class="ttname"><a href="classAdmin.html#a9e8ba844bf64619d322a729b6bb6ee6d">Admin::obterListaDePedidos</a></div><div class="ttdeci">std::vector&lt; std::string &gt; obterListaDePedidos()</div><div class="ttdoc">Obtém a lista de todos os pedidos.</div><div class="ttdef"><b>Definição</b> <a href="Admin_8cpp_source.html#l00200">Admin.cpp:200</a></div></div>
+<div class="ttc" id="aclassAdmin_html_aa8c10f037bf588c67d446f126f91c75e"><div class="ttname"><a href="classAdmin.html#aa8c10f037bf588c67d446f126f91c75e">Admin::obterListaDeUsuarios</a></div><div class="ttdeci">std::vector&lt; std::string &gt; obterListaDeUsuarios()</div><div class="ttdoc">Obtém a lista de todos os usuários cadastrados.</div><div class="ttdef"><b>Definição</b> <a href="Admin_8cpp_source.html#l00006">Admin.cpp:6</a></div></div>
+<div class="ttc" id="aclassAdmin_html_aabdbe13e8b67b28b5b742fc5e7563988"><div class="ttname"><a href="classAdmin.html#aabdbe13e8b67b28b5b742fc5e7563988">Admin::cadastrarUsuario</a></div><div class="ttdeci">void cadastrarUsuario(const std::string &amp;nome, const std::string &amp;email, const std::string &amp;senha, const std::string &amp;telefone, const std::string &amp;cpf, const std::string &amp;endereco)</div><div class="ttdoc">Cadastra um novo usuário no sistema.</div><div class="ttdef"><b>Definição</b> <a href="Admin_8cpp_source.html#l00096">Admin.cpp:96</a></div></div>
+<div class="ttc" id="aclassAdmin_html_aca1344aff6c652df80333e3bda0b1b85"><div class="ttname"><a href="classAdmin.html#aca1344aff6c652df80333e3bda0b1b85">Admin::deletarUsuario</a></div><div class="ttdeci">void deletarUsuario(const std::string &amp;email)</div><div class="ttdoc">Remove um usuário do sistema.</div><div class="ttdef"><b>Definição</b> <a href="Admin_8cpp_source.html#l00069">Admin.cpp:69</a></div></div>
+<div class="ttc" id="aclassAdmin_html_ae3e83a4d830e9d19a8ff552f9252eafc"><div class="ttname"><a href="classAdmin.html#ae3e83a4d830e9d19a8ff552f9252eafc">Admin::autorizacao</a></div><div class="ttdeci">bool autorizacao</div><div class="ttdoc">Flag de autorização do administrador.</div><div class="ttdef"><b>Definição</b> <a href="Admin_8hpp_source.html#l00026">Admin.hpp:26</a></div></div>
+<div class="ttc" id="aclassAdmin_html_af784750edaa9f59a45afd5b74ca2574e"><div class="ttname"><a href="classAdmin.html#af784750edaa9f59a45afd5b74ca2574e">Admin::obterListaDeProdutos</a></div><div class="ttdeci">std::vector&lt; std::string &gt; obterListaDeProdutos()</div><div class="ttdoc">Obtém a lista de todos os produtos cadastrados.</div><div class="ttdef"><b>Definição</b> <a href="Admin_8cpp_source.html#l00103">Admin.cpp:103</a></div></div>
+<div class="ttc" id="aclassAdmin_html_af841ad449764f33ab061d98e556ae342"><div class="ttname"><a href="classAdmin.html#af841ad449764f33ab061d98e556ae342">Admin::editarUsuario</a></div><div class="ttdeci">void editarUsuario(const std::string &amp;email, const std::string &amp;novoNome, const std::string &amp;novoTelefone, const std::string &amp;novoEndereco)</div><div class="ttdoc">Edita as informações de um usuário.</div><div class="ttdef"><b>Definição</b> <a href="Admin_8cpp_source.html#l00030">Admin.cpp:30</a></div></div>
+<div class="ttc" id="aclassUsuario_html"><div class="ttname"><a href="classUsuario.html">Usuario</a></div><div class="ttdoc">Classe que representa um usuário do marketplace.</div><div class="ttdef"><b>Definição</b> <a href="Usuario_8hpp_source.html#l00029">Usuario.hpp:30</a></div></div>
+<div class="ttc" id="astructAdmin_1_1EstatisticasResumo_html"><div class="ttname"><a href="structAdmin_1_1EstatisticasResumo.html">Admin::EstatisticasResumo</a></div><div class="ttdoc">Estrutura para resumo de estatísticas do sistema.</div><div class="ttdef"><b>Definição</b> <a href="Admin_8hpp_source.html#l00116">Admin.hpp:117</a></div></div>
+<div class="ttc" id="astructAdmin_1_1EstatisticasResumo_html_a5dba05fcee323e2c77be20cc25b85156"><div class="ttname"><a href="structAdmin_1_1EstatisticasResumo.html#a5dba05fcee323e2c77be20cc25b85156">Admin::EstatisticasResumo::totalProdutos</a></div><div class="ttdeci">int totalProdutos</div><div class="ttdoc">Total de produtos disponíveis.</div><div class="ttdef"><b>Definição</b> <a href="Admin_8hpp_source.html#l00119">Admin.hpp:119</a></div></div>
+<div class="ttc" id="astructAdmin_1_1EstatisticasResumo_html_a88fd7a70a6a40f03af4d9863812bcf44"><div class="ttname"><a href="structAdmin_1_1EstatisticasResumo.html#a88fd7a70a6a40f03af4d9863812bcf44">Admin::EstatisticasResumo::totalUsuarios</a></div><div class="ttdeci">int totalUsuarios</div><div class="ttdoc">Total de usuários cadastrados.</div><div class="ttdef"><b>Definição</b> <a href="Admin_8hpp_source.html#l00118">Admin.hpp:118</a></div></div>
+<div class="ttc" id="astructAdmin_1_1EstatisticasResumo_html_afc02b31567a94dfac758ead29d713432"><div class="ttname"><a href="structAdmin_1_1EstatisticasResumo.html#afc02b31567a94dfac758ead29d713432">Admin::EstatisticasResumo::totalPedidos</a></div><div class="ttdeci">int totalPedidos</div><div class="ttdoc">Total de pedidos realizados.</div><div class="ttdef"><b>Definição</b> <a href="Admin_8hpp_source.html#l00120">Admin.hpp:120</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Gerado por&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+</small></address>
+</body>
+</html>

@@ -71,6 +71,46 @@ PDS2-20251-TP-Marketplace-main
 ```
 '*' são folders que apresentam dados referentes àpenas ao Doxygen
 
+## 📚 Documentação
+
+### Gerando a Documentação
+O projeto utiliza Doxygen para gerar documentação automática do código. A documentação inclui:
+
+- **Comentários detalhados** em todas as classes principais (Usuario, Produto, Admin, Carrinho, etc.)
+- **Descrições dos métodos** com parâmetros e valores de retorno
+- **Documentação dos testes** explicando o que cada teste verifica
+- **Diagramas de classes** (quando disponível)
+
+Para gerar a documentação:
+
+```bash
+make docs
+```
+
+### Visualizando a Documentação
+Após gerar a documentação, você pode visualizá-la:
+
+1. **Via navegador**: Abra o arquivo `docs/html/index.html` em qualquer navegador web
+2. **No VS Code**: Use o Simple Browser integrado para navegar pela documentação
+
+A documentação estará organizada com:
+- **Classes**: Lista de todas as classes com seus métodos e atributos
+- **Arquivos**: Códigos-fonte com syntax highlighting
+- **Módulos**: Organização lógica das funcionalidades
+- **Testes**: Documentação dos casos de teste
+
+### Limpando a Documentação
+Para remover os arquivos de documentação gerados:
+
+```bash
+make clean-docs
+```
+
+Para limpar tudo (compilação + documentação):
+
+```bash
+make clean-all
+```
 
 ## Cartões CRC
 ![image](https://github.com/user-attachments/assets/2a512a95-cff4-4781-8a84-7f81776086c7)

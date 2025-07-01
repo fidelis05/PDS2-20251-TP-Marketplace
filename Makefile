@@ -27,5 +27,20 @@ $(BIN)/$(EXECUTABLE): $(SRC)/*.cpp
 $(BIN)/$(TEST_EXECUTABLE): $(TESTS)/test_all.cpp $(SRC)/Admin.cpp $(SRC)/Carrinho.cpp $(SRC)/Correios.cpp $(SRC)/Interface.cpp $(SRC)/Pedido.cpp $(SRC)/Produto.cpp $(SRC)/Usuario.cpp
 	$(CXX) $(CXX_FLAGS) -I$(INCLUDE) -L$(LIB) $^ -o $@ $(LIBRARIES)
 
+# Generate documentation with Doxygen
+docs:
+	@echo "Generating documentation with Doxygen..."
+	/usr/bin/doxygen Doxyfile
+	@echo "Documentation generated in docs/html/index.html"
+
+# Clean documentation
+clean-docs:
+	-rm -rf docs/
+
 clean:
 	-rm -rf $(BIN)/*
+
+# Clean everything including documentation
+clean-all: clean clean-docs
+
+.PHONY: all run test clean docs clean-docs clean-all

@@ -1,0 +1,94 @@
+\doxysection{Interface.\+hpp}
+\hypertarget{Interface_8hpp_source}{}\label{Interface_8hpp_source}\index{include/Interface.hpp@{include/Interface.hpp}}
+\mbox{\hyperlink{Interface_8hpp}{Ir para a documentação deste ficheiro.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{Interface_8hpp_source_l00001}00001\ \textcolor{preprocessor}{\#ifndef\ INTERFACE\_HPP}}
+\DoxyCodeLine{\Hypertarget{Interface_8hpp_source_l00002}00002\ \textcolor{preprocessor}{\#define\ INTERFACE\_HPP}}
+\DoxyCodeLine{\Hypertarget{Interface_8hpp_source_l00003}00003\ }
+\DoxyCodeLine{\Hypertarget{Interface_8hpp_source_l00004}00004\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{Usuario_8hpp}{Usuario.hpp}}"{}}}
+\DoxyCodeLine{\Hypertarget{Interface_8hpp_source_l00005}00005\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{Admin_8hpp}{Admin.hpp}}"{}}}
+\DoxyCodeLine{\Hypertarget{Interface_8hpp_source_l00006}00006\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{Correios_8hpp}{Correios.hpp}}"{}}}
+\DoxyCodeLine{\Hypertarget{Interface_8hpp_source_l00007}00007\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{Produto_8hpp}{Produto.hpp}}"{}}}
+\DoxyCodeLine{\Hypertarget{Interface_8hpp_source_l00008}00008\ \textcolor{preprocessor}{\#include\ <ncurses.h>}}
+\DoxyCodeLine{\Hypertarget{Interface_8hpp_source_l00009}00009\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{\Hypertarget{Interface_8hpp_source_l00010}00010\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{\Hypertarget{Interface_8hpp_source_l00011}00011\ \textcolor{preprocessor}{\#include\ <algorithm>}}
+\DoxyCodeLine{\Hypertarget{Interface_8hpp_source_l00012}00012\ }
+\DoxyCodeLine{\Hypertarget{Interface_8hpp_source_l00013}\mbox{\hyperlink{classInterface}{00013}}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classInterface}{Interface}}}
+\DoxyCodeLine{\Hypertarget{Interface_8hpp_source_l00014}00014\ \{}
+\DoxyCodeLine{\Hypertarget{Interface_8hpp_source_l00015}00015\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{Interface_8hpp_source_l00016}\mbox{\hyperlink{classInterface_a6d2f4c8813b37cf77a038c49069a7ad7}{00016}}\ \ \ \mbox{\hyperlink{classUsuario}{Usuario}}\ \mbox{\hyperlink{classInterface_a6d2f4c8813b37cf77a038c49069a7ad7}{usuarioLogado}};}
+\DoxyCodeLine{\Hypertarget{Interface_8hpp_source_l00017}\mbox{\hyperlink{classInterface_adf9a73252df9082ec3ef1a1efd24eb43}{00017}}\ \ \ \mbox{\hyperlink{classAdmin}{Admin}}\ \mbox{\hyperlink{classInterface_adf9a73252df9082ec3ef1a1efd24eb43}{admin}};}
+\DoxyCodeLine{\Hypertarget{Interface_8hpp_source_l00018}\mbox{\hyperlink{classInterface_a863b8f19068e72159f01682e193b6c72}{00018}}\ \ \ \mbox{\hyperlink{classCorreios}{Correios}}\ \mbox{\hyperlink{classInterface_a863b8f19068e72159f01682e193b6c72}{correios}};}
+\DoxyCodeLine{\Hypertarget{Interface_8hpp_source_l00019}\mbox{\hyperlink{classInterface_a01d0ec7adbad56865c29e2f8134b48b6}{00019}}\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classInterface_a01d0ec7adbad56865c29e2f8134b48b6}{isLoggedIn}};}
+\DoxyCodeLine{\Hypertarget{Interface_8hpp_source_l00020}\mbox{\hyperlink{classInterface_afa447e161b1c38c1d88482b43a5ee392}{00020}}\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classInterface_afa447e161b1c38c1d88482b43a5ee392}{isAdmin}};}
+\DoxyCodeLine{\Hypertarget{Interface_8hpp_source_l00021}\mbox{\hyperlink{classInterface_a59a68ff87744c0bc930f86f6fdfe5b49}{00021}}\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classInterface_a59a68ff87744c0bc930f86f6fdfe5b49}{isCorreios}};}
+\DoxyCodeLine{\Hypertarget{Interface_8hpp_source_l00022}00022\ }
+\DoxyCodeLine{\Hypertarget{Interface_8hpp_source_l00023}00023\ \ \ \textcolor{comment}{//\ Tiling\ window\ state}}
+\DoxyCodeLine{\Hypertarget{Interface_8hpp_source_l00024}\mbox{\hyperlink{classInterface_a393cc738c7c8d048ad3a87b3738755c6}{00024}}\ \ \ std::vector<Produto>\ \mbox{\hyperlink{classInterface_a393cc738c7c8d048ad3a87b3738755c6}{allProducts}};}
+\DoxyCodeLine{\Hypertarget{Interface_8hpp_source_l00025}\mbox{\hyperlink{classInterface_aab095054031522bb54b058b5769e32ff}{00025}}\ \ \ std::vector<Produto>\ \mbox{\hyperlink{classInterface_aab095054031522bb54b058b5769e32ff}{displayedProducts}};}
+\DoxyCodeLine{\Hypertarget{Interface_8hpp_source_l00026}\mbox{\hyperlink{classInterface_aeceaac6448d3f66dd3aabe418715e3d8}{00026}}\ \ \ std::string\ \mbox{\hyperlink{classInterface_aeceaac6448d3f66dd3aabe418715e3d8}{searchTerm}};}
+\DoxyCodeLine{\Hypertarget{Interface_8hpp_source_l00027}\mbox{\hyperlink{classInterface_a74c526a025c9654eea9e6dfce55c40da}{00027}}\ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classInterface_a74c526a025c9654eea9e6dfce55c40da}{highlight}};}
+\DoxyCodeLine{\Hypertarget{Interface_8hpp_source_l00028}\mbox{\hyperlink{classInterface_a335abb0885f2552527d83959019ae374}{00028}}\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classInterface_a335abb0885f2552527d83959019ae374}{searching}};}
+\DoxyCodeLine{\Hypertarget{Interface_8hpp_source_l00029}00029\ }
+\DoxyCodeLine{\Hypertarget{Interface_8hpp_source_l00030}00030\ \ \ \textcolor{comment}{//\ NCurses\ helper\ methods}}
+\DoxyCodeLine{\Hypertarget{Interface_8hpp_source_l00031}00031\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classInterface_afef83c17525d7c00591872e82055ae34}{inicializarNCurses}}();}
+\DoxyCodeLine{\Hypertarget{Interface_8hpp_source_l00032}00032\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classInterface_aa229db040adc393e0b28041ee6202335}{finalizarNCurses}}();}
+\DoxyCodeLine{\Hypertarget{Interface_8hpp_source_l00033}00033\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classInterface_a6d307f0d71292cc07943b7cf101112ba}{desenharTitulo}}(WINDOW\ *win,\ \textcolor{keyword}{const}\ std::string\ \&titulo);}
+\DoxyCodeLine{\Hypertarget{Interface_8hpp_source_l00034}00034\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classInterface_aa4d20de06829d104ad584fc57b73ba45}{desenharMoldura}}(WINDOW\ *win);}
+\DoxyCodeLine{\Hypertarget{Interface_8hpp_source_l00035}00035\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classInterface_a35f8d3db94a9d69bbf77c8261bda487f}{mostrarMensagem}}(\textcolor{keyword}{const}\ std::string\ \&mensagem);}
+\DoxyCodeLine{\Hypertarget{Interface_8hpp_source_l00036}00036\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classInterface_ae7a292b03f33696e846585f58a80c845}{esperarTecla}}();}
+\DoxyCodeLine{\Hypertarget{Interface_8hpp_source_l00037}00037\ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classInterface_a0a880082d55f23c7e0c22b4cafe5d1ff}{obterOpcaoMenu}}(WINDOW\ *win,\ \textcolor{keywordtype}{int}\ numOpcoes);}
+\DoxyCodeLine{\Hypertarget{Interface_8hpp_source_l00038}00038\ \ \ std::string\ \mbox{\hyperlink{classInterface_a7bb6966dc49614f73b08866bda024d94}{obterInput}}(WINDOW\ *win,\ \textcolor{keywordtype}{int}\ y,\ \textcolor{keywordtype}{int}\ x,\ \textcolor{keyword}{const}\ std::string\ \&prompt,\ \textcolor{keywordtype}{bool}\ senha\ =\ \textcolor{keyword}{false});}
+\DoxyCodeLine{\Hypertarget{Interface_8hpp_source_l00039}00039\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classInterface_a842783e8d720d295c6f9f03914bdebf4}{limparTela}}();}
+\DoxyCodeLine{\Hypertarget{Interface_8hpp_source_l00040}00040\ }
+\DoxyCodeLine{\Hypertarget{Interface_8hpp_source_l00041}00041\ \ \ \textcolor{comment}{//\ Tiling\ window\ methods}}
+\DoxyCodeLine{\Hypertarget{Interface_8hpp_source_l00042}00042\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classInterface_aec131bbaa3fa8c476cd1ce0923e64c74}{carregarProdutos}}();}
+\DoxyCodeLine{\Hypertarget{Interface_8hpp_source_l00043}00043\ \ \ std::vector<Produto>\ \mbox{\hyperlink{classInterface_a6f288451b022968398175aa14956812b}{filtrarProdutos}}(\textcolor{keyword}{const}\ std::vector<Produto>\ \&produtos,\ \textcolor{keyword}{const}\ std::string\ \&termo);}
+\DoxyCodeLine{\Hypertarget{Interface_8hpp_source_l00044}00044\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classInterface_a178fedfeaa74f93135288b4656724a78}{desenharPerfilInfo}}(WINDOW\ *win,\ \textcolor{keyword}{const}\ std::string\ \&userName,\ \textcolor{keyword}{const}\ std::string\ \&userEmail,\ \textcolor{keywordtype}{int}\ pedidosCount);}
+\DoxyCodeLine{\Hypertarget{Interface_8hpp_source_l00045}00045\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classInterface_aff5d8d9e6d1f96d88427d4df97e9e9e5}{desenharListaProdutos}}(WINDOW\ *win);}
+\DoxyCodeLine{\Hypertarget{Interface_8hpp_source_l00046}00046\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classInterface_af774046aec7017e4cd72c3cb6219e822}{desenharDetalhesProduto}}(WINDOW\ *win,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classProduto}{Produto}}\ \&produto);}
+\DoxyCodeLine{\Hypertarget{Interface_8hpp_source_l00047}00047\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classInterface_a70f6750bad26139b9e3664301384d143}{mostrarInterfaceTiling}}();}
+\DoxyCodeLine{\Hypertarget{Interface_8hpp_source_l00048}00048\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classInterface_a1ab681b2e0fc57af9b31717783855627}{mostrarDetalhesView}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classProduto}{Produto}}\ \&produto);}
+\DoxyCodeLine{\Hypertarget{Interface_8hpp_source_l00049}00049\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classInterface_a8d1f0e77b349ee84cf492bab17c07c37}{mostrarTelaLogin}}();}
+\DoxyCodeLine{\Hypertarget{Interface_8hpp_source_l00050}00050\ }
+\DoxyCodeLine{\Hypertarget{Interface_8hpp_source_l00051}00051\ \ \ \textcolor{comment}{//\ Admin\ window\ management\ methods}}
+\DoxyCodeLine{\Hypertarget{Interface_8hpp_source_l00052}00052\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classInterface_aaf6a2a3f00eb10b122c891b0b413faf0}{mostrarJanelaListaUsuarios}}();}
+\DoxyCodeLine{\Hypertarget{Interface_8hpp_source_l00053}\mbox{\hyperlink{classInterface_a8f1c497c1555e36760f95eab8d274ab1}{00053}}\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classInterface_a8f1c497c1555e36760f95eab8d274ab1}{mostrarJanelaFiltrarUsuarios}}();}
+\DoxyCodeLine{\Hypertarget{Interface_8hpp_source_l00054}00054\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classInterface_a34e63bd921e313926ad85f553ada3fcc}{mostrarJanelaCadastrarUsuario}}();}
+\DoxyCodeLine{\Hypertarget{Interface_8hpp_source_l00055}00055\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classInterface_aee765280479b723734f51c690795aaf4}{mostrarJanelaListaProdutos}}();}
+\DoxyCodeLine{\Hypertarget{Interface_8hpp_source_l00056}\mbox{\hyperlink{classInterface_ae1d2608c8a41ff977badc351382371d9}{00056}}\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classInterface_ae1d2608c8a41ff977badc351382371d9}{mostrarJanelaFiltrarProdutos}}();}
+\DoxyCodeLine{\Hypertarget{Interface_8hpp_source_l00057}00057\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classInterface_a29994bf5d987b1c49837538a5fc48a61}{mostrarJanelaListaPedidos}}();}
+\DoxyCodeLine{\Hypertarget{Interface_8hpp_source_l00058}00058\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classInterface_a88c23bb6a6081f63b635836a49e16083}{mostrarJanelaResumoEstatistico}}();}
+\DoxyCodeLine{\Hypertarget{Interface_8hpp_source_l00059}00059\ }
+\DoxyCodeLine{\Hypertarget{Interface_8hpp_source_l00060}00060\ \ \ \textcolor{comment}{//\ Correios\ window\ management\ methods}}
+\DoxyCodeLine{\Hypertarget{Interface_8hpp_source_l00061}00061\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classInterface_a1f9a554e97b2fefaf774b4311fc500ec}{mostrarJanelaConsultarPedido}}();}
+\DoxyCodeLine{\Hypertarget{Interface_8hpp_source_l00062}00062\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classInterface_a2332b2ab68cbdae039cc465a4eec6fef}{mostrarJanelaListarEntregas}}();}
+\DoxyCodeLine{\Hypertarget{Interface_8hpp_source_l00063}00063\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classInterface_a263d7668bf877306f1f0d4eef5e78bfe}{mostrarJanelaConfirmarEntrega}}();}
+\DoxyCodeLine{\Hypertarget{Interface_8hpp_source_l00064}00064\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classInterface_a9ea40b4b50774a2fe0f258b92473c3e3}{mostrarJanelaReportarProblema}}();}
+\DoxyCodeLine{\Hypertarget{Interface_8hpp_source_l00065}00065\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classInterface_a14d2e45522b654664c8abe1388801b57}{mostrarJanelaAtualizarStatus}}();}
+\DoxyCodeLine{\Hypertarget{Interface_8hpp_source_l00066}00066\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classInterface_a292ef404be7397ee8080dc50413e4387}{mostrarJanelaCodigoRastreio}}();}
+\DoxyCodeLine{\Hypertarget{Interface_8hpp_source_l00067}00067\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classInterface_a379a7a9e8887c7e963e5afdd2db70232}{mostrarJanelaAlterarSenha}}();}
+\DoxyCodeLine{\Hypertarget{Interface_8hpp_source_l00068}00068\ }
+\DoxyCodeLine{\Hypertarget{Interface_8hpp_source_l00069}00069\ \ \ \textcolor{comment}{//\ User\ function\ windows}}
+\DoxyCodeLine{\Hypertarget{Interface_8hpp_source_l00070}00070\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classInterface_ae81997d67e97380f31ad53be3fba7d92}{mostrarJanelaCarrinho}}();}
+\DoxyCodeLine{\Hypertarget{Interface_8hpp_source_l00071}00071\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classInterface_add991e71e347568a075f3529300892d4}{mostrarJanelaPedidos}}();}
+\DoxyCodeLine{\Hypertarget{Interface_8hpp_source_l00072}00072\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classInterface_ad3c3a1ad2d656a90b573932842c5582d}{mostrarJanelaEditarPerfil}}();}
+\DoxyCodeLine{\Hypertarget{Interface_8hpp_source_l00073}00073\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classInterface_a05213280ecb7387adff7b8ce5a59126e}{mostrarJanelaNovoProduto}}();}
+\DoxyCodeLine{\Hypertarget{Interface_8hpp_source_l00074}00074\ }
+\DoxyCodeLine{\Hypertarget{Interface_8hpp_source_l00075}00075\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{Interface_8hpp_source_l00076}00076\ \ \ \mbox{\hyperlink{classInterface_a4406d74c75bdfe150bf72be1f1cda8b1}{Interface}}();}
+\DoxyCodeLine{\Hypertarget{Interface_8hpp_source_l00077}00077\ \ \ \mbox{\hyperlink{classInterface_a19179888f29f18f1be54a3dfe98f68c0}{\string~Interface}}();}
+\DoxyCodeLine{\Hypertarget{Interface_8hpp_source_l00078}00078\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classInterface_ab7f7ff1fe4533625b20e010b051eb4b8}{mostrarMenuPrincipal}}();}
+\DoxyCodeLine{\Hypertarget{Interface_8hpp_source_l00079}00079\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classInterface_a23a7634f3b3716757fd94d92d52d0c35}{mostrarMenuUsuario}}();}
+\DoxyCodeLine{\Hypertarget{Interface_8hpp_source_l00080}00080\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classInterface_ab2d745b1e5d4c775bba018b25b390598}{mostrarMenuAdmin}}();}
+\DoxyCodeLine{\Hypertarget{Interface_8hpp_source_l00081}00081\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classInterface_ab11d44e932adc44006801ccefeb5b008}{mostrarMenuCorreios}}();}
+\DoxyCodeLine{\Hypertarget{Interface_8hpp_source_l00082}00082\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classInterface_a696747b5900da0c082be89db951dfd50}{executarLogin}}();}
+\DoxyCodeLine{\Hypertarget{Interface_8hpp_source_l00083}00083\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classInterface_aa3514845e0be9080b09a983450ddb321}{executarLoginCorreios}}();}
+\DoxyCodeLine{\Hypertarget{Interface_8hpp_source_l00084}00084\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classInterface_a9f212c7484c1821b9ce460e760dd2e65}{executarCadastro}}();}
+\DoxyCodeLine{\Hypertarget{Interface_8hpp_source_l00085}00085\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classInterface_aa1cd361cb4782338799c98cba8f5ad53}{executar}}();}
+\DoxyCodeLine{\Hypertarget{Interface_8hpp_source_l00086}00086\ \};}
+\DoxyCodeLine{\Hypertarget{Interface_8hpp_source_l00087}00087\ }
+\DoxyCodeLine{\Hypertarget{Interface_8hpp_source_l00088}00088\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

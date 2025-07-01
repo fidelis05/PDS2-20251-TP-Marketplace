@@ -1,0 +1,68 @@
+\doxysection{Correios.\+hpp}
+\hypertarget{Correios_8hpp_source}{}\label{Correios_8hpp_source}\index{include/Correios.hpp@{include/Correios.hpp}}
+\mbox{\hyperlink{Correios_8hpp}{Ir para a documentação deste ficheiro.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{Correios_8hpp_source_l00001}00001\ \textcolor{preprocessor}{\#ifndef\ CORREIOS\_HPP}}
+\DoxyCodeLine{\Hypertarget{Correios_8hpp_source_l00002}00002\ \textcolor{preprocessor}{\#define\ CORREIOS\_HPP}}
+\DoxyCodeLine{\Hypertarget{Correios_8hpp_source_l00003}00003\ }
+\DoxyCodeLine{\Hypertarget{Correios_8hpp_source_l00004}00004\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{Pedido_8hpp}{Pedido.hpp}}"{}}}
+\DoxyCodeLine{\Hypertarget{Correios_8hpp_source_l00005}00005\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{\Hypertarget{Correios_8hpp_source_l00006}00006\ \textcolor{preprocessor}{\#include\ <fstream>}}
+\DoxyCodeLine{\Hypertarget{Correios_8hpp_source_l00007}00007\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{\Hypertarget{Correios_8hpp_source_l00008}00008\ \textcolor{preprocessor}{\#include\ <ctime>}}
+\DoxyCodeLine{\Hypertarget{Correios_8hpp_source_l00009}00009\ }
+\DoxyCodeLine{\Hypertarget{Correios_8hpp_source_l00010}\mbox{\hyperlink{classCorreios}{00010}}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classCorreios}{Correios}}\ :\ \textcolor{keyword}{private}\ \mbox{\hyperlink{classPedido}{Pedido}}}
+\DoxyCodeLine{\Hypertarget{Correios_8hpp_source_l00011}00011\ \{}
+\DoxyCodeLine{\Hypertarget{Correios_8hpp_source_l00012}00012\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{Correios_8hpp_source_l00013}\mbox{\hyperlink{classCorreios_ab2e76640a0dcc9c78161dedd23009083}{00013}}\ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classCorreios_ab2e76640a0dcc9c78161dedd23009083}{idCorreios}};}
+\DoxyCodeLine{\Hypertarget{Correios_8hpp_source_l00014}\mbox{\hyperlink{classCorreios_a17350c88d10f3ff7c37ee639d64d3337}{00014}}\ \ \ std::string\ \mbox{\hyperlink{classCorreios_a17350c88d10f3ff7c37ee639d64d3337}{usuarioCorreios}};}
+\DoxyCodeLine{\Hypertarget{Correios_8hpp_source_l00015}\mbox{\hyperlink{classCorreios_a55a755a0e3e612a20626b8f2f4ad19c2}{00015}}\ \ \ std::string\ \mbox{\hyperlink{classCorreios_a55a755a0e3e612a20626b8f2f4ad19c2}{senhaCorreios}};}
+\DoxyCodeLine{\Hypertarget{Correios_8hpp_source_l00016}\mbox{\hyperlink{classCorreios_a816dc54b888c305c327da2cf6e362858}{00016}}\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classCorreios_a816dc54b888c305c327da2cf6e362858}{isLoggedIn}};}
+\DoxyCodeLine{\Hypertarget{Correios_8hpp_source_l00017}\mbox{\hyperlink{classCorreios_a140c88ec9d98de41e914e69fa41e9c7d}{00017}}\ \ \ std::time\_t\ \mbox{\hyperlink{classCorreios_a140c88ec9d98de41e914e69fa41e9c7d}{lastLoginTime}};}
+\DoxyCodeLine{\Hypertarget{Correios_8hpp_source_l00018}\mbox{\hyperlink{classCorreios_a8116bcf83106cdcfd763587ff2741f80}{00018}}\ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classCorreios_a8116bcf83106cdcfd763587ff2741f80}{tentativasLogin}};}
+\DoxyCodeLine{\Hypertarget{Correios_8hpp_source_l00019}\mbox{\hyperlink{classCorreios_aca5bef64c508b21a52e030282d19c3e8}{00019}}\ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classCorreios_aca5bef64c508b21a52e030282d19c3e8}{MAX\_TENTATIVAS}}\ =\ 3;}
+\DoxyCodeLine{\Hypertarget{Correios_8hpp_source_l00020}\mbox{\hyperlink{classCorreios_a3760782ceb150f530e797db93f8a6d33}{00020}}\ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ std::time\_t\ \mbox{\hyperlink{classCorreios_a3760782ceb150f530e797db93f8a6d33}{BLOQUEIO\_TEMPO}}\ =\ 300;\ \textcolor{comment}{//\ 5\ minutes\ in\ seconds}}
+\DoxyCodeLine{\Hypertarget{Correios_8hpp_source_l00021}00021\ }
+\DoxyCodeLine{\Hypertarget{Correios_8hpp_source_l00022}00022\ \ \ \textcolor{comment}{//\ Authentication\ helper\ methods}}
+\DoxyCodeLine{\Hypertarget{Correios_8hpp_source_l00023}00023\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classCorreios_a8fc025e745c35e5af3218cbac0b11114}{verificarCredenciais}}(\textcolor{keyword}{const}\ std::string\ \&usuario,\ \textcolor{keyword}{const}\ std::string\ \&senha);}
+\DoxyCodeLine{\Hypertarget{Correios_8hpp_source_l00024}00024\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classCorreios_a6f8fc7e3c7fdb32a9dbfde8d91113b31}{verificarBloqueio}}();}
+\DoxyCodeLine{\Hypertarget{Correios_8hpp_source_l00025}00025\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classCorreios_abb05f08e5259b68778b38c2aaa842a60}{registrarTentativaLogin}}(\textcolor{keywordtype}{bool}\ sucesso);}
+\DoxyCodeLine{\Hypertarget{Correios_8hpp_source_l00026}00026\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classCorreios_accae0991ae689a74466d07dcbfab6685}{salvarLog}}(\textcolor{keyword}{const}\ std::string\ \&acao,\ \textcolor{keyword}{const}\ std::string\ \&detalhes\ =\ \textcolor{stringliteral}{"{}"{}});}
+\DoxyCodeLine{\Hypertarget{Correios_8hpp_source_l00027}00027\ }
+\DoxyCodeLine{\Hypertarget{Correios_8hpp_source_l00028}00028\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{Correios_8hpp_source_l00029}00029\ \ \ \textcolor{comment}{//\ Constructors}}
+\DoxyCodeLine{\Hypertarget{Correios_8hpp_source_l00030}00030\ \ \ \mbox{\hyperlink{classCorreios_a4ee15e100d85c95b06167abc99ed1be3}{Correios}}();}
+\DoxyCodeLine{\Hypertarget{Correios_8hpp_source_l00031}00031\ \ \ \mbox{\hyperlink{classCorreios_a4ee15e100d85c95b06167abc99ed1be3}{Correios}}(\textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ \textcolor{keywordtype}{id},\ \textcolor{keyword}{const}\ std::string\ \&usuario,\ \textcolor{keyword}{const}\ std::string\ \&senha);}
+\DoxyCodeLine{\Hypertarget{Correios_8hpp_source_l00032}00032\ }
+\DoxyCodeLine{\Hypertarget{Correios_8hpp_source_l00033}00033\ \ \ \textcolor{comment}{//\ Authentication\ methods}}
+\DoxyCodeLine{\Hypertarget{Correios_8hpp_source_l00034}00034\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classCorreios_ac5691368ad6ba3fb4a09beb69cea0738}{login}}(\textcolor{keyword}{const}\ std::string\ \&usuario,\ \textcolor{keyword}{const}\ std::string\ \&senha);}
+\DoxyCodeLine{\Hypertarget{Correios_8hpp_source_l00035}00035\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classCorreios_a7253ad16c320b11c55833c27afdaac45}{logout}}();}
+\DoxyCodeLine{\Hypertarget{Correios_8hpp_source_l00036}00036\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classCorreios_a6eda7f9d2609703e3b5b8118069d19e2}{isAuthenticated}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{\Hypertarget{Correios_8hpp_source_l00037}00037\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classCorreios_ab8bc7f6f1b32aa27bc342a3a38fa7d15}{alterarSenha}}(\textcolor{keyword}{const}\ std::string\ \&senhaAtual,\ \textcolor{keyword}{const}\ std::string\ \&novaSenha);}
+\DoxyCodeLine{\Hypertarget{Correios_8hpp_source_l00038}00038\ }
+\DoxyCodeLine{\Hypertarget{Correios_8hpp_source_l00039}00039\ \ \ \textcolor{comment}{//\ Existing\ methods\ (now\ require\ authentication)}}
+\DoxyCodeLine{\Hypertarget{Correios_8hpp_source_l00040}00040\ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classCorreios_ad186b9333790493c29890a953d36e7ee}{setStatus}}(\textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ n);}
+\DoxyCodeLine{\Hypertarget{Correios_8hpp_source_l00041}00041\ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classCorreios_abc2b7c02db958228a1760c7969add2b5}{setcodigoRastreio}}(\textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ x);}
+\DoxyCodeLine{\Hypertarget{Correios_8hpp_source_l00042}00042\ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classCorreios_ac7a61d6ccbfd178251af05c9135b33d8}{getLista}}();}
+\DoxyCodeLine{\Hypertarget{Correios_8hpp_source_l00043}00043\ }
+\DoxyCodeLine{\Hypertarget{Correios_8hpp_source_l00044}\mbox{\hyperlink{structCorreios_1_1InfoPedido}{00044}}\ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structCorreios_1_1InfoPedido}{InfoPedido}}}
+\DoxyCodeLine{\Hypertarget{Correios_8hpp_source_l00045}00045\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{Correios_8hpp_source_l00046}\mbox{\hyperlink{structCorreios_1_1InfoPedido_aa96b6276c454a236157856e1f383c9ae}{00046}}\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structCorreios_1_1InfoPedido_aa96b6276c454a236157856e1f383c9ae}{id}};}
+\DoxyCodeLine{\Hypertarget{Correios_8hpp_source_l00047}\mbox{\hyperlink{structCorreios_1_1InfoPedido_ae7abd1a86a7886725cf052fe2236a216}{00047}}\ \ \ \ \ std::string\ \mbox{\hyperlink{structCorreios_1_1InfoPedido_ae7abd1a86a7886725cf052fe2236a216}{status}};}
+\DoxyCodeLine{\Hypertarget{Correios_8hpp_source_l00048}\mbox{\hyperlink{structCorreios_1_1InfoPedido_a4e13179bd0cfcb23a3e1591e34cf5cc6}{00048}}\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structCorreios_1_1InfoPedido_a4e13179bd0cfcb23a3e1591e34cf5cc6}{codigoRastreio}};}
+\DoxyCodeLine{\Hypertarget{Correios_8hpp_source_l00049}\mbox{\hyperlink{structCorreios_1_1InfoPedido_a55702a10c6f9a55c616003ac6cc67198}{00049}}\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{structCorreios_1_1InfoPedido_a55702a10c6f9a55c616003ac6cc67198}{encontrado}};}
+\DoxyCodeLine{\Hypertarget{Correios_8hpp_source_l00050}00050\ \ \ \};}
+\DoxyCodeLine{\Hypertarget{Correios_8hpp_source_l00051}00051\ \ \ \mbox{\hyperlink{structCorreios_1_1InfoPedido}{InfoPedido}}\ \mbox{\hyperlink{classCorreios_a24ac38030a98a10a802889060de01231}{consultarPedido}}(\textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ idPedido);}
+\DoxyCodeLine{\Hypertarget{Correios_8hpp_source_l00052}00052\ \ \ std::vector<std::string>\ \mbox{\hyperlink{classCorreios_ad4c4f3d3a4293f7e94c822ea908fcc58}{obterPedidosParaEntrega}}();}
+\DoxyCodeLine{\Hypertarget{Correios_8hpp_source_l00053}00053\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classCorreios_af563544fc7d9dc11e9a25bbdee350fb6}{confirmarEntrega}}(\textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ idPedido);}
+\DoxyCodeLine{\Hypertarget{Correios_8hpp_source_l00054}00054\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classCorreios_ac6994979c50c7ef674dfd6828f51a391}{reportarProblemaEntrega}}(\textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ idPedido,\ \textcolor{keyword}{const}\ std::string\ \&problema);}
+\DoxyCodeLine{\Hypertarget{Correios_8hpp_source_l00055}00055\ }
+\DoxyCodeLine{\Hypertarget{Correios_8hpp_source_l00056}00056\ \ \ \textcolor{comment}{//\ Getters}}
+\DoxyCodeLine{\Hypertarget{Correios_8hpp_source_l00057}\mbox{\hyperlink{classCorreios_ac83ae6750d442c1e7ec8edc407a59c27}{00057}}\ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classCorreios_ac83ae6750d442c1e7ec8edc407a59c27}{getId}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classCorreios_ab2e76640a0dcc9c78161dedd23009083}{idCorreios}};\ \}}
+\DoxyCodeLine{\Hypertarget{Correios_8hpp_source_l00058}\mbox{\hyperlink{classCorreios_ac835dce1665bbc8e44a2b846d457935f}{00058}}\ \ \ std::string\ \mbox{\hyperlink{classCorreios_ac835dce1665bbc8e44a2b846d457935f}{getUsuario}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classCorreios_a17350c88d10f3ff7c37ee639d64d3337}{usuarioCorreios}};\ \}}
+\DoxyCodeLine{\Hypertarget{Correios_8hpp_source_l00059}\mbox{\hyperlink{classCorreios_a0d0e389acb13d2f9cda80819114a261e}{00059}}\ \ \ std::time\_t\ \mbox{\hyperlink{classCorreios_a0d0e389acb13d2f9cda80819114a261e}{getLastLoginTime}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classCorreios_a140c88ec9d98de41e914e69fa41e9c7d}{lastLoginTime}};\ \}}
+\DoxyCodeLine{\Hypertarget{Correios_8hpp_source_l00060}00060\ \};}
+\DoxyCodeLine{\Hypertarget{Correios_8hpp_source_l00061}00061\ }
+\DoxyCodeLine{\Hypertarget{Correios_8hpp_source_l00062}00062\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

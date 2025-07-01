@@ -22,10 +22,7 @@ void Produto::reduzirEstoque(unsigned int quantidade)
   {
     throw ProdutoException("Estoque insuficiente para reduzir a quantidade solicitada.");
   }
-  else
-  {
-    this->quantidade -= quantidade;
-  }
+  this->quantidade -= quantidade;
 }
 
 bool Produto::operator<(const Produto &other) const

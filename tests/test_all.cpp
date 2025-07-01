@@ -64,8 +64,8 @@ TEST_CASE("Produto class functionality")
   SUBCASE("Produto stock reduction - insufficient stock")
   {
     int initialStock = produto.quantidade;
-    produto.reduzirEstoque(1000);              // More than available
-    CHECK(produto.quantidade == initialStock); // Should remain unchanged
+    CHECK_THROWS(produto.reduzirEstoque(1000));
+    CHECK(produto.quantidade == initialStock);
   }
 
   SUBCASE("Produto comparison operator")
@@ -172,24 +172,22 @@ TEST_CASE("Admin class functionality")
 
   SUBCASE("Admin statistics")
   {
-    CHECK_NOTHROW(admin.verResumoEstatistico());
+    CHECK_NOTHROW(admin.obterResumoEstatistico());
   }
 
   SUBCASE("Admin user management")
   {
-    CHECK_NOTHROW(admin.verListaDeUsuarios());
-    CHECK_NOTHROW(admin.filtrarListaDeUsuarios());
+    CHECK_NOTHROW(admin.obterListaDeUsuarios());
   }
 
   SUBCASE("Admin product management")
   {
-    CHECK_NOTHROW(admin.verListaDeProdutos());
-    CHECK_NOTHROW(admin.filtrarListaDeProdutos());
+    CHECK_NOTHROW(admin.obterListaDeProdutos());
   }
 
   SUBCASE("Admin order management")
   {
-    CHECK_NOTHROW(admin.verListaDePedido());
+    CHECK_NOTHROW(admin.obterListaDePedidos());
   }
 }
 

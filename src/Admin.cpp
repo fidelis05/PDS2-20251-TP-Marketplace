@@ -27,46 +27,70 @@ std::vector<std::string> Admin::obterListaDeUsuarios()
   return usuarios;
 }
 
-std::vector<std::string> Admin::filtrarListaDeUsuarios(const std::string &filtro)
+void Admin::editarUsuario(const std::string &email, const std::string &novoNome, const std::string &novoTelefone, const std::string &novoEndereco)
 {
-  std::vector<std::string> usuarios;
   std::ifstream file("data/usuarios.txt");
+  std::vector<std::string> lines;
   std::string line;
+  bool encontrado = false;
 
   while (std::getline(file, line))
   {
     std::stringstream ss(line);
-    std::string email, senha, nome, telefone, cpf, endereco;
+    std::string fileEmail, senha, nome, telefone, cpf, endereco;
 
-    std::getline(ss, email, '|');
+    std::getline(ss, fileEmail, '|');
     std::getline(ss, senha, '|');
     std::getline(ss, nome, '|');
     std::getline(ss, telefone, '|');
     std::getline(ss, cpf, '|');
     std::getline(ss, endereco, '|');
 
-    if (nome.find(filtro) != std::string::npos)
+    if (fileEmail == email)
     {
-      usuarios.push_back("Nome: " + nome + " | Email: " + email + " | Telefone: " + telefone);
+      line = fileEmail + "|" + senha + "|" + novoNome + "|" + novoTelefone + "|" + cpf + "|" + novoEndereco;
+      encontrado = true;
+    }
+    lines.push_back(line);
+  }
+  file.close();
+
+  if (encontrado)
+  {
+    std::ofstream outFile("data/usuarios.txt");
+    for (const auto &l : lines)
+    {
+      outFile << l << std::endl;
+    }
+    outFile.close();
+  }
+}
+
+void Admin::deletarUsuario(const std::string &email)
+{
+  std::ifstream file("data/usuarios.txt");
+  std::vector<std::string> lines;
+  std::string line;
+
+  while (std::getline(file, line))
+  {
+    std::stringstream ss(line);
+    std::string fileEmail;
+    std::getline(ss, fileEmail, '|');
+
+    if (fileEmail != email)
+    {
+      lines.push_back(line);
     }
   }
   file.close();
-  return usuarios;
-}
 
-void Admin::editarUsuario(Usuario usuario)
-{
-  // Placeholder - functionality not fully implemented
-}
-
-void Admin::deletarUsuario(Usuario usuario)
-{
-  // Placeholder - functionality not fully implemented
-}
-
-void Admin::promoverUsuario(Usuario usuario)
-{
-  // Placeholder - functionality not fully implemented
+  std::ofstream outFile("data/usuarios.txt");
+  for (const auto &l : lines)
+  {
+    outFile << l << std::endl;
+  }
+  outFile.close();
 }
 
 void Admin::cadastrarUsuario(const std::string &nome, const std::string &email, const std::string &senha,
@@ -103,11 +127,13 @@ std::vector<std::string> Admin::obterListaDeProdutos()
   return produtos;
 }
 
-std::vector<std::string> Admin::filtrarListaDeProdutos(const std::string &filtro)
+void Admin::editarProduto(unsigned int idProduto, const std::string &novoNome, const std::string &novaMarca,
+                          double novoValor, const std::string &novaDescricao)
 {
-  std::vector<std::string> produtos;
   std::ifstream file("data/produtos.txt");
+  std::vector<std::string> lines;
   std::string line;
+  bool encontrado = false;
 
   while (std::getline(file, line))
   {
@@ -123,23 +149,52 @@ std::vector<std::string> Admin::filtrarListaDeProdutos(const std::string &filtro
     std::getline(ss, descricao, '|');
     std::getline(ss, endereco, '|');
 
-    if (nome.find(filtro) != std::string::npos)
+    if (std::stoi(id) == idProduto)
     {
-      produtos.push_back("ID: " + id + " | Nome: " + nome + " | Valor: R$" + valor);
+      line = id + "|" + novoNome + "|" + novaMarca + "|" + std::to_string(novoValor) + "|" +
+             avaliacao + "|" + quantidade + "|" + novaDescricao + "|" + endereco;
+      encontrado = true;
     }
+    lines.push_back(line);
   }
   file.close();
-  return produtos;
-}
 
-void Admin::editarProduto(Usuario usuario)
-{
-  // Placeholder - functionality not fully implemented
+  if (encontrado)
+  {
+    std::ofstream outFile("data/produtos.txt");
+    for (const auto &l : lines)
+    {
+      outFile << l << std::endl;
+    }
+    outFile.close();
+  }
 }
 
 void Admin::deletarProduto(unsigned int idProduto)
 {
-  // Placeholder - functionality not fully implemented
+  std::ifstream file("data/produtos.txt");
+  std::vector<std::string> lines;
+  std::string line;
+
+  while (std::getline(file, line))
+  {
+    std::stringstream ss(line);
+    std::string id;
+    std::getline(ss, id, '|');
+
+    if (std::stoi(id) != idProduto)
+    {
+      lines.push_back(line);
+    }
+  }
+  file.close();
+
+  std::ofstream outFile("data/produtos.txt");
+  for (const auto &l : lines)
+  {
+    outFile << l << std::endl;
+  }
+  outFile.close();
 }
 
 std::vector<std::string> Admin::obterListaDePedidos()
@@ -159,34 +214,112 @@ std::vector<std::string> Admin::obterListaDePedidos()
     }
   }
   catch (const std::exception &e)
-  {
-    // Return empty list if no orders found
-  }
+  {}
 
   return pedidos;
 }
 
-std::vector<std::string> Admin::filtrarListaDePedidos()
+void Admin::editarPedido(unsigned int idPedido, const std::string &novoStatus)
 {
-  // Placeholder - return empty for now
-  return std::vector<std::string>();
-}
+  try
+  {
+    auto pedidos = Pedido::lerTodosPedidos("data/pedidos.txt");
+    bool encontrado = false;
 
-void Admin::editarPedido(Usuario usuario)
-{
-  // Placeholder - functionality not fully implemented
+    for (auto &pedido : pedidos)
+    {
+      if (pedido.getId() == idPedido)
+      {
+        encontrado = true;
+        break;
+      }
+    }
+
+    if (encontrado)
+    {
+      std::ifstream file("data/pedidos.txt");
+      std::vector<std::string> lines;
+      std::string line;
+
+      if (std::getline(file, line))
+      {
+        lines.push_back(line);
+      }
+
+      while (std::getline(file, line))
+      {
+        std::stringstream ss(line);
+        std::string id, compradorId, vendedorId, status, codigoRastreio, dataCriacao, previsaoEntrega, dataEntrega, pagamento;
+
+        std::getline(ss, id, ',');
+        std::getline(ss, compradorId, ',');
+        std::getline(ss, vendedorId, ',');
+        std::getline(ss, status, ',');
+        std::getline(ss, codigoRastreio, ',');
+        std::getline(ss, dataCriacao, ',');
+        std::getline(ss, previsaoEntrega, ',');
+        std::getline(ss, dataEntrega, ',');
+        std::getline(ss, pagamento, ',');
+
+        if (std::stoi(id) == idPedido)
+        {
+          status = novoStatus;
+        }
+
+        line = id + "," + compradorId + "," + vendedorId + "," + status + "," +
+               codigoRastreio + "," + dataCriacao + "," + previsaoEntrega + "," + dataEntrega + "," + pagamento;
+        lines.push_back(line);
+      }
+      file.close();
+
+      std::ofstream outFile("data/pedidos.txt");
+      for (const auto &l : lines)
+      {
+        outFile << l << std::endl;
+      }
+      outFile.close();
+    }
+  }
+  catch (const std::exception &e)
+  {}
 }
 
 void Admin::deletarPedido(unsigned int idPedido)
 {
-  // Placeholder - functionality not fully implemented
+  std::ifstream file("data/pedidos.txt");
+  std::vector<std::string> lines;
+  std::string line;
+
+  if (std::getline(file, line))
+  {
+    lines.push_back(line);
+  }
+
+  while (std::getline(file, line))
+  {
+    std::stringstream ss(line);
+    std::string id;
+    std::getline(ss, id, ',');
+
+    if (std::stoi(id) != idPedido)
+    {
+      lines.push_back(line);
+    }
+  }
+  file.close();
+
+  std::ofstream outFile("data/pedidos.txt");
+  for (const auto &l : lines)
+  {
+    outFile << l << std::endl;
+  }
+  outFile.close();
 }
 
 Admin::EstatisticasResumo Admin::obterResumoEstatistico()
 {
   EstatisticasResumo resumo = {0, 0, 0};
 
-  // Count users
   std::ifstream userFile("data/usuarios.txt");
   std::string line;
   while (std::getline(userFile, line))
@@ -195,7 +328,6 @@ Admin::EstatisticasResumo Admin::obterResumoEstatistico()
   }
   userFile.close();
 
-  // Count products
   std::ifstream productFile("data/produtos.txt");
   while (std::getline(productFile, line))
   {
@@ -203,7 +335,6 @@ Admin::EstatisticasResumo Admin::obterResumoEstatistico()
   }
   productFile.close();
 
-  // Count orders
   try
   {
     auto pedidos = Pedido::lerTodosPedidos("data/pedidos.txt");

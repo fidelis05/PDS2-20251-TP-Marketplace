@@ -185,15 +185,11 @@ void Usuario::atualizarPerfil(const std::string &novoNome, const std::string &no
     this->email = novoEmail;
     this->telefone = novoTelefone;
     this->endereco = novoEndereco;
-
-    // Update in file (simplified implementation)
-    std::cout << "Perfil atualizado com sucesso!" << std::endl;
 }
 
 void Usuario::atualizarSenha(const std::string &novaSenha)
 {
     this->senha = novaSenha;
-    std::cout << "Senha atualizada com sucesso!" << std::endl;
 }
 
 bool Usuario::adicionarNovoProduto(const Produto &produto)

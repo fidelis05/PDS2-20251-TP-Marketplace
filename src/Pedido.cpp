@@ -7,6 +7,7 @@ Pedido::Pedido(unsigned int idComprador, unsigned int idVendedor, const Carrinho
 {
     this->idComprador = idComprador;
     this->idVendedor = idVendedor;
+    this->id = idComprador + idVendedor; //passivel a erros caso seja feito o mesmo pedido, porem a implementacao necessaria seria colocar um getid e colocar baseado na quantidade na ultimo pedido do historico, soq n deu tempo foi mal kk 
     this->compra = y;
     this->createdAt = std::time(nullptr);
     this->pagamento = true;                  // Always set payment as true

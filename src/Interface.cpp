@@ -294,7 +294,7 @@ void Interface::mostrarInterfaceTiling()
       if (c == 10) // Enter key - finish searching
       {
         searching = false;
-        if (highlight >= displayedProducts.size() && !displayedProducts.empty())
+        if (static_cast<size_t>(highlight) >= displayedProducts.size() && !displayedProducts.empty())
         {
           highlight = displayedProducts.size() - 1;
         }
@@ -346,7 +346,7 @@ void Interface::mostrarInterfaceTiling()
       case KEY_DOWN:
         if (!displayedProducts.empty())
         {
-          if (highlight == displayedProducts.size() - 1)
+          if (static_cast<size_t>(highlight) == displayedProducts.size() - 1)
           {
             highlight = 0;
           }
@@ -357,7 +357,7 @@ void Interface::mostrarInterfaceTiling()
         }
         break;
       case 10: // Enter key
-        if (!displayedProducts.empty() && highlight < displayedProducts.size())
+        if (!displayedProducts.empty() && static_cast<size_t>(highlight) < displayedProducts.size())
         {
           mostrarDetalhesView(displayedProducts[highlight]);
           touchwin(stdscr);
@@ -369,7 +369,7 @@ void Interface::mostrarInterfaceTiling()
         break;
       case 'a':
       case 'A':
-        if (!displayedProducts.empty() && highlight < displayedProducts.size())
+        if (!displayedProducts.empty() && static_cast<size_t>(highlight) < displayedProducts.size())
         {
           // Add to cart
           usuarioLogado.carrinho.inserir(displayedProducts[highlight], 1);
@@ -718,15 +718,13 @@ void Interface::mostrarMenuAdmin()
   desenharTitulo(menu_win, "MENU ADMINISTRADOR");
 
   mvwprintw(menu_win, 2, 2, "1. Listar Usuarios");
-  mvwprintw(menu_win, 3, 2, "2. Filtrar Usuarios");
-  mvwprintw(menu_win, 4, 2, "3. Cadastrar Usuario");
-  mvwprintw(menu_win, 5, 2, "4. Listar Produtos");
-  mvwprintw(menu_win, 6, 2, "5. Filtrar Produtos");
-  mvwprintw(menu_win, 7, 2, "6. Listar Pedidos");
-  mvwprintw(menu_win, 8, 2, "7. Resumo Estatistico");
-  mvwprintw(menu_win, 9, 2, "0. Logout");
+  mvwprintw(menu_win, 3, 2, "2. Cadastrar Usuario");
+  mvwprintw(menu_win, 4, 2, "3. Listar Produtos");
+  mvwprintw(menu_win, 5, 2, "4. Listar Pedidos");
+  mvwprintw(menu_win, 6, 2, "5. Resumo Estatistico");
+  mvwprintw(menu_win, 7, 2, "0. Logout");
 
-  mvwprintw(menu_win, 10, 2, "Escolha: ");
+  mvwprintw(menu_win, 8, 2, "Escolha: ");
   wrefresh(menu_win);
 
   int opcao = obterOpcaoMenu(menu_win, 7);
@@ -739,21 +737,15 @@ void Interface::mostrarMenuAdmin()
     mostrarJanelaListaUsuarios();
     break;
   case 2:
-    mostrarJanelaFiltrarUsuarios();
-    break;
-  case 3:
     mostrarJanelaCadastrarUsuario();
     break;
-  case 4:
+  case 3:
     mostrarJanelaListaProdutos();
     break;
-  case 5:
-    mostrarJanelaFiltrarProdutos();
-    break;
-  case 6:
+  case 4:
     mostrarJanelaListaPedidos();
     break;
-  case 7:
+  case 5:
     mostrarJanelaResumoEstatistico();
     break;
   case 0:
@@ -1153,52 +1145,9 @@ void Interface::mostrarJanelaListaUsuarios()
   desenharMoldura(win);
   desenharTitulo(win, "LISTA DE USUARIOS");
 
-  for (size_t i = 0; i < usuarios.size() && i < height - 4; ++i)
+  for (size_t i = 0; i < usuarios.size() && static_cast<int>(i) < height - 4; ++i)
   {
     mvwprintw(win, i + 2, 2, "%.*s", width - 4, usuarios[i].c_str());
-  }
-
-  mvwprintw(win, height - 2, 2, "Pressione qualquer tecla...");
-  wrefresh(win);
-  wgetch(win);
-  delwin(win);
-  clear();
-  refresh();
-}
-
-void Interface::mostrarJanelaFiltrarUsuarios()
-{
-  int height = 8;
-  int width = 50;
-  WINDOW *input_win = newwin(height, width, (LINES - height) / 2, (COLS - width) / 2);
-  keypad(input_win, TRUE);
-
-  desenharMoldura(input_win);
-  desenharTitulo(input_win, "FILTRAR USUARIOS");
-
-  std::string filtro = obterInput(input_win, 3, 2, "Filtrar por nome: ");
-  delwin(input_win);
-
-  auto usuarios = admin.filtrarListaDeUsuarios(filtro);
-
-  height = std::min(20, (int)usuarios.size() + 5);
-  width = 80;
-  WINDOW *win = newwin(height, width, (LINES - height) / 2, (COLS - width) / 2);
-  keypad(win, TRUE);
-
-  desenharMoldura(win);
-  desenharTitulo(win, "USUARIOS ENCONTRADOS");
-
-  if (usuarios.empty())
-  {
-    mvwprintw(win, 2, 2, "Nenhum usuario encontrado.");
-  }
-  else
-  {
-    for (size_t i = 0; i < usuarios.size() && i < height - 4; ++i)
-    {
-      mvwprintw(win, i + 2, 2, "%.*s", width - 4, usuarios[i].c_str());
-    }
   }
 
   mvwprintw(win, height - 2, 2, "Pressione qualquer tecla...");
@@ -1244,52 +1193,9 @@ void Interface::mostrarJanelaListaProdutos()
   desenharMoldura(win);
   desenharTitulo(win, "LISTA DE PRODUTOS");
 
-  for (size_t i = 0; i < produtos.size() && i < height - 4; ++i)
+  for (size_t i = 0; i < produtos.size() && static_cast<int>(i) < height - 4; ++i)
   {
     mvwprintw(win, i + 2, 2, "%.*s", width - 4, produtos[i].c_str());
-  }
-
-  mvwprintw(win, height - 2, 2, "Pressione qualquer tecla...");
-  wrefresh(win);
-  wgetch(win);
-  delwin(win);
-  clear();
-  refresh();
-}
-
-void Interface::mostrarJanelaFiltrarProdutos()
-{
-  int height = 8;
-  int width = 50;
-  WINDOW *input_win = newwin(height, width, (LINES - height) / 2, (COLS - width) / 2);
-  keypad(input_win, TRUE);
-
-  desenharMoldura(input_win);
-  desenharTitulo(input_win, "FILTRAR PRODUTOS");
-
-  std::string filtro = obterInput(input_win, 3, 2, "Filtrar por nome: ");
-  delwin(input_win);
-
-  auto produtos = admin.filtrarListaDeProdutos(filtro);
-
-  height = std::min(20, (int)produtos.size() + 5);
-  width = 80;
-  WINDOW *win = newwin(height, width, (LINES - height) / 2, (COLS - width) / 2);
-  keypad(win, TRUE);
-
-  desenharMoldura(win);
-  desenharTitulo(win, "PRODUTOS ENCONTRADOS");
-
-  if (produtos.empty())
-  {
-    mvwprintw(win, 2, 2, "Nenhum produto encontrado.");
-  }
-  else
-  {
-    for (size_t i = 0; i < produtos.size() && i < height - 4; ++i)
-    {
-      mvwprintw(win, i + 2, 2, "%.*s", width - 4, produtos[i].c_str());
-    }
   }
 
   mvwprintw(win, height - 2, 2, "Pressione qualquer tecla...");
@@ -1318,7 +1224,7 @@ void Interface::mostrarJanelaListaPedidos()
   }
   else
   {
-    for (size_t i = 0; i < pedidos.size() && i < height - 4; ++i)
+    for (size_t i = 0; i < pedidos.size() && static_cast<int>(i) < height - 4; ++i)
     {
       mvwprintw(win, i + 2, 2, "%.*s", width - 4, pedidos[i].c_str());
     }
@@ -1431,7 +1337,7 @@ void Interface::mostrarJanelaListarEntregas()
     }
     else
     {
-      for (size_t i = 0; i < pedidos.size() && i < height - 4; ++i)
+      for (size_t i = 0; i < pedidos.size() && static_cast<int>(i) < height - 4; ++i)
       {
         mvwprintw(win, i + 2, 2, "%.*s", width - 4, pedidos[i].c_str());
       }

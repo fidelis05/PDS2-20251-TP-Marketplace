@@ -1,6 +1,7 @@
 #include "Produto.hpp"
 #include <iostream>
 #include <string>
+#include "exceptions/MarketPlaceException.hpp"
 
 Produto::Produto(unsigned int id, const std::string &nome, const std::string &marca, double valor,
                  double avaliacao, unsigned int quantidade, const std::string &descricao, const std::string &endereco)
@@ -19,7 +20,7 @@ void Produto::reduzirEstoque(unsigned int quantidade)
 {
   if (quantidade > this->quantidade)
   {
-    throw std::runtime_error("Estoque insuficiente para reduzir a quantidade solicitada.");
+    throw ProdutoException("Estoque insuficiente para reduzir a quantidade solicitada.");
   }
   else
   {

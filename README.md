@@ -69,7 +69,7 @@ PDS2-20251-TP-Marketplace-main
     ├── test_pedido.cpp
     └── test_usuario.cpp*
 ```
-"$*$" são folders que apresentam dados referentes àpenas ao Doxygen
+'*' são folders que apresentam dados referentes àpenas ao Doxygen
 
 
 ## Cartões CRC

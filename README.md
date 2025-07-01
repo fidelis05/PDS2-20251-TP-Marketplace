@@ -29,6 +29,48 @@
 - Como administrador, quero listar, filtrar, editar e excluir pedidos realizados, para poder resolver problemas e manter o controle das operações.
 - Como administrador, quero visualizar um resumo estatístico (ex: total de usuários, produtos e pedidos), para ter uma visão geral do sistema.
 
+
+## Estrutura dos Arquivos
+
+```
+PDS2-20251-TP-Marketplace-main
+|
+|── bin
+├── data
+│   ├── pedidos.txt
+│   ├── produtos.txt
+│   └── usuarios.txt
+├── html*
+├── include
+│   ├── Admin.hpp
+│   ├── Carrinho.hpp
+│   ├── Correios.hpp
+│   ├── Interface.hpp
+│   ├── Pedido.hpp
+│   ├── Produto.hpp
+│   └── Usuario.hpp
+├── latex*
+├── Makefile
+├── README.md
+├── src
+│   ├── Admin.cpp
+│   ├── Carrinho.cpp
+│   ├── Correios.cpp
+│   ├── Interface.cpp
+│   ├── main.cpp
+│   ├── Pedido.cpp
+│   ├── Produto.cpp
+│   └── Usuario.cpp
+├── test-ncurses.cpp
+└── tests
+    ├── doctest.h
+    ├── test_all.cpp
+    ├── test_comprehensive.cpp
+    ├── test_pedido.cpp
+    └── test_usuario.cpp*
+```
+"$*$" são folders que apresentam dados referentes àpenas ao Doxygen
+
+
 ## Cartões CRC
 ![image](https://github.com/user-attachments/assets/2a512a95-cff4-4781-8a84-7f81776086c7)
-

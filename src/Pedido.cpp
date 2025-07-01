@@ -1,6 +1,7 @@
 #include "Pedido.hpp"
 #include <iomanip>
 #include <sstream>
+#include "exceptions/MarketPlaceException.hpp"
 
 Pedido::Pedido(unsigned int idComprador, unsigned int idVendedor, const Carrinho &y)
 {
@@ -29,7 +30,7 @@ void Pedido::cancelarPedido()
         this->statusInfo == status.status_map[5] ||
         this->statusInfo == status.status_map[6])
     {
-        throw std::runtime_error("Pedido não pode ser cancelado");
+        throw PedidoException("Pedido não pode ser cancelado");
     }
     else
     {
@@ -52,12 +53,12 @@ void Pedido::devolverPedido()
         }
         else
         {
-            throw std::runtime_error("O tempo de devolução foi excedido (máximo 7 dias)");
+            throw PedidoException("O tempo de devolução foi excedido (máximo 7 dias)");
         }
     }
     else
     {
-        throw std::runtime_error("Pedido não pode ser devolvido, pois não foi entregue");
+        throw PedidoException("Pedido não pode ser devolvido, pois não foi entregue");
     }
 }
 // criar uma função ou uma subclasse que atrela o pedido a uma devolução onde aparecerá uma mensgem ao usuário informando que o pedido pode ser devolvido e que ele deve levar o produto ao correios para iniciar a logística reversa
@@ -71,7 +72,7 @@ void Pedido::enviarPedido(unsigned int usuarioId)
     }
     else
     {
-        throw std::runtime_error("Apenas o vendedor pode confirmar o pedido");
+        throw PedidoException("Apenas o vendedor pode confirmar o pedido");
     }
 }
 
@@ -227,7 +228,7 @@ Pedido Pedido::lerPedidoPorId(const std::string &filename, unsigned int searchId
         }
     }
 
-    throw std::runtime_error("Pedido não encontrado");
+    throw PedidoException("Pedido não encontrado");
 }
 
 void Pedido::iniciarLogisticaReversa()
@@ -243,7 +244,7 @@ void Pedido::iniciarLogisticaReversa()
     }
     else
     {
-        throw std::runtime_error("Processo de devolução já foi iniciado");
+        throw PedidoException("Processo de devolução já foi iniciado");
     }
 }
 
@@ -268,6 +269,6 @@ void Pedido::avaliarPedido(unsigned int nota, const std::string &comentario)
     }
     else
     {
-        throw std::runtime_error("Nota deve estar entre 1 e 5");
+        throw PedidoException("Nota deve estar entre 1 e 5");
     }
 }

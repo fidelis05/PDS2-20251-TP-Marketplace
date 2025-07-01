@@ -98,10 +98,10 @@ TEST_SUITE("Pedido Advanced Tests")
 
     SUBCASE("Save pedido to CSV")
     {
-      CHECK_NOTHROW(pedido.SalvarPedidos("test_pedidos.csv"));
+      CHECK_NOTHROW(pedido.SalvarPedidos("data/pedidos.txt"));
 
       // Verify file was created and contains data
-      std::ifstream file("test_pedidos.csv");
+      std::ifstream file("data/pedidos.txt");
       CHECK(file.good());
 
       std::string line;

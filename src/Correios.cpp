@@ -203,7 +203,7 @@ void Correios::consultarPedido(unsigned int idPedido)
 
     try
     {
-        Pedido pedido = Pedido::lerPedidoPorId("pedidos.csv", idPedido);
+        Pedido pedido = Pedido::lerPedidoPorId("data/pedidos.txt", idPedido);
         std::cout << "=== CONSULTA DE PEDIDO ===" << std::endl;
         std::cout << "ID: " << pedido.getId() << std::endl;
         std::cout << "Status: " << pedido.getStatus() << std::endl;
@@ -228,7 +228,7 @@ void Correios::listarPedidosParaEntrega()
 
     try
     {
-        auto pedidos = Pedido::lerTodosPedidos("pedidos.csv");
+        auto pedidos = Pedido::lerTodosPedidos("data/pedidos.txt");
         std::cout << "=== PEDIDOS PARA ENTREGA ===" << std::endl;
 
         bool encontrouPedidos = false;

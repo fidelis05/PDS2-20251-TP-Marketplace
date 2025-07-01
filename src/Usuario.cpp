@@ -6,7 +6,7 @@
 
 Usuario::Usuario() : id_usuario(0) {}
 Usuario::Usuario(std::string nome, std::string email, std::string senha)
-    : nome(nome), email(email), senha(senha), id_usuario(0) {}
+    : id_usuario(0), nome(nome), email(email), senha(senha) {}
 
 void Usuario::cadastrar(std::string nome, std::string email, std::string senha, std::string telefone, std::string cpf_cnpj, std::string endereco)
 {

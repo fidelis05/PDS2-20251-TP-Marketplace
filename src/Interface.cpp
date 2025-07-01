@@ -2,7 +2,7 @@
 #include <iostream>
 #include <limits>
 
-Interface::Interface() : isLoggedIn(false), isAdmin(false), isCorreios(false) {}
+Interface::Interface() : correios(1, "correios", "correios123"), isLoggedIn(false), isAdmin(false), isCorreios(false) {}
 
 void Interface::mostrarMenuPrincipal()
 {

@@ -5,7 +5,7 @@
 
 void Admin::verListaDeUsuarios()
 {
-  std::ifstream file("usuarios.txt");
+  std::ifstream file("data/usuarios.txt");
   std::string line;
 
   std::cout << "\n===== LISTA DE USUÁRIOS =====" << std::endl;
@@ -33,7 +33,7 @@ void Admin::filtrarListaDeUsuarios()
   std::cin.ignore();
   std::getline(std::cin, filtro);
 
-  std::ifstream file("usuarios.txt");
+  std::ifstream file("data/usuarios.txt");
   std::string line;
   bool encontrou = false;
 
@@ -106,7 +106,7 @@ void Admin::cadastrarUsuario()
 
 void Admin::verListaDeProdutos()
 {
-  std::ifstream file("produtos.txt");
+  std::ifstream file("data/produtos.txt");
   std::string line;
 
   std::cout << "\n===== LISTA DE PRODUTOS =====" << std::endl;
@@ -137,7 +137,7 @@ void Admin::filtrarListaDeProdutos()
   std::cin.ignore();
   std::getline(std::cin, filtro);
 
-  std::ifstream file("produtos.txt");
+  std::ifstream file("data/produtos.txt");
   std::string line;
   bool encontrou = false;
 
@@ -186,7 +186,7 @@ void Admin::verListaDePedido()
 {
   try
   {
-    auto pedidos = Pedido::lerTodosPedidos("pedidos.csv");
+    auto pedidos = Pedido::lerTodosPedidos("data/pedidos.txt");
 
     std::cout << "\n===== LISTA DE PEDIDOS =====" << std::endl;
     for (const auto &pedido : pedidos)
@@ -226,7 +226,7 @@ void Admin::verResumoEstatistico()
   int totalUsuarios = 0, totalProdutos = 0, totalPedidos = 0;
 
   // Count users
-  std::ifstream userFile("usuarios.txt");
+  std::ifstream userFile("data/usuarios.txt");
   std::string line;
   while (std::getline(userFile, line))
   {
@@ -235,7 +235,7 @@ void Admin::verResumoEstatistico()
   userFile.close();
 
   // Count products
-  std::ifstream productFile("produtos.txt");
+  std::ifstream productFile("data/produtos.txt");
   while (std::getline(productFile, line))
   {
     totalProdutos++;
@@ -245,7 +245,7 @@ void Admin::verResumoEstatistico()
   // Count orders
   try
   {
-    auto pedidos = Pedido::lerTodosPedidos("pedidos.csv");
+    auto pedidos = Pedido::lerTodosPedidos("data/pedidos.txt");
     totalPedidos = pedidos.size();
   }
   catch (const std::exception &e)

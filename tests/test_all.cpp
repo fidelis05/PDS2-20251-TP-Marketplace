@@ -200,7 +200,7 @@ TEST_CASE("Usuario advanced functionality")
 
   SUBCASE("User persistence")
   {
-    std::ifstream file("usuarios.txt");
+    std::ifstream file("data/usuarios.txt");
     int linesBefore = 0;
     std::string line;
     while (std::getline(file, line))
@@ -209,7 +209,7 @@ TEST_CASE("Usuario advanced functionality")
 
     user.cadastrar("File Test User", "filetest@email.com", "filepass", "11888888888", "987.654.321-00", "File Test Address");
 
-    file.open("usuarios.txt");
+    file.open("data/usuarios.txt");
     int linesAfter = 0;
     while (std::getline(file, line))
       linesAfter++;

@@ -11,7 +11,7 @@ TEST_SUITE("Usuario Advanced Tests")
     SUBCASE("User registration creates file entry")
     {
       // Count lines before registration
-      std::ifstream file("usuarios.txt");
+      std::ifstream file("data/usuarios.txt");
       int linesBefore = 0;
       std::string line;
       while (std::getline(file, line))
@@ -21,7 +21,7 @@ TEST_SUITE("Usuario Advanced Tests")
       user.cadastrar("File Test User", "filetest@email.com", "filepass", "11888888888", "987.654.321-00", "File Test Address");
 
       // Count lines after registration
-      file.open("usuarios.txt");
+      file.open("data/usuarios.txt");
       int linesAfter = 0;
       while (std::getline(file, line))
         linesAfter++;

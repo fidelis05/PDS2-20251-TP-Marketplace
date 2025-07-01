@@ -1,5 +1,1 @@
 ID,Comprador ID,Vendedor ID,Status,Codigo Rastreio,Data Criacao,Previsao Entrega,Data Entrega,Pagamento
--1140064248|0|1|Esperando aprovação do pagamento|0|2025-06-30 22:31:17|2025-06-30 22:31:17|1969-12-31 21:00:09|Sim
-2008678467|0|1|Esperando aprovação do pagamento|0|2025-06-30 22:56:57|2025-06-30 22:56:57|1969-12-31 21:00:09|Sim
-1943077002|0|1|Esperando aprovação do pagamento|0|2025-06-30 23:15:01|2025-06-30 23:15:01|1969-12-31 21:00:09|Sim
-3758489806|0|1|Enviado|0|2025-06-30 23:20:15|2025-06-30 23:20:15|1969-12-31 21:00:09|Sim

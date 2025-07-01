@@ -18,7 +18,7 @@ void Usuario::cadastrar(std::string nome, std::string email, std::string senha, 
     this->endereco = endereco;
 
     // Save to file
-    std::ofstream file("usuarios.txt", std::ios::app);
+    std::ofstream file("data/usuarios.txt", std::ios::app);
     file << email << "|" << senha << "|" << nome << "|" << telefone << "|" << cpf_cnpj << "|" << endereco << std::endl;
     file.close();
 
@@ -27,7 +27,7 @@ void Usuario::cadastrar(std::string nome, std::string email, std::string senha, 
 
 bool Usuario::login(std::string email, std::string senha)
 {
-    std::ifstream file("usuarios.txt");
+    std::ifstream file("data/usuarios.txt");
     std::string line;
 
     while (std::getline(file, line))

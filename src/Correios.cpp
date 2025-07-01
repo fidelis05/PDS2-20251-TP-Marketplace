@@ -4,6 +4,7 @@
 #include <fstream>
 #include <sstream>
 #include <iomanip>
+#include "exceptions/MarketPlaceException.hpp"
 
 // Constructors
 Correios::Correios() : Pedido(0, 0, Carrinho()), idCorreios(0), isLoggedIn(false), lastLoginTime(0), tentativasLogin(0) {}
@@ -57,18 +58,18 @@ void Correios::alterarSenha(const std::string &senhaAtual, const std::string &no
 {
     if (!isAuthenticated())
     {
-        throw std::runtime_error("Acesso negado. Faça login primeiro.");
+        throw CorreiosException("Acesso negado. Faça login primeiro.");
     }
 
     if (senhaAtual != senhaCorreios)
     {
         salvarLog("PASSWORD_CHANGE_FAILED", "Senha atual incorreta");
-        throw std::runtime_error("Senha atual incorreta.");
+        throw CorreiosException("Senha atual incorreta.");
     }
 
     if (novaSenha.length() < 6)
     {
-        throw std::runtime_error("Nova senha deve ter pelo menos 6 caracteres.");
+        throw CorreiosException("Nova senha deve ter pelo menos 6 caracteres.");
     }
 
     senhaCorreios = novaSenha;
@@ -128,7 +129,7 @@ unsigned int Correios::setStatus(unsigned int n)
 {
     if (!isAuthenticated())
     {
-        throw std::runtime_error("Acesso negado. Faça login primeiro.");
+        throw CorreiosException("Acesso negado. Faça login primeiro.");
     }
 
     if (n < 8)
@@ -137,7 +138,7 @@ unsigned int Correios::setStatus(unsigned int n)
         {
             if (this->codigoRastreio == 0)
             {
-                throw std::runtime_error("Favor informe o Código de Rastreio antes de Prosseguir");
+                throw CorreiosException("Favor informe o Código de Rastreio antes de Prosseguir");
             }
             else
             {
@@ -153,7 +154,7 @@ unsigned int Correios::setStatus(unsigned int n)
     }
     else
     {
-        throw std::runtime_error("Defina um número válido");
+        throw CorreiosException("Defina um número válido");
     }
 
     if (n == 6)
@@ -168,7 +169,7 @@ unsigned int Correios::setcodigoRastreio(unsigned int x)
 {
     if (!isAuthenticated())
     {
-        throw std::runtime_error("Acesso negado. Faça login primeiro.");
+        throw CorreiosException("Acesso negado. Faça login primeiro.");
     }
 
     this->codigoRastreio = x;
@@ -180,7 +181,7 @@ unsigned int Correios::getLista()
 {
     if (!isAuthenticated())
     {
-        throw std::runtime_error("Acesso negado. Faça login primeiro.");
+        throw CorreiosException("Acesso negado. Faça login primeiro.");
     }
 
     salvarLog("LIST_ACCESSED", "Lista de pedidos acessada");

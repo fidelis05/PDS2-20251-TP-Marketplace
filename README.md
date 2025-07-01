@@ -35,7 +35,7 @@
 ```
 PDS2-20251-TP-Marketplace-main
 |
-|── bin
+├── bin
 ├── data
 │   ├── pedidos.txt
 │   ├── produtos.txt

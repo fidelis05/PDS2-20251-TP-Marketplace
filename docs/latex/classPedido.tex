@@ -1,0 +1,544 @@
+\doxysection{Referência à classe Pedido}
+\hypertarget{classPedido}{}\label{classPedido}\index{Pedido@{Pedido}}
+
+
+{\ttfamily \#include $<$Pedido.\+hpp$>$}
+
+Diagrama de heranças da classe Pedido\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classPedido}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Membros públicos}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classPedido_a68780d86e2e54ef3c8dcb74870611185}{Pedido}} (unsigned int \mbox{\hyperlink{classPedido_addaef2c876aa12930f0901915500021b}{id\+Comprador}}, unsigned int \mbox{\hyperlink{classPedido_a923189e1963ae4e963ce7fe8a0dc88cc}{id\+Vendedor}}, const \mbox{\hyperlink{classCarrinho}{Carrinho}} \&y)
+\item 
+unsigned int \mbox{\hyperlink{classPedido_a601ad81caa92dea9b4cd8294b09f00de}{get\+Id}} () const
+\item 
+unsigned int \mbox{\hyperlink{classPedido_aaf0f019c6a7aa1828d730117d1efc43a}{get\+Id\+Vendedor}} () const
+\item 
+unsigned int \mbox{\hyperlink{classPedido_a4429692aba984c24c7b8f87ccf62f2fc}{get\+Id\+Comprador}} () const
+\item 
+bool \mbox{\hyperlink{classPedido_a8b120910f346848d091019f03b5f2e2e}{get\+Pagamento}} () const
+\item 
+std\+::time\+\_\+t \mbox{\hyperlink{classPedido_aea72e2d04461f6bc6969aaaf83c533a6}{get\+Created\+At}} () const
+\item 
+std\+::time\+\_\+t \mbox{\hyperlink{classPedido_a87235c30e70e265bc33eb53bbbdbd7cc}{get\+Previsao\+Entrega}} () const
+\item 
+std\+::time\+\_\+t \mbox{\hyperlink{classPedido_a37071ee657012cac7d9ed03e4b22de21}{get\+Data\+Entrega}} () const
+\item 
+std\+::string \mbox{\hyperlink{classPedido_abab6213c1a30367f4a2afda215e31005}{get\+Status}} () const
+\item 
+unsigned int \mbox{\hyperlink{classPedido_ad484f0fd5c2bf59dbbb95b03f6df473f}{get\+Codigo\+Rastreio}} () const
+\item 
+std\+::string \mbox{\hyperlink{classPedido_a8b44c6d8bf03e51002a7a61eb6203ed8}{get\+Codigo\+Postagem\+Devolucao}} () const
+\item 
+bool \mbox{\hyperlink{classPedido_ac58f366537cb3f10a5b58abe8a7284c9}{get\+Devolucao\+Iniciada}} () const
+\item 
+void \mbox{\hyperlink{classPedido_a988c116b0fc7223b025487e0d1c4c5ba}{pagamento\+Concluido}} ()
+\item 
+void \mbox{\hyperlink{classPedido_ac7cac1ba0941237253cef2f13e4c07dc}{cancelar\+Pedido}} ()
+\item 
+void \mbox{\hyperlink{classPedido_a0b138f0b64a9f54faad608cf658fd101}{devolver\+Pedido}} ()
+\item 
+void \mbox{\hyperlink{classPedido_a41e0bee3f9fe185615168dd5a723529b}{enviar\+Pedido}} (unsigned int usuario\+Id)
+\item 
+void \mbox{\hyperlink{classPedido_a6d354da3ab79912309360f208818baeb}{iniciar\+Logistica\+Reversa}} ()
+\item 
+void \mbox{\hyperlink{classPedido_aa3dc75ee9942972d5510661d8f8e8353}{atualizar\+Status\+Devolucao}} (const std\+::string \&novo\+Status)
+\item 
+void \mbox{\hyperlink{classPedido_a27aea9f155f0eea845b737169fb077a2}{avaliar\+Pedido}} (unsigned int nota, const std\+::string \&comentario)
+\item 
+void \mbox{\hyperlink{classPedido_a6a7bb74f92d56862e455ad31b5d5ab55}{notificar\+Mudanca\+Status}} (const std\+::string \&mensagem)
+\item 
+void \mbox{\hyperlink{classPedido_a798532ab82c7d87eb887de061fd4650e}{Salvar\+Pedidos}} (const std\+::string \&filename) const
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Membros públicos estáticos}
+\begin{DoxyCompactItemize}
+\item 
+static void \mbox{\hyperlink{classPedido_aa589d4893bc5f63f2aa7a0f0fbb10200}{Salvar\+Pedidos\+CSV}} (const std\+::string \&filename, const \mbox{\hyperlink{classPedido}{Pedido}} \&pedido)
+\item 
+static std\+::string \mbox{\hyperlink{classPedido_a72e5a9b10a1f085c95b46f2da9cba2f3}{time\+To\+String}} (std\+::time\+\_\+t time)
+\item 
+static std\+::vector$<$ \mbox{\hyperlink{classPedido}{Pedido}} $>$ \mbox{\hyperlink{classPedido_a1446d1d7d73cd688a7af042cc7de8bf3}{ler\+Todos\+Pedidos}} (const std\+::string \&filename)
+\item 
+static \mbox{\hyperlink{classPedido}{Pedido}} \mbox{\hyperlink{classPedido_ac183ad56b95e19f2c12002981c2dc38f}{ler\+Pedido\+Por\+Id}} (const std\+::string \&filename, unsigned int \mbox{\hyperlink{classPedido_a21cd6ea38641e228cb781dacf6b60ccf}{id}})
+\item 
+static std\+::time\+\_\+t \mbox{\hyperlink{classPedido_afca352c622db8037e3c9e9efb282965e}{string\+To\+Time}} (const std\+::string \&time\+Str)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Atributos Protegidos}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{structStatus}{Status}} \mbox{\hyperlink{classPedido_afa7a35691d4d38ffd213755439a9672b}{status}}
+\item 
+std\+::string \mbox{\hyperlink{classPedido_a1b4d2db5d7e50c6e89b7ff9821211c18}{status\+Info}}
+\item 
+unsigned int \mbox{\hyperlink{classPedido_ae6e5de5c57a9ed723e58062bbd2cbbf6}{codigo\+Rastreio}}
+\item 
+std\+::string \mbox{\hyperlink{classPedido_ae6bfc70788bb3c6fbe827d946c59e770}{codigo\+Postagem\+Devolucao}}
+\item 
+unsigned int \mbox{\hyperlink{classPedido_aaf23f01238475a22225f83c390697106}{avaliacao\+Produto}}
+\item 
+std\+::string \mbox{\hyperlink{classPedido_aa08d1115e42b1fadf573f3188712f510}{comentario\+Avaliacao}}
+\item 
+bool \mbox{\hyperlink{classPedido_a48cbe81214d6ddd97e01d242baf2b300}{devolucao\+Iniciada}}
+\item 
+std\+::time\+\_\+t \mbox{\hyperlink{classPedido_ae2ac7e295f6f4439da3759f11e88038e}{data\+Entrega}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Atributos Privados}
+\begin{DoxyCompactItemize}
+\item 
+unsigned int \mbox{\hyperlink{classPedido_a21cd6ea38641e228cb781dacf6b60ccf}{id}}
+\item 
+unsigned int \mbox{\hyperlink{classPedido_a923189e1963ae4e963ce7fe8a0dc88cc}{id\+Vendedor}}
+\item 
+unsigned int \mbox{\hyperlink{classPedido_addaef2c876aa12930f0901915500021b}{id\+Comprador}}
+\item 
+bool \mbox{\hyperlink{classPedido_afd3cdbe1158e6b0b00d9c4e35267d816}{pagamento}} = true
+\item 
+std\+::time\+\_\+t \mbox{\hyperlink{classPedido_aec9e2c23d7bced56143328f7bb420952}{created\+At}}
+\item 
+std\+::time\+\_\+t \mbox{\hyperlink{classPedido_a846e152a05b53246b18a8a1110641782}{previsao\+Entrega}}
+\item 
+\mbox{\hyperlink{classCarrinho}{Carrinho}} \mbox{\hyperlink{classPedido_abfe5d4d48709cb6337ec972f94914656}{compra}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Descrição detalhada}
+
+
+Definido na linha \mbox{\hyperlink{Pedido_8hpp_source_l00031}{31}} do ficheiro \mbox{\hyperlink{Pedido_8hpp_source}{Pedido.\+hpp}}.
+
+
+
+\label{doc-constructors}
+\Hypertarget{classPedido_doc-constructors}
+\doxysubsection{Documentação dos Construtores \& Destrutor}
+\Hypertarget{classPedido_a68780d86e2e54ef3c8dcb74870611185}\index{Pedido@{Pedido}!Pedido@{Pedido}}
+\index{Pedido@{Pedido}!Pedido@{Pedido}}
+\doxysubsubsection{\texorpdfstring{Pedido()}{Pedido()}}
+{\footnotesize\ttfamily \label{classPedido_a68780d86e2e54ef3c8dcb74870611185} 
+Pedido\+::\+Pedido (\begin{DoxyParamCaption}\item[{unsigned int}]{id\+Comprador}{, }\item[{unsigned int}]{id\+Vendedor}{, }\item[{const \mbox{\hyperlink{classCarrinho}{Carrinho}} \&}]{y}{}\end{DoxyParamCaption})}
+
+
+
+Definido na linha \mbox{\hyperlink{Pedido_8cpp_source_l00006}{6}} do ficheiro \mbox{\hyperlink{Pedido_8cpp_source}{Pedido.\+cpp}}.
+
+
+
+\label{doc-func-members}
+\Hypertarget{classPedido_doc-func-members}
+\doxysubsection{Documentação das funções}
+\Hypertarget{classPedido_aa3dc75ee9942972d5510661d8f8e8353}\index{Pedido@{Pedido}!atualizarStatusDevolucao@{atualizarStatusDevolucao}}
+\index{atualizarStatusDevolucao@{atualizarStatusDevolucao}!Pedido@{Pedido}}
+\doxysubsubsection{\texorpdfstring{atualizarStatusDevolucao()}{atualizarStatusDevolucao()}}
+{\footnotesize\ttfamily \label{classPedido_aa3dc75ee9942972d5510661d8f8e8353} 
+void Pedido\+::atualizar\+Status\+Devolucao (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{novo\+Status}{}\end{DoxyParamCaption})}
+
+
+
+Definido na linha \mbox{\hyperlink{Pedido_8cpp_source_l00257}{257}} do ficheiro \mbox{\hyperlink{Pedido_8cpp_source}{Pedido.\+cpp}}.
+
+\Hypertarget{classPedido_a27aea9f155f0eea845b737169fb077a2}\index{Pedido@{Pedido}!avaliarPedido@{avaliarPedido}}
+\index{avaliarPedido@{avaliarPedido}!Pedido@{Pedido}}
+\doxysubsubsection{\texorpdfstring{avaliarPedido()}{avaliarPedido()}}
+{\footnotesize\ttfamily \label{classPedido_a27aea9f155f0eea845b737169fb077a2} 
+void Pedido\+::avaliar\+Pedido (\begin{DoxyParamCaption}\item[{unsigned int}]{nota}{, }\item[{const std\+::string \&}]{comentario}{}\end{DoxyParamCaption})}
+
+
+
+Definido na linha \mbox{\hyperlink{Pedido_8cpp_source_l00263}{263}} do ficheiro \mbox{\hyperlink{Pedido_8cpp_source}{Pedido.\+cpp}}.
+
+\Hypertarget{classPedido_ac7cac1ba0941237253cef2f13e4c07dc}\index{Pedido@{Pedido}!cancelarPedido@{cancelarPedido}}
+\index{cancelarPedido@{cancelarPedido}!Pedido@{Pedido}}
+\doxysubsubsection{\texorpdfstring{cancelarPedido()}{cancelarPedido()}}
+{\footnotesize\ttfamily \label{classPedido_ac7cac1ba0941237253cef2f13e4c07dc} 
+void Pedido\+::cancelar\+Pedido (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Definido na linha \mbox{\hyperlink{Pedido_8cpp_source_l00027}{27}} do ficheiro \mbox{\hyperlink{Pedido_8cpp_source}{Pedido.\+cpp}}.
+
+\Hypertarget{classPedido_a0b138f0b64a9f54faad608cf658fd101}\index{Pedido@{Pedido}!devolverPedido@{devolverPedido}}
+\index{devolverPedido@{devolverPedido}!Pedido@{Pedido}}
+\doxysubsubsection{\texorpdfstring{devolverPedido()}{devolverPedido()}}
+{\footnotesize\ttfamily \label{classPedido_a0b138f0b64a9f54faad608cf658fd101} 
+void Pedido\+::devolver\+Pedido (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Definido na linha \mbox{\hyperlink{Pedido_8cpp_source_l00042}{42}} do ficheiro \mbox{\hyperlink{Pedido_8cpp_source}{Pedido.\+cpp}}.
+
+\Hypertarget{classPedido_a41e0bee3f9fe185615168dd5a723529b}\index{Pedido@{Pedido}!enviarPedido@{enviarPedido}}
+\index{enviarPedido@{enviarPedido}!Pedido@{Pedido}}
+\doxysubsubsection{\texorpdfstring{enviarPedido()}{enviarPedido()}}
+{\footnotesize\ttfamily \label{classPedido_a41e0bee3f9fe185615168dd5a723529b} 
+void Pedido\+::enviar\+Pedido (\begin{DoxyParamCaption}\item[{unsigned int}]{usuario\+Id}{}\end{DoxyParamCaption})}
+
+
+
+Definido na linha \mbox{\hyperlink{Pedido_8cpp_source_l00067}{67}} do ficheiro \mbox{\hyperlink{Pedido_8cpp_source}{Pedido.\+cpp}}.
+
+\Hypertarget{classPedido_a8b44c6d8bf03e51002a7a61eb6203ed8}\index{Pedido@{Pedido}!getCodigoPostagemDevolucao@{getCodigoPostagemDevolucao}}
+\index{getCodigoPostagemDevolucao@{getCodigoPostagemDevolucao}!Pedido@{Pedido}}
+\doxysubsubsection{\texorpdfstring{getCodigoPostagemDevolucao()}{getCodigoPostagemDevolucao()}}
+{\footnotesize\ttfamily \label{classPedido_a8b44c6d8bf03e51002a7a61eb6203ed8} 
+std\+::string Pedido\+::get\+Codigo\+Postagem\+Devolucao (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definido na linha \mbox{\hyperlink{Pedido_8hpp_source_l00066}{66}} do ficheiro \mbox{\hyperlink{Pedido_8hpp_source}{Pedido.\+hpp}}.
+
+\Hypertarget{classPedido_ad484f0fd5c2bf59dbbb95b03f6df473f}\index{Pedido@{Pedido}!getCodigoRastreio@{getCodigoRastreio}}
+\index{getCodigoRastreio@{getCodigoRastreio}!Pedido@{Pedido}}
+\doxysubsubsection{\texorpdfstring{getCodigoRastreio()}{getCodigoRastreio()}}
+{\footnotesize\ttfamily \label{classPedido_ad484f0fd5c2bf59dbbb95b03f6df473f} 
+unsigned int Pedido\+::get\+Codigo\+Rastreio (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definido na linha \mbox{\hyperlink{Pedido_8hpp_source_l00065}{65}} do ficheiro \mbox{\hyperlink{Pedido_8hpp_source}{Pedido.\+hpp}}.
+
+\Hypertarget{classPedido_aea72e2d04461f6bc6969aaaf83c533a6}\index{Pedido@{Pedido}!getCreatedAt@{getCreatedAt}}
+\index{getCreatedAt@{getCreatedAt}!Pedido@{Pedido}}
+\doxysubsubsection{\texorpdfstring{getCreatedAt()}{getCreatedAt()}}
+{\footnotesize\ttfamily \label{classPedido_aea72e2d04461f6bc6969aaaf83c533a6} 
+std\+::time\+\_\+t Pedido\+::get\+Created\+At (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definido na linha \mbox{\hyperlink{Pedido_8hpp_source_l00061}{61}} do ficheiro \mbox{\hyperlink{Pedido_8hpp_source}{Pedido.\+hpp}}.
+
+\Hypertarget{classPedido_a37071ee657012cac7d9ed03e4b22de21}\index{Pedido@{Pedido}!getDataEntrega@{getDataEntrega}}
+\index{getDataEntrega@{getDataEntrega}!Pedido@{Pedido}}
+\doxysubsubsection{\texorpdfstring{getDataEntrega()}{getDataEntrega()}}
+{\footnotesize\ttfamily \label{classPedido_a37071ee657012cac7d9ed03e4b22de21} 
+std\+::time\+\_\+t Pedido\+::get\+Data\+Entrega (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definido na linha \mbox{\hyperlink{Pedido_8hpp_source_l00063}{63}} do ficheiro \mbox{\hyperlink{Pedido_8hpp_source}{Pedido.\+hpp}}.
+
+\Hypertarget{classPedido_ac58f366537cb3f10a5b58abe8a7284c9}\index{Pedido@{Pedido}!getDevolucaoIniciada@{getDevolucaoIniciada}}
+\index{getDevolucaoIniciada@{getDevolucaoIniciada}!Pedido@{Pedido}}
+\doxysubsubsection{\texorpdfstring{getDevolucaoIniciada()}{getDevolucaoIniciada()}}
+{\footnotesize\ttfamily \label{classPedido_ac58f366537cb3f10a5b58abe8a7284c9} 
+bool Pedido\+::get\+Devolucao\+Iniciada (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definido na linha \mbox{\hyperlink{Pedido_8hpp_source_l00067}{67}} do ficheiro \mbox{\hyperlink{Pedido_8hpp_source}{Pedido.\+hpp}}.
+
+\Hypertarget{classPedido_a601ad81caa92dea9b4cd8294b09f00de}\index{Pedido@{Pedido}!getId@{getId}}
+\index{getId@{getId}!Pedido@{Pedido}}
+\doxysubsubsection{\texorpdfstring{getId()}{getId()}}
+{\footnotesize\ttfamily \label{classPedido_a601ad81caa92dea9b4cd8294b09f00de} 
+unsigned int Pedido\+::get\+Id (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definido na linha \mbox{\hyperlink{Pedido_8hpp_source_l00057}{57}} do ficheiro \mbox{\hyperlink{Pedido_8hpp_source}{Pedido.\+hpp}}.
+
+\Hypertarget{classPedido_a4429692aba984c24c7b8f87ccf62f2fc}\index{Pedido@{Pedido}!getIdComprador@{getIdComprador}}
+\index{getIdComprador@{getIdComprador}!Pedido@{Pedido}}
+\doxysubsubsection{\texorpdfstring{getIdComprador()}{getIdComprador()}}
+{\footnotesize\ttfamily \label{classPedido_a4429692aba984c24c7b8f87ccf62f2fc} 
+unsigned int Pedido\+::get\+Id\+Comprador (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definido na linha \mbox{\hyperlink{Pedido_8hpp_source_l00059}{59}} do ficheiro \mbox{\hyperlink{Pedido_8hpp_source}{Pedido.\+hpp}}.
+
+\Hypertarget{classPedido_aaf0f019c6a7aa1828d730117d1efc43a}\index{Pedido@{Pedido}!getIdVendedor@{getIdVendedor}}
+\index{getIdVendedor@{getIdVendedor}!Pedido@{Pedido}}
+\doxysubsubsection{\texorpdfstring{getIdVendedor()}{getIdVendedor()}}
+{\footnotesize\ttfamily \label{classPedido_aaf0f019c6a7aa1828d730117d1efc43a} 
+unsigned int Pedido\+::get\+Id\+Vendedor (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definido na linha \mbox{\hyperlink{Pedido_8hpp_source_l00058}{58}} do ficheiro \mbox{\hyperlink{Pedido_8hpp_source}{Pedido.\+hpp}}.
+
+\Hypertarget{classPedido_a8b120910f346848d091019f03b5f2e2e}\index{Pedido@{Pedido}!getPagamento@{getPagamento}}
+\index{getPagamento@{getPagamento}!Pedido@{Pedido}}
+\doxysubsubsection{\texorpdfstring{getPagamento()}{getPagamento()}}
+{\footnotesize\ttfamily \label{classPedido_a8b120910f346848d091019f03b5f2e2e} 
+bool Pedido\+::get\+Pagamento (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definido na linha \mbox{\hyperlink{Pedido_8hpp_source_l00060}{60}} do ficheiro \mbox{\hyperlink{Pedido_8hpp_source}{Pedido.\+hpp}}.
+
+\Hypertarget{classPedido_a87235c30e70e265bc33eb53bbbdbd7cc}\index{Pedido@{Pedido}!getPrevisaoEntrega@{getPrevisaoEntrega}}
+\index{getPrevisaoEntrega@{getPrevisaoEntrega}!Pedido@{Pedido}}
+\doxysubsubsection{\texorpdfstring{getPrevisaoEntrega()}{getPrevisaoEntrega()}}
+{\footnotesize\ttfamily \label{classPedido_a87235c30e70e265bc33eb53bbbdbd7cc} 
+std\+::time\+\_\+t Pedido\+::get\+Previsao\+Entrega (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definido na linha \mbox{\hyperlink{Pedido_8hpp_source_l00062}{62}} do ficheiro \mbox{\hyperlink{Pedido_8hpp_source}{Pedido.\+hpp}}.
+
+\Hypertarget{classPedido_abab6213c1a30367f4a2afda215e31005}\index{Pedido@{Pedido}!getStatus@{getStatus}}
+\index{getStatus@{getStatus}!Pedido@{Pedido}}
+\doxysubsubsection{\texorpdfstring{getStatus()}{getStatus()}}
+{\footnotesize\ttfamily \label{classPedido_abab6213c1a30367f4a2afda215e31005} 
+std\+::string Pedido\+::get\+Status (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definido na linha \mbox{\hyperlink{Pedido_8hpp_source_l00064}{64}} do ficheiro \mbox{\hyperlink{Pedido_8hpp_source}{Pedido.\+hpp}}.
+
+\Hypertarget{classPedido_a6d354da3ab79912309360f208818baeb}\index{Pedido@{Pedido}!iniciarLogisticaReversa@{iniciarLogisticaReversa}}
+\index{iniciarLogisticaReversa@{iniciarLogisticaReversa}!Pedido@{Pedido}}
+\doxysubsubsection{\texorpdfstring{iniciarLogisticaReversa()}{iniciarLogisticaReversa()}}
+{\footnotesize\ttfamily \label{classPedido_a6d354da3ab79912309360f208818baeb} 
+void Pedido\+::iniciar\+Logistica\+Reversa (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Definido na linha \mbox{\hyperlink{Pedido_8cpp_source_l00235}{235}} do ficheiro \mbox{\hyperlink{Pedido_8cpp_source}{Pedido.\+cpp}}.
+
+\Hypertarget{classPedido_ac183ad56b95e19f2c12002981c2dc38f}\index{Pedido@{Pedido}!lerPedidoPorId@{lerPedidoPorId}}
+\index{lerPedidoPorId@{lerPedidoPorId}!Pedido@{Pedido}}
+\doxysubsubsection{\texorpdfstring{lerPedidoPorId()}{lerPedidoPorId()}}
+{\footnotesize\ttfamily \label{classPedido_ac183ad56b95e19f2c12002981c2dc38f} 
+\mbox{\hyperlink{classPedido}{Pedido}} Pedido\+::ler\+Pedido\+Por\+Id (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{filename}{, }\item[{unsigned int}]{id}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definido na linha \mbox{\hyperlink{Pedido_8cpp_source_l00179}{179}} do ficheiro \mbox{\hyperlink{Pedido_8cpp_source}{Pedido.\+cpp}}.
+
+\Hypertarget{classPedido_a1446d1d7d73cd688a7af042cc7de8bf3}\index{Pedido@{Pedido}!lerTodosPedidos@{lerTodosPedidos}}
+\index{lerTodosPedidos@{lerTodosPedidos}!Pedido@{Pedido}}
+\doxysubsubsection{\texorpdfstring{lerTodosPedidos()}{lerTodosPedidos()}}
+{\footnotesize\ttfamily \label{classPedido_a1446d1d7d73cd688a7af042cc7de8bf3} 
+std\+::vector$<$ \mbox{\hyperlink{classPedido}{Pedido}} $>$ Pedido\+::ler\+Todos\+Pedidos (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{filename}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definido na linha \mbox{\hyperlink{Pedido_8cpp_source_l00125}{125}} do ficheiro \mbox{\hyperlink{Pedido_8cpp_source}{Pedido.\+cpp}}.
+
+\Hypertarget{classPedido_a6a7bb74f92d56862e455ad31b5d5ab55}\index{Pedido@{Pedido}!notificarMudancaStatus@{notificarMudancaStatus}}
+\index{notificarMudancaStatus@{notificarMudancaStatus}!Pedido@{Pedido}}
+\doxysubsubsection{\texorpdfstring{notificarMudancaStatus()}{notificarMudancaStatus()}}
+{\footnotesize\ttfamily \label{classPedido_a6a7bb74f92d56862e455ad31b5d5ab55} 
+void Pedido\+::notificar\+Mudanca\+Status (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{mensagem}{}\end{DoxyParamCaption})}
+
+
+
+Definido na linha \mbox{\hyperlink{Pedido_8cpp_source_l00252}{252}} do ficheiro \mbox{\hyperlink{Pedido_8cpp_source}{Pedido.\+cpp}}.
+
+\Hypertarget{classPedido_a988c116b0fc7223b025487e0d1c4c5ba}\index{Pedido@{Pedido}!pagamentoConcluido@{pagamentoConcluido}}
+\index{pagamentoConcluido@{pagamentoConcluido}!Pedido@{Pedido}}
+\doxysubsubsection{\texorpdfstring{pagamentoConcluido()}{pagamentoConcluido()}}
+{\footnotesize\ttfamily \label{classPedido_a988c116b0fc7223b025487e0d1c4c5ba} 
+void Pedido\+::pagamento\+Concluido (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Definido na linha \mbox{\hyperlink{Pedido_8cpp_source_l00021}{21}} do ficheiro \mbox{\hyperlink{Pedido_8cpp_source}{Pedido.\+cpp}}.
+
+\Hypertarget{classPedido_a798532ab82c7d87eb887de061fd4650e}\index{Pedido@{Pedido}!SalvarPedidos@{SalvarPedidos}}
+\index{SalvarPedidos@{SalvarPedidos}!Pedido@{Pedido}}
+\doxysubsubsection{\texorpdfstring{SalvarPedidos()}{SalvarPedidos()}}
+{\footnotesize\ttfamily \label{classPedido_a798532ab82c7d87eb887de061fd4650e} 
+void Pedido\+::\+Salvar\+Pedidos (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{filename}{}\end{DoxyParamCaption}) const}
+
+
+
+Definido na linha \mbox{\hyperlink{Pedido_8cpp_source_l00087}{87}} do ficheiro \mbox{\hyperlink{Pedido_8cpp_source}{Pedido.\+cpp}}.
+
+\Hypertarget{classPedido_aa589d4893bc5f63f2aa7a0f0fbb10200}\index{Pedido@{Pedido}!SalvarPedidosCSV@{SalvarPedidosCSV}}
+\index{SalvarPedidosCSV@{SalvarPedidosCSV}!Pedido@{Pedido}}
+\doxysubsubsection{\texorpdfstring{SalvarPedidosCSV()}{SalvarPedidosCSV()}}
+{\footnotesize\ttfamily \label{classPedido_aa589d4893bc5f63f2aa7a0f0fbb10200} 
+void Pedido\+::\+Salvar\+Pedidos\+CSV (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{filename}{, }\item[{const \mbox{\hyperlink{classPedido}{Pedido}} \&}]{pedido}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definido na linha \mbox{\hyperlink{Pedido_8cpp_source_l00092}{92}} do ficheiro \mbox{\hyperlink{Pedido_8cpp_source}{Pedido.\+cpp}}.
+
+\Hypertarget{classPedido_afca352c622db8037e3c9e9efb282965e}\index{Pedido@{Pedido}!stringToTime@{stringToTime}}
+\index{stringToTime@{stringToTime}!Pedido@{Pedido}}
+\doxysubsubsection{\texorpdfstring{stringToTime()}{stringToTime()}}
+{\footnotesize\ttfamily \label{classPedido_afca352c622db8037e3c9e9efb282965e} 
+std\+::time\+\_\+t Pedido\+::string\+To\+Time (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{time\+Str}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definido na linha \mbox{\hyperlink{Pedido_8cpp_source_l00117}{117}} do ficheiro \mbox{\hyperlink{Pedido_8cpp_source}{Pedido.\+cpp}}.
+
+\Hypertarget{classPedido_a72e5a9b10a1f085c95b46f2da9cba2f3}\index{Pedido@{Pedido}!timeToString@{timeToString}}
+\index{timeToString@{timeToString}!Pedido@{Pedido}}
+\doxysubsubsection{\texorpdfstring{timeToString()}{timeToString()}}
+{\footnotesize\ttfamily \label{classPedido_a72e5a9b10a1f085c95b46f2da9cba2f3} 
+std\+::string Pedido\+::time\+To\+String (\begin{DoxyParamCaption}\item[{std\+::time\+\_\+t}]{time}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definido na linha \mbox{\hyperlink{Pedido_8cpp_source_l00080}{80}} do ficheiro \mbox{\hyperlink{Pedido_8cpp_source}{Pedido.\+cpp}}.
+
+
+
+\label{doc-variable-members}
+\Hypertarget{classPedido_doc-variable-members}
+\doxysubsection{Documentação dos dados membro}
+\Hypertarget{classPedido_aaf23f01238475a22225f83c390697106}\index{Pedido@{Pedido}!avaliacaoProduto@{avaliacaoProduto}}
+\index{avaliacaoProduto@{avaliacaoProduto}!Pedido@{Pedido}}
+\doxysubsubsection{\texorpdfstring{avaliacaoProduto}{avaliacaoProduto}}
+{\footnotesize\ttfamily \label{classPedido_aaf23f01238475a22225f83c390697106} 
+unsigned int Pedido\+::avaliacao\+Produto\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definido na linha \mbox{\hyperlink{Pedido_8hpp_source_l00047}{47}} do ficheiro \mbox{\hyperlink{Pedido_8hpp_source}{Pedido.\+hpp}}.
+
+\Hypertarget{classPedido_ae6bfc70788bb3c6fbe827d946c59e770}\index{Pedido@{Pedido}!codigoPostagemDevolucao@{codigoPostagemDevolucao}}
+\index{codigoPostagemDevolucao@{codigoPostagemDevolucao}!Pedido@{Pedido}}
+\doxysubsubsection{\texorpdfstring{codigoPostagemDevolucao}{codigoPostagemDevolucao}}
+{\footnotesize\ttfamily \label{classPedido_ae6bfc70788bb3c6fbe827d946c59e770} 
+std\+::string Pedido\+::codigo\+Postagem\+Devolucao\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definido na linha \mbox{\hyperlink{Pedido_8hpp_source_l00046}{46}} do ficheiro \mbox{\hyperlink{Pedido_8hpp_source}{Pedido.\+hpp}}.
+
+\Hypertarget{classPedido_ae6e5de5c57a9ed723e58062bbd2cbbf6}\index{Pedido@{Pedido}!codigoRastreio@{codigoRastreio}}
+\index{codigoRastreio@{codigoRastreio}!Pedido@{Pedido}}
+\doxysubsubsection{\texorpdfstring{codigoRastreio}{codigoRastreio}}
+{\footnotesize\ttfamily \label{classPedido_ae6e5de5c57a9ed723e58062bbd2cbbf6} 
+unsigned int Pedido\+::codigo\+Rastreio\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definido na linha \mbox{\hyperlink{Pedido_8hpp_source_l00045}{45}} do ficheiro \mbox{\hyperlink{Pedido_8hpp_source}{Pedido.\+hpp}}.
+
+\Hypertarget{classPedido_aa08d1115e42b1fadf573f3188712f510}\index{Pedido@{Pedido}!comentarioAvaliacao@{comentarioAvaliacao}}
+\index{comentarioAvaliacao@{comentarioAvaliacao}!Pedido@{Pedido}}
+\doxysubsubsection{\texorpdfstring{comentarioAvaliacao}{comentarioAvaliacao}}
+{\footnotesize\ttfamily \label{classPedido_aa08d1115e42b1fadf573f3188712f510} 
+std\+::string Pedido\+::comentario\+Avaliacao\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definido na linha \mbox{\hyperlink{Pedido_8hpp_source_l00048}{48}} do ficheiro \mbox{\hyperlink{Pedido_8hpp_source}{Pedido.\+hpp}}.
+
+\Hypertarget{classPedido_abfe5d4d48709cb6337ec972f94914656}\index{Pedido@{Pedido}!compra@{compra}}
+\index{compra@{compra}!Pedido@{Pedido}}
+\doxysubsubsection{\texorpdfstring{compra}{compra}}
+{\footnotesize\ttfamily \label{classPedido_abfe5d4d48709cb6337ec972f94914656} 
+\mbox{\hyperlink{classCarrinho}{Carrinho}} Pedido\+::compra\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definido na linha \mbox{\hyperlink{Pedido_8hpp_source_l00040}{40}} do ficheiro \mbox{\hyperlink{Pedido_8hpp_source}{Pedido.\+hpp}}.
+
+\Hypertarget{classPedido_aec9e2c23d7bced56143328f7bb420952}\index{Pedido@{Pedido}!createdAt@{createdAt}}
+\index{createdAt@{createdAt}!Pedido@{Pedido}}
+\doxysubsubsection{\texorpdfstring{createdAt}{createdAt}}
+{\footnotesize\ttfamily \label{classPedido_aec9e2c23d7bced56143328f7bb420952} 
+std\+::time\+\_\+t Pedido\+::created\+At\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definido na linha \mbox{\hyperlink{Pedido_8hpp_source_l00037}{37}} do ficheiro \mbox{\hyperlink{Pedido_8hpp_source}{Pedido.\+hpp}}.
+
+\Hypertarget{classPedido_ae2ac7e295f6f4439da3759f11e88038e}\index{Pedido@{Pedido}!dataEntrega@{dataEntrega}}
+\index{dataEntrega@{dataEntrega}!Pedido@{Pedido}}
+\doxysubsubsection{\texorpdfstring{dataEntrega}{dataEntrega}}
+{\footnotesize\ttfamily \label{classPedido_ae2ac7e295f6f4439da3759f11e88038e} 
+std\+::time\+\_\+t Pedido\+::data\+Entrega\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definido na linha \mbox{\hyperlink{Pedido_8hpp_source_l00050}{50}} do ficheiro \mbox{\hyperlink{Pedido_8hpp_source}{Pedido.\+hpp}}.
+
+\Hypertarget{classPedido_a48cbe81214d6ddd97e01d242baf2b300}\index{Pedido@{Pedido}!devolucaoIniciada@{devolucaoIniciada}}
+\index{devolucaoIniciada@{devolucaoIniciada}!Pedido@{Pedido}}
+\doxysubsubsection{\texorpdfstring{devolucaoIniciada}{devolucaoIniciada}}
+{\footnotesize\ttfamily \label{classPedido_a48cbe81214d6ddd97e01d242baf2b300} 
+bool Pedido\+::devolucao\+Iniciada\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definido na linha \mbox{\hyperlink{Pedido_8hpp_source_l00049}{49}} do ficheiro \mbox{\hyperlink{Pedido_8hpp_source}{Pedido.\+hpp}}.
+
+\Hypertarget{classPedido_a21cd6ea38641e228cb781dacf6b60ccf}\index{Pedido@{Pedido}!id@{id}}
+\index{id@{id}!Pedido@{Pedido}}
+\doxysubsubsection{\texorpdfstring{id}{id}}
+{\footnotesize\ttfamily \label{classPedido_a21cd6ea38641e228cb781dacf6b60ccf} 
+unsigned int Pedido\+::id\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definido na linha \mbox{\hyperlink{Pedido_8hpp_source_l00034}{34}} do ficheiro \mbox{\hyperlink{Pedido_8hpp_source}{Pedido.\+hpp}}.
+
+\Hypertarget{classPedido_addaef2c876aa12930f0901915500021b}\index{Pedido@{Pedido}!idComprador@{idComprador}}
+\index{idComprador@{idComprador}!Pedido@{Pedido}}
+\doxysubsubsection{\texorpdfstring{idComprador}{idComprador}}
+{\footnotesize\ttfamily \label{classPedido_addaef2c876aa12930f0901915500021b} 
+unsigned int Pedido\+::id\+Comprador\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definido na linha \mbox{\hyperlink{Pedido_8hpp_source_l00035}{35}} do ficheiro \mbox{\hyperlink{Pedido_8hpp_source}{Pedido.\+hpp}}.
+
+\Hypertarget{classPedido_a923189e1963ae4e963ce7fe8a0dc88cc}\index{Pedido@{Pedido}!idVendedor@{idVendedor}}
+\index{idVendedor@{idVendedor}!Pedido@{Pedido}}
+\doxysubsubsection{\texorpdfstring{idVendedor}{idVendedor}}
+{\footnotesize\ttfamily \label{classPedido_a923189e1963ae4e963ce7fe8a0dc88cc} 
+unsigned int Pedido\+::id\+Vendedor\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definido na linha \mbox{\hyperlink{Pedido_8hpp_source_l00035}{35}} do ficheiro \mbox{\hyperlink{Pedido_8hpp_source}{Pedido.\+hpp}}.
+
+\Hypertarget{classPedido_afd3cdbe1158e6b0b00d9c4e35267d816}\index{Pedido@{Pedido}!pagamento@{pagamento}}
+\index{pagamento@{pagamento}!Pedido@{Pedido}}
+\doxysubsubsection{\texorpdfstring{pagamento}{pagamento}}
+{\footnotesize\ttfamily \label{classPedido_afd3cdbe1158e6b0b00d9c4e35267d816} 
+bool Pedido\+::pagamento = true\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definido na linha \mbox{\hyperlink{Pedido_8hpp_source_l00036}{36}} do ficheiro \mbox{\hyperlink{Pedido_8hpp_source}{Pedido.\+hpp}}.
+
+\Hypertarget{classPedido_a846e152a05b53246b18a8a1110641782}\index{Pedido@{Pedido}!previsaoEntrega@{previsaoEntrega}}
+\index{previsaoEntrega@{previsaoEntrega}!Pedido@{Pedido}}
+\doxysubsubsection{\texorpdfstring{previsaoEntrega}{previsaoEntrega}}
+{\footnotesize\ttfamily \label{classPedido_a846e152a05b53246b18a8a1110641782} 
+std\+::time\+\_\+t Pedido\+::previsao\+Entrega\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definido na linha \mbox{\hyperlink{Pedido_8hpp_source_l00038}{38}} do ficheiro \mbox{\hyperlink{Pedido_8hpp_source}{Pedido.\+hpp}}.
+
+\Hypertarget{classPedido_afa7a35691d4d38ffd213755439a9672b}\index{Pedido@{Pedido}!status@{status}}
+\index{status@{status}!Pedido@{Pedido}}
+\doxysubsubsection{\texorpdfstring{status}{status}}
+{\footnotesize\ttfamily \label{classPedido_afa7a35691d4d38ffd213755439a9672b} 
+\mbox{\hyperlink{structStatus}{Status}} Pedido\+::status\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definido na linha \mbox{\hyperlink{Pedido_8hpp_source_l00043}{43}} do ficheiro \mbox{\hyperlink{Pedido_8hpp_source}{Pedido.\+hpp}}.
+
+\Hypertarget{classPedido_a1b4d2db5d7e50c6e89b7ff9821211c18}\index{Pedido@{Pedido}!statusInfo@{statusInfo}}
+\index{statusInfo@{statusInfo}!Pedido@{Pedido}}
+\doxysubsubsection{\texorpdfstring{statusInfo}{statusInfo}}
+{\footnotesize\ttfamily \label{classPedido_a1b4d2db5d7e50c6e89b7ff9821211c18} 
+std\+::string Pedido\+::status\+Info\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definido na linha \mbox{\hyperlink{Pedido_8hpp_source_l00044}{44}} do ficheiro \mbox{\hyperlink{Pedido_8hpp_source}{Pedido.\+hpp}}.
+
+
+
+A documentação para esta classe foi gerada a partir dos seguintes ficheiros\+:\begin{DoxyCompactItemize}
+\item 
+include/\mbox{\hyperlink{Pedido_8hpp}{Pedido.\+hpp}}\item 
+src/\mbox{\hyperlink{Pedido_8cpp}{Pedido.\+cpp}}\end{DoxyCompactItemize}

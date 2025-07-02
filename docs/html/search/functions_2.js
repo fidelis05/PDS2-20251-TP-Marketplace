@@ -1,0 +1,27 @@
+var searchData=
+[
+  ['c_5fstr_0',['c_str',['../classdoctest_1_1String.html#a59fcdcf1abd7d66572158049c1b4a8c0',1,'doctest::String::c_str() const'],['../classdoctest_1_1String.html#a4a59b9aa0980d93e15a4cf459dab7f7e',1,'doctest::String::c_str()'],['../classdoctest_1_1AssertData_1_1StringContains.html#a1ced6c89e3694d02717a3ea69746b460',1,'doctest::AssertData::StringContains::c_str()']]],
+  ['cadastrar_1',['cadastrar',['../classUsuario.html#a181823955eaeae8631c263773423b2eb',1,'Usuario']]],
+  ['cadastrarusuario_2',['cadastrarUsuario',['../classAdmin.html#aabdbe13e8b67b28b5b742fc5e7563988',1,'Admin']]],
+  ['cancelarpedido_3',['cancelarPedido',['../classPedido.html#ac7cac1ba0941237253cef2f13e4c07dc',1,'Pedido']]],
+  ['capacity_4',['capacity',['../classdoctest_1_1String.html#a1592b42fc76438d5a87a94654a828ced',1,'doctest::String']]],
+  ['carregarprodutos_5',['carregarProdutos',['../classInterface.html#aec131bbaa3fa8c476cd1ce0923e64c74',1,'Interface']]],
+  ['carrinho_6',['Carrinho',['../classCarrinho.html#a8b4f69735eee86e22097b58b2c116224',1,'Carrinho']]],
+  ['check_7',['check',['../classdoctest_1_1AssertData_1_1StringContains.html#af784258b8b4f99b8665e090d74610b26',1,'doctest::AssertData::StringContains']]],
+  ['checkfilters_8',['checkFilters',['../structdoctest_1_1detail_1_1Subcase.html#ae8a53539f3181348ce171eab74b45476',1,'doctest::detail::Subcase']]],
+  ['checkifshouldthrow_9',['checkIfShouldThrow',['../namespacedoctest_1_1detail.html#acec9ff072dd86af95225a8beb9c57298',1,'doctest::detail']]],
+  ['checkwith_10',['checkWith',['../classdoctest_1_1Contains.html#a1e503a63b1ebaef517d5ef50c97ae3e8',1,'doctest::Contains']]],
+  ['clearfilters_11',['clearFilters',['../classdoctest_1_1Context.html#aaa878723e89310d5aa3f516bc7ab3165',1,'doctest::Context']]],
+  ['compare_12',['compare',['../classdoctest_1_1String.html#aef87d1f106d32d8c31af87335b44164d',1,'doctest::String::compare(const char *other, bool no_case=false) const'],['../classdoctest_1_1String.html#adb57becb56e054d981e7c2b967a7e359',1,'doctest::String::compare(const String &amp;other, bool no_case=false) const']]],
+  ['confirmarentrega_13',['confirmarEntrega',['../classCorreios.html#af563544fc7d9dc11e9a25bbdee350fb6',1,'Correios']]],
+  ['consultarpedido_14',['consultarPedido',['../classCorreios.html#a24ac38030a98a10a802889060de01231',1,'Correios']]],
+  ['consume_15',['consume',['../namespacedoctest_1_1detail.html#a73ae1d22b73ccf7557a1c62642b57723',1,'doctest::detail']]],
+  ['contains_16',['Contains',['../classdoctest_1_1Contains.html#a251f469eead28031994099c4437d95a5',1,'doctest::Contains']]],
+  ['context_17',['Context',['../classdoctest_1_1Context.html#a881bc2d0fe207d672e1debe830768a98',1,'doctest::Context::Context(int argc=0, const char *const *argv=nullptr)'],['../classdoctest_1_1Context.html#a1d40d57d7b4bee1c8e6e2ebe7eafbb3a',1,'doctest::Context::Context(const Context &amp;)=delete'],['../classdoctest_1_1Context.html#a1feb0418d15238aa805f0c1e16f5197e',1,'doctest::Context::Context(Context &amp;&amp;)=delete']]],
+  ['contextscope_18',['ContextScope',['../classdoctest_1_1detail_1_1ContextScope.html#a344c76a0374615d567a084c0a0ffd215',1,'doctest::detail::ContextScope::ContextScope(const L &amp;lambda)'],['../classdoctest_1_1detail_1_1ContextScope.html#aea8b6a27c0f1257529f9912ec2ab2991',1,'doctest::detail::ContextScope::ContextScope(L &amp;&amp;lambda)'],['../classdoctest_1_1detail_1_1ContextScope.html#aa2bc8edd40e227d9028b0cfca4911465',1,'doctest::detail::ContextScope::ContextScope(const ContextScope &amp;)=delete'],['../classdoctest_1_1detail_1_1ContextScope.html#aa6ab9a99670766e8ee26631cea4148f9',1,'doctest::detail::ContextScope::ContextScope(ContextScope &amp;&amp;) noexcept=default']]],
+  ['contextscopebase_19',['ContextScopeBase',['../structdoctest_1_1detail_1_1ContextScopeBase.html#a3fff412c7c41aeb8fc0314f3f4503ec4',1,'doctest::detail::ContextScopeBase::ContextScopeBase(const ContextScopeBase &amp;)=delete'],['../structdoctest_1_1detail_1_1ContextScopeBase.html#af3a3ff7ad6b98142ef0f7e1d01912d48',1,'doctest::detail::ContextScopeBase::ContextScopeBase()'],['../structdoctest_1_1detail_1_1ContextScopeBase.html#a13e4ac8d4ef5b7c3361618f6ad5efcfe',1,'doctest::detail::ContextScopeBase::ContextScopeBase(ContextScopeBase &amp;&amp;other) noexcept']]],
+  ['convert_20',['convert',['../structdoctest_1_1detail_1_1StringMakerBase.html#a67d29f2a5de9a522d8e8607c1a39db9b',1,'doctest::detail::StringMakerBase::convert()'],['../structdoctest_1_1detail_1_1StringMakerBase_3_01true_01_4.html#ae1a11dee413117f36e335677589b047f',1,'doctest::detail::StringMakerBase&lt; true &gt;::convert()']]],
+  ['copy_21',['copy',['../classdoctest_1_1String.html#a9adde1fae310e0d1a394cc1383495572',1,'doctest::String']]],
+  ['correios_22',['Correios',['../classCorreios.html#a4ee15e100d85c95b06167abc99ed1be3',1,'Correios::Correios()'],['../classCorreios.html#a936038796c636961a2300eb9717d5fa4',1,'Correios::Correios(unsigned int id, const std::string &amp;usuario, const std::string &amp;senha)']]],
+  ['correiosexception_23',['CorreiosException',['../classCorreiosException.html#a1714e23494c7d6ad2db1430e4cf2e564',1,'CorreiosException']]]
+];

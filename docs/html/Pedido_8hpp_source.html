@@ -1,0 +1,235 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="pt">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.14.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Sistema Marketplace PDS2: Código-Fonte de include/Pedido.hpp</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">Sistema Marketplace PDS2<span id="projectnumber">&#160;1.0</span>
+   </div>
+   <div id="projectbrief">Sistema de marketplace desenvolvido para a disciplina PDS2</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Gerado por Doxygen 1.14.0 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+</script>
+<script type="text/javascript">
+$(function() { codefold.init(); });
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('',true,false,'search.php','Localizar',false);
+  $(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Carregando...</div>
+<div class="SRStatus" id="Searching">Procurando...</div>
+<div class="SRStatus" id="NoMatches">Nenhuma entrada encontrada</div>
+</div>
+</div>
+</div>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div id="doc-content">
+<div class="header">
+  <div class="headertitle"><div class="title">Pedido.hpp</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="Pedido_8hpp.html">Ir para a documentação deste ficheiro.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#ifndef PEDIDO_HPP</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#define PEDIDO_HPP</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span> </div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &quot;<a class="code" href="Carrinho_8hpp.html">Carrinho.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &quot;<a class="code" href="Produto_8hpp.html">Produto.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#include &quot;<a class="code" href="Usuario_8hpp.html">Usuario.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#include &lt;ctime&gt;</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#include &lt;iostream&gt;</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#include &lt;map&gt;</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="preprocessor">#include &lt;string&gt;</span></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="preprocessor">#include &lt;fstream&gt;</span> <span class="comment">// Added for file operations</span></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="preprocessor">#include &lt;vector&gt;</span>  <span class="comment">// Added for using vector</span></div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span> </div>
+<div class="foldopen" id="foldopen00014" data-start="{" data-end="};">
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno"><a class="line" href="structStatus.html">   14</a></span><span class="keyword">struct </span><a class="code hl_function" href="structStatus.html#a944586fb328a3524805748c8f7b17f32">Status</a></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>{</div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno"><a class="line" href="structStatus.html#a1e6b72b7e151d3231f4d0e454b711a83">   16</a></span>    std::map&lt;int, std::string&gt; <a class="code hl_variable" href="structStatus.html#a1e6b72b7e151d3231f4d0e454b711a83">status_map</a>;</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span> </div>
+<div class="foldopen" id="foldopen00018" data-start="{" data-end="}">
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno"><a class="line" href="structStatus.html#a944586fb328a3524805748c8f7b17f32">   18</a></span>    <a class="code hl_function" href="structStatus.html#a944586fb328a3524805748c8f7b17f32">Status</a>()</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>    {</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>        <a class="code hl_variable" href="structStatus.html#a1e6b72b7e151d3231f4d0e454b711a83">status_map</a>[0] = <span class="stringliteral">&quot;Esperando aprovação do pagamento&quot;</span>;</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>        <a class="code hl_variable" href="structStatus.html#a1e6b72b7e151d3231f4d0e454b711a83">status_map</a>[1] = <span class="stringliteral">&quot;Enviado&quot;</span>;</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>        <a class="code hl_variable" href="structStatus.html#a1e6b72b7e151d3231f4d0e454b711a83">status_map</a>[2] = <span class="stringliteral">&quot;Vendedor ciente&quot;</span>;</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>        <a class="code hl_variable" href="structStatus.html#a1e6b72b7e151d3231f4d0e454b711a83">status_map</a>[3] = <span class="stringliteral">&quot;Despachado&quot;</span>;</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>        <a class="code hl_variable" href="structStatus.html#a1e6b72b7e151d3231f4d0e454b711a83">status_map</a>[4] = <span class="stringliteral">&quot;A caminho&quot;</span>;</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>        <a class="code hl_variable" href="structStatus.html#a1e6b72b7e151d3231f4d0e454b711a83">status_map</a>[5] = <span class="stringliteral">&quot;Saiu para Entrega&quot;</span>;</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>        <a class="code hl_variable" href="structStatus.html#a1e6b72b7e151d3231f4d0e454b711a83">status_map</a>[6] = <span class="stringliteral">&quot;Entregue&quot;</span>;</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>        <a class="code hl_variable" href="structStatus.html#a1e6b72b7e151d3231f4d0e454b711a83">status_map</a>[7] = <span class="stringliteral">&quot;Cancelado&quot;</span>;</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>    }</div>
+</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>};</div>
+</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span> </div>
+<div class="foldopen" id="foldopen00031" data-start="{" data-end="};">
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno"><a class="line" href="classPedido.html">   31</a></span><span class="keyword">class </span><a class="code hl_function" href="classPedido.html#a68780d86e2e54ef3c8dcb74870611185">Pedido</a></div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>{</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno"><a class="line" href="classPedido.html#a21cd6ea38641e228cb781dacf6b60ccf">   34</a></span>    <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code hl_variable" href="classPedido.html#a21cd6ea38641e228cb781dacf6b60ccf">id</a>;</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno"><a class="line" href="classPedido.html#addaef2c876aa12930f0901915500021b">   35</a></span>    <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code hl_variable" href="classPedido.html#a923189e1963ae4e963ce7fe8a0dc88cc">idVendedor</a>, <a class="code hl_variable" href="classPedido.html#addaef2c876aa12930f0901915500021b">idComprador</a>;</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno"><a class="line" href="classPedido.html#afd3cdbe1158e6b0b00d9c4e35267d816">   36</a></span>    <span class="keywordtype">bool</span> <a class="code hl_variable" href="classPedido.html#afd3cdbe1158e6b0b00d9c4e35267d816">pagamento</a> = <span class="keyword">true</span>; <span class="comment">// inicializado como true por padrão pra futuras implementações</span></div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno"><a class="line" href="classPedido.html#aec9e2c23d7bced56143328f7bb420952">   37</a></span>    std::time_t <a class="code hl_variable" href="classPedido.html#aec9e2c23d7bced56143328f7bb420952">createdAt</a>;</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno"><a class="line" href="classPedido.html#a846e152a05b53246b18a8a1110641782">   38</a></span>    std::time_t <a class="code hl_variable" href="classPedido.html#a846e152a05b53246b18a8a1110641782">previsaoEntrega</a>;</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span> </div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno"><a class="line" href="classPedido.html#abfe5d4d48709cb6337ec972f94914656">   40</a></span>    <a class="code hl_class" href="classCarrinho.html">Carrinho</a> <a class="code hl_variable" href="classPedido.html#abfe5d4d48709cb6337ec972f94914656">compra</a>;</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span> </div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span><span class="keyword">protected</span>:</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno"><a class="line" href="classPedido.html#afa7a35691d4d38ffd213755439a9672b">   43</a></span>    <a class="code hl_struct" href="structStatus.html">Status</a> <a class="code hl_variable" href="classPedido.html#afa7a35691d4d38ffd213755439a9672b">status</a>;</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno"><a class="line" href="classPedido.html#a1b4d2db5d7e50c6e89b7ff9821211c18">   44</a></span>    std::string <a class="code hl_variable" href="classPedido.html#a1b4d2db5d7e50c6e89b7ff9821211c18">statusInfo</a>;</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno"><a class="line" href="classPedido.html#ae6e5de5c57a9ed723e58062bbd2cbbf6">   45</a></span>    <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code hl_variable" href="classPedido.html#ae6e5de5c57a9ed723e58062bbd2cbbf6">codigoRastreio</a>;</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno"><a class="line" href="classPedido.html#ae6bfc70788bb3c6fbe827d946c59e770">   46</a></span>    std::string <a class="code hl_variable" href="classPedido.html#ae6bfc70788bb3c6fbe827d946c59e770">codigoPostagemDevolucao</a>;</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno"><a class="line" href="classPedido.html#aaf23f01238475a22225f83c390697106">   47</a></span>    <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code hl_variable" href="classPedido.html#aaf23f01238475a22225f83c390697106">avaliacaoProduto</a>;</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno"><a class="line" href="classPedido.html#aa08d1115e42b1fadf573f3188712f510">   48</a></span>    std::string <a class="code hl_variable" href="classPedido.html#aa08d1115e42b1fadf573f3188712f510">comentarioAvaliacao</a>;</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno"><a class="line" href="classPedido.html#a48cbe81214d6ddd97e01d242baf2b300">   49</a></span>    <span class="keywordtype">bool</span> <a class="code hl_variable" href="classPedido.html#a48cbe81214d6ddd97e01d242baf2b300">devolucaoIniciada</a>;</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno"><a class="line" href="classPedido.html#ae2ac7e295f6f4439da3759f11e88038e">   50</a></span>    std::time_t <a class="code hl_variable" href="classPedido.html#ae2ac7e295f6f4439da3759f11e88038e">dataEntrega</a>;</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span> </div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>    <span class="comment">// Constructor</span></div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>    <a class="code hl_function" href="classPedido.html#a68780d86e2e54ef3c8dcb74870611185">Pedido</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code hl_variable" href="classPedido.html#addaef2c876aa12930f0901915500021b">idComprador</a>, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code hl_variable" href="classPedido.html#a923189e1963ae4e963ce7fe8a0dc88cc">idVendedor</a>, <span class="keyword">const</span> <a class="code hl_class" href="classCarrinho.html">Carrinho</a> &amp;y);</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span> </div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>    <span class="comment">// Getters</span></div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno"><a class="line" href="classPedido.html#a601ad81caa92dea9b4cd8294b09f00de">   57</a></span>    <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code hl_function" href="classPedido.html#a601ad81caa92dea9b4cd8294b09f00de">getId</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> this-&gt;id; }</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno"><a class="line" href="classPedido.html#aaf0f019c6a7aa1828d730117d1efc43a">   58</a></span>    <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code hl_function" href="classPedido.html#aaf0f019c6a7aa1828d730117d1efc43a">getIdVendedor</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> this-&gt;idVendedor; }</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno"><a class="line" href="classPedido.html#a4429692aba984c24c7b8f87ccf62f2fc">   59</a></span>    <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code hl_function" href="classPedido.html#a4429692aba984c24c7b8f87ccf62f2fc">getIdComprador</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> this-&gt;idComprador; }</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno"><a class="line" href="classPedido.html#a8b120910f346848d091019f03b5f2e2e">   60</a></span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="classPedido.html#a8b120910f346848d091019f03b5f2e2e">getPagamento</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> this-&gt;pagamento; }</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno"><a class="line" href="classPedido.html#aea72e2d04461f6bc6969aaaf83c533a6">   61</a></span>    std::time_t <a class="code hl_function" href="classPedido.html#aea72e2d04461f6bc6969aaaf83c533a6">getCreatedAt</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> this-&gt;createdAt; }</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno"><a class="line" href="classPedido.html#a87235c30e70e265bc33eb53bbbdbd7cc">   62</a></span>    std::time_t <a class="code hl_function" href="classPedido.html#a87235c30e70e265bc33eb53bbbdbd7cc">getPrevisaoEntrega</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> this-&gt;previsaoEntrega; }</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno"><a class="line" href="classPedido.html#a37071ee657012cac7d9ed03e4b22de21">   63</a></span>    std::time_t <a class="code hl_function" href="classPedido.html#a37071ee657012cac7d9ed03e4b22de21">getDataEntrega</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> this-&gt;dataEntrega; }</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno"><a class="line" href="classPedido.html#abab6213c1a30367f4a2afda215e31005">   64</a></span>    std::string <a class="code hl_function" href="classPedido.html#abab6213c1a30367f4a2afda215e31005">getStatus</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> this-&gt;statusInfo; }</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno"><a class="line" href="classPedido.html#ad484f0fd5c2bf59dbbb95b03f6df473f">   65</a></span>    <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code hl_function" href="classPedido.html#ad484f0fd5c2bf59dbbb95b03f6df473f">getCodigoRastreio</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> this-&gt;codigoRastreio; }</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno"><a class="line" href="classPedido.html#a8b44c6d8bf03e51002a7a61eb6203ed8">   66</a></span>    std::string <a class="code hl_function" href="classPedido.html#a8b44c6d8bf03e51002a7a61eb6203ed8">getCodigoPostagemDevolucao</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> this-&gt;codigoPostagemDevolucao; }</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno"><a class="line" href="classPedido.html#ac58f366537cb3f10a5b58abe8a7284c9">   67</a></span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="classPedido.html#ac58f366537cb3f10a5b58abe8a7284c9">getDevolucaoIniciada</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> this-&gt;devolucaoIniciada; }</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>    <span class="comment">// Ações básicas</span></div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classPedido.html#a988c116b0fc7223b025487e0d1c4c5ba">pagamentoConcluido</a>();</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classPedido.html#ac7cac1ba0941237253cef2f13e4c07dc">cancelarPedido</a>();</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span> </div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>    <span class="comment">// Ações específicas</span></div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classPedido.html#a0b138f0b64a9f54faad608cf658fd101">devolverPedido</a>();                     <span class="comment">// Remove parameter since it uses the stored idComprador</span></div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classPedido.html#a41e0bee3f9fe185615168dd5a723529b">enviarPedido</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> usuarioId); <span class="comment">// Verifica se é o vendedor</span></div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classPedido.html#a6d354da3ab79912309360f208818baeb">iniciarLogisticaReversa</a>();</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classPedido.html#aa3dc75ee9942972d5510661d8f8e8353">atualizarStatusDevolucao</a>(<span class="keyword">const</span> std::string &amp;novoStatus);</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classPedido.html#a27aea9f155f0eea845b737169fb077a2">avaliarPedido</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> nota, <span class="keyword">const</span> std::string &amp;comentario);</div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classPedido.html#a6a7bb74f92d56862e455ad31b5d5ab55">notificarMudancaStatus</a>(<span class="keyword">const</span> std::string &amp;mensagem);</div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span> </div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>    <span class="comment">// Métodos para salvar em CSV</span></div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classPedido.html#a798532ab82c7d87eb887de061fd4650e">SalvarPedidos</a>(<span class="keyword">const</span> std::string &amp;filename) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>    <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code hl_function" href="classPedido.html#aa589d4893bc5f63f2aa7a0f0fbb10200">SalvarPedidosCSV</a>(<span class="keyword">const</span> std::string &amp;filename, <span class="keyword">const</span> <a class="code hl_class" href="classPedido.html">Pedido</a> &amp;pedido);</div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>    <span class="keyword">static</span> std::string <a class="code hl_function" href="classPedido.html#a72e5a9b10a1f085c95b46f2da9cba2f3">timeToString</a>(std::time_t time);</div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span> </div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>    <span class="comment">// New methods to read from CSV</span></div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>    <span class="keyword">static</span> std::vector&lt;Pedido&gt; <a class="code hl_function" href="classPedido.html#a1446d1d7d73cd688a7af042cc7de8bf3">lerTodosPedidos</a>(<span class="keyword">const</span> std::string &amp;filename);</div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>    <span class="keyword">static</span> <a class="code hl_class" href="classPedido.html">Pedido</a> <a class="code hl_function" href="classPedido.html#ac183ad56b95e19f2c12002981c2dc38f">lerPedidoPorId</a>(<span class="keyword">const</span> std::string &amp;filename, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <span class="keywordtype">id</span>);</div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>    <span class="keyword">static</span> std::time_t <a class="code hl_function" href="classPedido.html#afca352c622db8037e3c9e9efb282965e">stringToTime</a>(<span class="keyword">const</span> std::string &amp;timeStr);</div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>};</div>
+</div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span> </div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span><span class="preprocessor">#endif</span></div>
+<div class="ttc" id="aCarrinho_8hpp_html"><div class="ttname"><a href="Carrinho_8hpp.html">Carrinho.hpp</a></div></div>
+<div class="ttc" id="aProduto_8hpp_html"><div class="ttname"><a href="Produto_8hpp.html">Produto.hpp</a></div><div class="ttdoc">Declaração da classe Produto.</div></div>
+<div class="ttc" id="aUsuario_8hpp_html"><div class="ttname"><a href="Usuario_8hpp.html">Usuario.hpp</a></div><div class="ttdoc">Declaração da classe Usuario.</div></div>
+<div class="ttc" id="aclassCarrinho_html"><div class="ttname"><a href="classCarrinho.html">Carrinho</a></div><div class="ttdef"><b>Definição</b> <a href="Carrinho_8hpp_source.html#l00007">Carrinho.hpp:8</a></div></div>
+<div class="ttc" id="aclassPedido_html"><div class="ttname"><a href="classPedido.html">Pedido</a></div><div class="ttdef"><b>Definição</b> <a href="#l00031">Pedido.hpp:32</a></div></div>
+<div class="ttc" id="aclassPedido_html_a0b138f0b64a9f54faad608cf658fd101"><div class="ttname"><a href="classPedido.html#a0b138f0b64a9f54faad608cf658fd101">Pedido::devolverPedido</a></div><div class="ttdeci">void devolverPedido()</div><div class="ttdef"><b>Definição</b> <a href="Pedido_8cpp_source.html#l00042">Pedido.cpp:42</a></div></div>
+<div class="ttc" id="aclassPedido_html_a1446d1d7d73cd688a7af042cc7de8bf3"><div class="ttname"><a href="classPedido.html#a1446d1d7d73cd688a7af042cc7de8bf3">Pedido::lerTodosPedidos</a></div><div class="ttdeci">static std::vector&lt; Pedido &gt; lerTodosPedidos(const std::string &amp;filename)</div><div class="ttdef"><b>Definição</b> <a href="Pedido_8cpp_source.html#l00125">Pedido.cpp:125</a></div></div>
+<div class="ttc" id="aclassPedido_html_a1b4d2db5d7e50c6e89b7ff9821211c18"><div class="ttname"><a href="classPedido.html#a1b4d2db5d7e50c6e89b7ff9821211c18">Pedido::statusInfo</a></div><div class="ttdeci">std::string statusInfo</div><div class="ttdef"><b>Definição</b> <a href="#l00044">Pedido.hpp:44</a></div></div>
+<div class="ttc" id="aclassPedido_html_a21cd6ea38641e228cb781dacf6b60ccf"><div class="ttname"><a href="classPedido.html#a21cd6ea38641e228cb781dacf6b60ccf">Pedido::id</a></div><div class="ttdeci">unsigned int id</div><div class="ttdef"><b>Definição</b> <a href="#l00034">Pedido.hpp:34</a></div></div>
+<div class="ttc" id="aclassPedido_html_a27aea9f155f0eea845b737169fb077a2"><div class="ttname"><a href="classPedido.html#a27aea9f155f0eea845b737169fb077a2">Pedido::avaliarPedido</a></div><div class="ttdeci">void avaliarPedido(unsigned int nota, const std::string &amp;comentario)</div><div class="ttdef"><b>Definição</b> <a href="Pedido_8cpp_source.html#l00263">Pedido.cpp:263</a></div></div>
+<div class="ttc" id="aclassPedido_html_a37071ee657012cac7d9ed03e4b22de21"><div class="ttname"><a href="classPedido.html#a37071ee657012cac7d9ed03e4b22de21">Pedido::getDataEntrega</a></div><div class="ttdeci">std::time_t getDataEntrega() const</div><div class="ttdef"><b>Definição</b> <a href="#l00063">Pedido.hpp:63</a></div></div>
+<div class="ttc" id="aclassPedido_html_a41e0bee3f9fe185615168dd5a723529b"><div class="ttname"><a href="classPedido.html#a41e0bee3f9fe185615168dd5a723529b">Pedido::enviarPedido</a></div><div class="ttdeci">void enviarPedido(unsigned int usuarioId)</div><div class="ttdef"><b>Definição</b> <a href="Pedido_8cpp_source.html#l00067">Pedido.cpp:67</a></div></div>
+<div class="ttc" id="aclassPedido_html_a4429692aba984c24c7b8f87ccf62f2fc"><div class="ttname"><a href="classPedido.html#a4429692aba984c24c7b8f87ccf62f2fc">Pedido::getIdComprador</a></div><div class="ttdeci">unsigned int getIdComprador() const</div><div class="ttdef"><b>Definição</b> <a href="#l00059">Pedido.hpp:59</a></div></div>
+<div class="ttc" id="aclassPedido_html_a48cbe81214d6ddd97e01d242baf2b300"><div class="ttname"><a href="classPedido.html#a48cbe81214d6ddd97e01d242baf2b300">Pedido::devolucaoIniciada</a></div><div class="ttdeci">bool devolucaoIniciada</div><div class="ttdef"><b>Definição</b> <a href="#l00049">Pedido.hpp:49</a></div></div>
+<div class="ttc" id="aclassPedido_html_a601ad81caa92dea9b4cd8294b09f00de"><div class="ttname"><a href="classPedido.html#a601ad81caa92dea9b4cd8294b09f00de">Pedido::getId</a></div><div class="ttdeci">unsigned int getId() const</div><div class="ttdef"><b>Definição</b> <a href="#l00057">Pedido.hpp:57</a></div></div>
+<div class="ttc" id="aclassPedido_html_a68780d86e2e54ef3c8dcb74870611185"><div class="ttname"><a href="classPedido.html#a68780d86e2e54ef3c8dcb74870611185">Pedido::Pedido</a></div><div class="ttdeci">Pedido(unsigned int idComprador, unsigned int idVendedor, const Carrinho &amp;y)</div><div class="ttdef"><b>Definição</b> <a href="Pedido_8cpp_source.html#l00006">Pedido.cpp:6</a></div></div>
+<div class="ttc" id="aclassPedido_html_a6a7bb74f92d56862e455ad31b5d5ab55"><div class="ttname"><a href="classPedido.html#a6a7bb74f92d56862e455ad31b5d5ab55">Pedido::notificarMudancaStatus</a></div><div class="ttdeci">void notificarMudancaStatus(const std::string &amp;mensagem)</div><div class="ttdef"><b>Definição</b> <a href="Pedido_8cpp_source.html#l00252">Pedido.cpp:252</a></div></div>
+<div class="ttc" id="aclassPedido_html_a6d354da3ab79912309360f208818baeb"><div class="ttname"><a href="classPedido.html#a6d354da3ab79912309360f208818baeb">Pedido::iniciarLogisticaReversa</a></div><div class="ttdeci">void iniciarLogisticaReversa()</div><div class="ttdef"><b>Definição</b> <a href="Pedido_8cpp_source.html#l00235">Pedido.cpp:235</a></div></div>
+<div class="ttc" id="aclassPedido_html_a72e5a9b10a1f085c95b46f2da9cba2f3"><div class="ttname"><a href="classPedido.html#a72e5a9b10a1f085c95b46f2da9cba2f3">Pedido::timeToString</a></div><div class="ttdeci">static std::string timeToString(std::time_t time)</div><div class="ttdef"><b>Definição</b> <a href="Pedido_8cpp_source.html#l00080">Pedido.cpp:80</a></div></div>
+<div class="ttc" id="aclassPedido_html_a798532ab82c7d87eb887de061fd4650e"><div class="ttname"><a href="classPedido.html#a798532ab82c7d87eb887de061fd4650e">Pedido::SalvarPedidos</a></div><div class="ttdeci">void SalvarPedidos(const std::string &amp;filename) const</div><div class="ttdef"><b>Definição</b> <a href="Pedido_8cpp_source.html#l00087">Pedido.cpp:87</a></div></div>
+<div class="ttc" id="aclassPedido_html_a846e152a05b53246b18a8a1110641782"><div class="ttname"><a href="classPedido.html#a846e152a05b53246b18a8a1110641782">Pedido::previsaoEntrega</a></div><div class="ttdeci">std::time_t previsaoEntrega</div><div class="ttdef"><b>Definição</b> <a href="#l00038">Pedido.hpp:38</a></div></div>
+<div class="ttc" id="aclassPedido_html_a87235c30e70e265bc33eb53bbbdbd7cc"><div class="ttname"><a href="classPedido.html#a87235c30e70e265bc33eb53bbbdbd7cc">Pedido::getPrevisaoEntrega</a></div><div class="ttdeci">std::time_t getPrevisaoEntrega() const</div><div class="ttdef"><b>Definição</b> <a href="#l00062">Pedido.hpp:62</a></div></div>
+<div class="ttc" id="aclassPedido_html_a8b120910f346848d091019f03b5f2e2e"><div class="ttname"><a href="classPedido.html#a8b120910f346848d091019f03b5f2e2e">Pedido::getPagamento</a></div><div class="ttdeci">bool getPagamento() const</div><div class="ttdef"><b>Definição</b> <a href="#l00060">Pedido.hpp:60</a></div></div>
+<div class="ttc" id="aclassPedido_html_a8b44c6d8bf03e51002a7a61eb6203ed8"><div class="ttname"><a href="classPedido.html#a8b44c6d8bf03e51002a7a61eb6203ed8">Pedido::getCodigoPostagemDevolucao</a></div><div class="ttdeci">std::string getCodigoPostagemDevolucao() const</div><div class="ttdef"><b>Definição</b> <a href="#l00066">Pedido.hpp:66</a></div></div>
+<div class="ttc" id="aclassPedido_html_a923189e1963ae4e963ce7fe8a0dc88cc"><div class="ttname"><a href="classPedido.html#a923189e1963ae4e963ce7fe8a0dc88cc">Pedido::idVendedor</a></div><div class="ttdeci">unsigned int idVendedor</div><div class="ttdef"><b>Definição</b> <a href="#l00035">Pedido.hpp:35</a></div></div>
+<div class="ttc" id="aclassPedido_html_a988c116b0fc7223b025487e0d1c4c5ba"><div class="ttname"><a href="classPedido.html#a988c116b0fc7223b025487e0d1c4c5ba">Pedido::pagamentoConcluido</a></div><div class="ttdeci">void pagamentoConcluido()</div><div class="ttdef"><b>Definição</b> <a href="Pedido_8cpp_source.html#l00021">Pedido.cpp:21</a></div></div>
+<div class="ttc" id="aclassPedido_html_aa08d1115e42b1fadf573f3188712f510"><div class="ttname"><a href="classPedido.html#aa08d1115e42b1fadf573f3188712f510">Pedido::comentarioAvaliacao</a></div><div class="ttdeci">std::string comentarioAvaliacao</div><div class="ttdef"><b>Definição</b> <a href="#l00048">Pedido.hpp:48</a></div></div>
+<div class="ttc" id="aclassPedido_html_aa3dc75ee9942972d5510661d8f8e8353"><div class="ttname"><a href="classPedido.html#aa3dc75ee9942972d5510661d8f8e8353">Pedido::atualizarStatusDevolucao</a></div><div class="ttdeci">void atualizarStatusDevolucao(const std::string &amp;novoStatus)</div><div class="ttdef"><b>Definição</b> <a href="Pedido_8cpp_source.html#l00257">Pedido.cpp:257</a></div></div>
+<div class="ttc" id="aclassPedido_html_aa589d4893bc5f63f2aa7a0f0fbb10200"><div class="ttname"><a href="classPedido.html#aa589d4893bc5f63f2aa7a0f0fbb10200">Pedido::SalvarPedidosCSV</a></div><div class="ttdeci">static void SalvarPedidosCSV(const std::string &amp;filename, const Pedido &amp;pedido)</div><div class="ttdef"><b>Definição</b> <a href="Pedido_8cpp_source.html#l00092">Pedido.cpp:92</a></div></div>
+<div class="ttc" id="aclassPedido_html_aaf0f019c6a7aa1828d730117d1efc43a"><div class="ttname"><a href="classPedido.html#aaf0f019c6a7aa1828d730117d1efc43a">Pedido::getIdVendedor</a></div><div class="ttdeci">unsigned int getIdVendedor() const</div><div class="ttdef"><b>Definição</b> <a href="#l00058">Pedido.hpp:58</a></div></div>
+<div class="ttc" id="aclassPedido_html_aaf23f01238475a22225f83c390697106"><div class="ttname"><a href="classPedido.html#aaf23f01238475a22225f83c390697106">Pedido::avaliacaoProduto</a></div><div class="ttdeci">unsigned int avaliacaoProduto</div><div class="ttdef"><b>Definição</b> <a href="#l00047">Pedido.hpp:47</a></div></div>
+<div class="ttc" id="aclassPedido_html_abab6213c1a30367f4a2afda215e31005"><div class="ttname"><a href="classPedido.html#abab6213c1a30367f4a2afda215e31005">Pedido::getStatus</a></div><div class="ttdeci">std::string getStatus() const</div><div class="ttdef"><b>Definição</b> <a href="#l00064">Pedido.hpp:64</a></div></div>
+<div class="ttc" id="aclassPedido_html_abfe5d4d48709cb6337ec972f94914656"><div class="ttname"><a href="classPedido.html#abfe5d4d48709cb6337ec972f94914656">Pedido::compra</a></div><div class="ttdeci">Carrinho compra</div><div class="ttdef"><b>Definição</b> <a href="#l00040">Pedido.hpp:40</a></div></div>
+<div class="ttc" id="aclassPedido_html_ac183ad56b95e19f2c12002981c2dc38f"><div class="ttname"><a href="classPedido.html#ac183ad56b95e19f2c12002981c2dc38f">Pedido::lerPedidoPorId</a></div><div class="ttdeci">static Pedido lerPedidoPorId(const std::string &amp;filename, unsigned int id)</div><div class="ttdef"><b>Definição</b> <a href="Pedido_8cpp_source.html#l00179">Pedido.cpp:179</a></div></div>
+<div class="ttc" id="aclassPedido_html_ac58f366537cb3f10a5b58abe8a7284c9"><div class="ttname"><a href="classPedido.html#ac58f366537cb3f10a5b58abe8a7284c9">Pedido::getDevolucaoIniciada</a></div><div class="ttdeci">bool getDevolucaoIniciada() const</div><div class="ttdef"><b>Definição</b> <a href="#l00067">Pedido.hpp:67</a></div></div>
+<div class="ttc" id="aclassPedido_html_ac7cac1ba0941237253cef2f13e4c07dc"><div class="ttname"><a href="classPedido.html#ac7cac1ba0941237253cef2f13e4c07dc">Pedido::cancelarPedido</a></div><div class="ttdeci">void cancelarPedido()</div><div class="ttdef"><b>Definição</b> <a href="Pedido_8cpp_source.html#l00027">Pedido.cpp:27</a></div></div>
+<div class="ttc" id="aclassPedido_html_ad484f0fd5c2bf59dbbb95b03f6df473f"><div class="ttname"><a href="classPedido.html#ad484f0fd5c2bf59dbbb95b03f6df473f">Pedido::getCodigoRastreio</a></div><div class="ttdeci">unsigned int getCodigoRastreio() const</div><div class="ttdef"><b>Definição</b> <a href="#l00065">Pedido.hpp:65</a></div></div>
+<div class="ttc" id="aclassPedido_html_addaef2c876aa12930f0901915500021b"><div class="ttname"><a href="classPedido.html#addaef2c876aa12930f0901915500021b">Pedido::idComprador</a></div><div class="ttdeci">unsigned int idComprador</div><div class="ttdef"><b>Definição</b> <a href="#l00035">Pedido.hpp:35</a></div></div>
+<div class="ttc" id="aclassPedido_html_ae2ac7e295f6f4439da3759f11e88038e"><div class="ttname"><a href="classPedido.html#ae2ac7e295f6f4439da3759f11e88038e">Pedido::dataEntrega</a></div><div class="ttdeci">std::time_t dataEntrega</div><div class="ttdef"><b>Definição</b> <a href="#l00050">Pedido.hpp:50</a></div></div>
+<div class="ttc" id="aclassPedido_html_ae6bfc70788bb3c6fbe827d946c59e770"><div class="ttname"><a href="classPedido.html#ae6bfc70788bb3c6fbe827d946c59e770">Pedido::codigoPostagemDevolucao</a></div><div class="ttdeci">std::string codigoPostagemDevolucao</div><div class="ttdef"><b>Definição</b> <a href="#l00046">Pedido.hpp:46</a></div></div>
+<div class="ttc" id="aclassPedido_html_ae6e5de5c57a9ed723e58062bbd2cbbf6"><div class="ttname"><a href="classPedido.html#ae6e5de5c57a9ed723e58062bbd2cbbf6">Pedido::codigoRastreio</a></div><div class="ttdeci">unsigned int codigoRastreio</div><div class="ttdef"><b>Definição</b> <a href="#l00045">Pedido.hpp:45</a></div></div>
+<div class="ttc" id="aclassPedido_html_aea72e2d04461f6bc6969aaaf83c533a6"><div class="ttname"><a href="classPedido.html#aea72e2d04461f6bc6969aaaf83c533a6">Pedido::getCreatedAt</a></div><div class="ttdeci">std::time_t getCreatedAt() const</div><div class="ttdef"><b>Definição</b> <a href="#l00061">Pedido.hpp:61</a></div></div>
+<div class="ttc" id="aclassPedido_html_aec9e2c23d7bced56143328f7bb420952"><div class="ttname"><a href="classPedido.html#aec9e2c23d7bced56143328f7bb420952">Pedido::createdAt</a></div><div class="ttdeci">std::time_t createdAt</div><div class="ttdef"><b>Definição</b> <a href="#l00037">Pedido.hpp:37</a></div></div>
+<div class="ttc" id="aclassPedido_html_afa7a35691d4d38ffd213755439a9672b"><div class="ttname"><a href="classPedido.html#afa7a35691d4d38ffd213755439a9672b">Pedido::status</a></div><div class="ttdeci">Status status</div><div class="ttdef"><b>Definição</b> <a href="#l00043">Pedido.hpp:43</a></div></div>
+<div class="ttc" id="aclassPedido_html_afca352c622db8037e3c9e9efb282965e"><div class="ttname"><a href="classPedido.html#afca352c622db8037e3c9e9efb282965e">Pedido::stringToTime</a></div><div class="ttdeci">static std::time_t stringToTime(const std::string &amp;timeStr)</div><div class="ttdef"><b>Definição</b> <a href="Pedido_8cpp_source.html#l00117">Pedido.cpp:117</a></div></div>
+<div class="ttc" id="aclassPedido_html_afd3cdbe1158e6b0b00d9c4e35267d816"><div class="ttname"><a href="classPedido.html#afd3cdbe1158e6b0b00d9c4e35267d816">Pedido::pagamento</a></div><div class="ttdeci">bool pagamento</div><div class="ttdef"><b>Definição</b> <a href="#l00036">Pedido.hpp:36</a></div></div>
+<div class="ttc" id="astructStatus_html"><div class="ttname"><a href="structStatus.html">Status</a></div><div class="ttdef"><b>Definição</b> <a href="#l00014">Pedido.hpp:15</a></div></div>
+<div class="ttc" id="astructStatus_html_a1e6b72b7e151d3231f4d0e454b711a83"><div class="ttname"><a href="structStatus.html#a1e6b72b7e151d3231f4d0e454b711a83">Status::status_map</a></div><div class="ttdeci">std::map&lt; int, std::string &gt; status_map</div><div class="ttdef"><b>Definição</b> <a href="#l00016">Pedido.hpp:16</a></div></div>
+<div class="ttc" id="astructStatus_html_a944586fb328a3524805748c8f7b17f32"><div class="ttname"><a href="structStatus.html#a944586fb328a3524805748c8f7b17f32">Status::Status</a></div><div class="ttdeci">Status()</div><div class="ttdef"><b>Definição</b> <a href="#l00018">Pedido.hpp:18</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Gerado por&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.14.0
+</small></address>
+</div><!-- doc-content -->
+</body>
+</html>

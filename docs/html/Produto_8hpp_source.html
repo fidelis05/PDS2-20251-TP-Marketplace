@@ -1,0 +1,133 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="pt">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.14.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Sistema Marketplace PDS2: Código-Fonte de include/Produto.hpp</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">Sistema Marketplace PDS2<span id="projectnumber">&#160;1.0</span>
+   </div>
+   <div id="projectbrief">Sistema de marketplace desenvolvido para a disciplina PDS2</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Gerado por Doxygen 1.14.0 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+</script>
+<script type="text/javascript">
+$(function() { codefold.init(); });
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('',true,false,'search.php','Localizar',false);
+  $(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Carregando...</div>
+<div class="SRStatus" id="Searching">Procurando...</div>
+<div class="SRStatus" id="NoMatches">Nenhuma entrada encontrada</div>
+</div>
+</div>
+</div>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div id="doc-content">
+<div class="header">
+  <div class="headertitle"><div class="title">Produto.hpp</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="Produto_8hpp.html">Ir para a documentação deste ficheiro.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span> </div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#ifndef PRODUTO_HPP</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="preprocessor">#define PRODUTO_HPP</span></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="preprocessor">#include &lt;iostream&gt;</span></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="preprocessor">#include &lt;string&gt;</span></div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span></div>
+<div class="foldopen" id="foldopen00020" data-start="{" data-end="};">
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno"><a class="line" href="classProduto.html">   20</a></span><span class="keyword">class </span><a class="code hl_function" href="classProduto.html#a7acf08de6f1ac95df3ea4fb466a872cb">Produto</a></div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>{</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno"><a class="line" href="classProduto.html#aef1b70591f2cf530204ea8b864507843">   23</a></span>  <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code hl_variable" href="classProduto.html#aef1b70591f2cf530204ea8b864507843">id</a>;          </div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno"><a class="line" href="classProduto.html#aaa929e3f52f5a677310e30a89d2d7814">   24</a></span>  std::string <a class="code hl_variable" href="classProduto.html#aaa929e3f52f5a677310e30a89d2d7814">nome</a>;         </div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno"><a class="line" href="classProduto.html#a6a1081da785989fea33633f2a16c9cce">   25</a></span>  std::string <a class="code hl_variable" href="classProduto.html#a6a1081da785989fea33633f2a16c9cce">marca</a>;        </div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno"><a class="line" href="classProduto.html#ac44dc5dc979f828a8d2ebc40799ce869">   26</a></span>  <span class="keywordtype">double</span> <a class="code hl_variable" href="classProduto.html#ac44dc5dc979f828a8d2ebc40799ce869">valor</a>;             </div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno"><a class="line" href="classProduto.html#a36fb903f4891960f8284b3303cb70f9a">   27</a></span>  <span class="keywordtype">double</span> <a class="code hl_variable" href="classProduto.html#a36fb903f4891960f8284b3303cb70f9a">avaliacao</a>;         </div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno"><a class="line" href="classProduto.html#a94b641781a11229ce853a17744f2e194">   28</a></span>  <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code hl_variable" href="classProduto.html#a94b641781a11229ce853a17744f2e194">quantidade</a>;  </div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno"><a class="line" href="classProduto.html#ab04a024e24feb7f79774e280356f6bc7">   29</a></span>  std::string <a class="code hl_variable" href="classProduto.html#ab04a024e24feb7f79774e280356f6bc7">descricao</a>;    </div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno"><a class="line" href="classProduto.html#adb2791172d50731d296fa04129134cab">   30</a></span>  std::string <a class="code hl_variable" href="classProduto.html#adb2791172d50731d296fa04129134cab">endereco</a>;     </div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span></div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno"><a class="line" href="classProduto.html#a6b52fcd9818aa142ab7d8780a4a9d45b">   35</a></span>  <span class="keywordtype">void</span> <a class="code hl_function" href="classProduto.html#a6b52fcd9818aa142ab7d8780a4a9d45b">exibirInformacoes</a>();</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>  </div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>  <span class="keywordtype">void</span> <a class="code hl_function" href="classProduto.html#ac851afe271622f69ab7c3e0de09530fe">reduzirEstoque</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code hl_variable" href="classProduto.html#a94b641781a11229ce853a17744f2e194">quantidade</a>);</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span></div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>  <a class="code hl_function" href="classProduto.html#a7acf08de6f1ac95df3ea4fb466a872cb">Produto</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <span class="keywordtype">id</span>, <span class="keyword">const</span> std::string &amp;<a class="code hl_variable" href="classProduto.html#aaa929e3f52f5a677310e30a89d2d7814">nome</a>, <span class="keyword">const</span> std::string &amp;<a class="code hl_variable" href="classProduto.html#a6a1081da785989fea33633f2a16c9cce">marca</a>, <span class="keywordtype">double</span> <a class="code hl_variable" href="classProduto.html#ac44dc5dc979f828a8d2ebc40799ce869">valor</a>,</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>          <span class="keywordtype">double</span> <a class="code hl_variable" href="classProduto.html#a36fb903f4891960f8284b3303cb70f9a">avaliacao</a>, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code hl_variable" href="classProduto.html#a94b641781a11229ce853a17744f2e194">quantidade</a>, <span class="keyword">const</span> std::string &amp;<a class="code hl_variable" href="classProduto.html#ab04a024e24feb7f79774e280356f6bc7">descricao</a>, <span class="keyword">const</span> std::string &amp;<a class="code hl_variable" href="classProduto.html#adb2791172d50731d296fa04129134cab">endereco</a>);</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span></div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>  <span class="keywordtype">bool</span> <a class="code hl_function" href="classProduto.html#a3bf23db215bb3537ee6039f1d2bfe05d">operator&lt;</a>(<span class="keyword">const</span> <a class="code hl_function" href="classProduto.html#a7acf08de6f1ac95df3ea4fb466a872cb">Produto</a> &amp;other) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>};</div>
+</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span> </div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span><span class="preprocessor">#endif</span></div>
+<div class="ttc" id="aclassProduto_html_a36fb903f4891960f8284b3303cb70f9a"><div class="ttname"><a href="classProduto.html#a36fb903f4891960f8284b3303cb70f9a">Produto::avaliacao</a></div><div class="ttdeci">double avaliacao</div><div class="ttdoc">Avaliação média do produto (0-5)</div><div class="ttdef"><b>Definição</b> <a href="#l00027">Produto.hpp:27</a></div></div>
+<div class="ttc" id="aclassProduto_html_a3bf23db215bb3537ee6039f1d2bfe05d"><div class="ttname"><a href="classProduto.html#a3bf23db215bb3537ee6039f1d2bfe05d">Produto::operator&lt;</a></div><div class="ttdeci">bool operator&lt;(const Produto &amp;other) const</div><div class="ttdoc">Operador de comparação para ordenação.</div><div class="ttdef"><b>Definição</b> <a href="Produto_8cpp_source.html#l00028">Produto.cpp:28</a></div></div>
+<div class="ttc" id="aclassProduto_html_a6a1081da785989fea33633f2a16c9cce"><div class="ttname"><a href="classProduto.html#a6a1081da785989fea33633f2a16c9cce">Produto::marca</a></div><div class="ttdeci">std::string marca</div><div class="ttdoc">Marca do produto.</div><div class="ttdef"><b>Definição</b> <a href="#l00025">Produto.hpp:25</a></div></div>
+<div class="ttc" id="aclassProduto_html_a6b52fcd9818aa142ab7d8780a4a9d45b"><div class="ttname"><a href="classProduto.html#a6b52fcd9818aa142ab7d8780a4a9d45b">Produto::exibirInformacoes</a></div><div class="ttdeci">void exibirInformacoes()</div><div class="ttdoc">Exibe as informações do produto.</div></div>
+<div class="ttc" id="aclassProduto_html_a7acf08de6f1ac95df3ea4fb466a872cb"><div class="ttname"><a href="classProduto.html#a7acf08de6f1ac95df3ea4fb466a872cb">Produto::Produto</a></div><div class="ttdeci">Produto(unsigned int id, const std::string &amp;nome, const std::string &amp;marca, double valor, double avaliacao, unsigned int quantidade, const std::string &amp;descricao, const std::string &amp;endereco)</div><div class="ttdoc">Construtor do produto.</div><div class="ttdef"><b>Definição</b> <a href="Produto_8cpp_source.html#l00006">Produto.cpp:6</a></div></div>
+<div class="ttc" id="aclassProduto_html_a94b641781a11229ce853a17744f2e194"><div class="ttname"><a href="classProduto.html#a94b641781a11229ce853a17744f2e194">Produto::quantidade</a></div><div class="ttdeci">unsigned int quantidade</div><div class="ttdoc">Quantidade em estoque.</div><div class="ttdef"><b>Definição</b> <a href="#l00028">Produto.hpp:28</a></div></div>
+<div class="ttc" id="aclassProduto_html_aaa929e3f52f5a677310e30a89d2d7814"><div class="ttname"><a href="classProduto.html#aaa929e3f52f5a677310e30a89d2d7814">Produto::nome</a></div><div class="ttdeci">std::string nome</div><div class="ttdoc">Nome do produto.</div><div class="ttdef"><b>Definição</b> <a href="#l00024">Produto.hpp:24</a></div></div>
+<div class="ttc" id="aclassProduto_html_ab04a024e24feb7f79774e280356f6bc7"><div class="ttname"><a href="classProduto.html#ab04a024e24feb7f79774e280356f6bc7">Produto::descricao</a></div><div class="ttdeci">std::string descricao</div><div class="ttdoc">Descrição detalhada do produto.</div><div class="ttdef"><b>Definição</b> <a href="#l00029">Produto.hpp:29</a></div></div>
+<div class="ttc" id="aclassProduto_html_ac44dc5dc979f828a8d2ebc40799ce869"><div class="ttname"><a href="classProduto.html#ac44dc5dc979f828a8d2ebc40799ce869">Produto::valor</a></div><div class="ttdeci">double valor</div><div class="ttdoc">Preço do produto.</div><div class="ttdef"><b>Definição</b> <a href="#l00026">Produto.hpp:26</a></div></div>
+<div class="ttc" id="aclassProduto_html_ac851afe271622f69ab7c3e0de09530fe"><div class="ttname"><a href="classProduto.html#ac851afe271622f69ab7c3e0de09530fe">Produto::reduzirEstoque</a></div><div class="ttdeci">void reduzirEstoque(unsigned int quantidade)</div><div class="ttdoc">Reduz o estoque do produto.</div><div class="ttdef"><b>Definição</b> <a href="Produto_8cpp_source.html#l00019">Produto.cpp:19</a></div></div>
+<div class="ttc" id="aclassProduto_html_adb2791172d50731d296fa04129134cab"><div class="ttname"><a href="classProduto.html#adb2791172d50731d296fa04129134cab">Produto::endereco</a></div><div class="ttdeci">std::string endereco</div><div class="ttdoc">Localização do produto/vendedor.</div><div class="ttdef"><b>Definição</b> <a href="#l00030">Produto.hpp:30</a></div></div>
+<div class="ttc" id="aclassProduto_html_aef1b70591f2cf530204ea8b864507843"><div class="ttname"><a href="classProduto.html#aef1b70591f2cf530204ea8b864507843">Produto::id</a></div><div class="ttdeci">unsigned int id</div><div class="ttdoc">Identificador único do produto.</div><div class="ttdef"><b>Definição</b> <a href="#l00023">Produto.hpp:23</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Gerado por&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.14.0
+</small></address>
+</div><!-- doc-content -->
+</body>
+</html>

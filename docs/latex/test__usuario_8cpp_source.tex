@@ -1,0 +1,93 @@
+\doxysection{test\+\_\+usuario.\+cpp}
+\hypertarget{test__usuario_8cpp_source}{}\label{test__usuario_8cpp_source}\index{tests/test\_usuario.cpp@{tests/test\_usuario.cpp}}
+\mbox{\hyperlink{test__usuario_8cpp}{Ir para a documentação deste ficheiro.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{test__usuario_8cpp_source_l00001}00001\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{doctest_8h}{doctest.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{test__usuario_8cpp_source_l00002}00002\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{Usuario_8hpp}{Usuario.hpp}}"{}}}
+\DoxyCodeLine{\Hypertarget{test__usuario_8cpp_source_l00003}00003\ \textcolor{preprocessor}{\#include\ <fstream>}}
+\DoxyCodeLine{\Hypertarget{test__usuario_8cpp_source_l00004}00004\ }
+\DoxyCodeLine{\Hypertarget{test__usuario_8cpp_source_l00005}\mbox{\hyperlink{test__usuario_8cpp_abb26e1a54199622a79454792b8f13278}{00005}}\ \mbox{\hyperlink{doctest_8h_af640e6ea35d0c6511986d40ce36e2afc}{TEST\_SUITE}}(\textcolor{stringliteral}{"{}Usuario\ Advanced\ Tests"{}})}
+\DoxyCodeLine{\Hypertarget{test__usuario_8cpp_source_l00006}00006\ \{}
+\DoxyCodeLine{\Hypertarget{test__usuario_8cpp_source_l00007}00007\ \ \ \mbox{\hyperlink{doctest_8h_a8bc255ff55721571e878568d2b5dcb35}{TEST\_CASE}}(\textcolor{stringliteral}{"{}Usuario\ persistence\ and\ file\ operations"{}})}
+\DoxyCodeLine{\Hypertarget{test__usuario_8cpp_source_l00008}00008\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{test__usuario_8cpp_source_l00009}00009\ \ \ \ \ \mbox{\hyperlink{classUsuario}{Usuario}}\ user;}
+\DoxyCodeLine{\Hypertarget{test__usuario_8cpp_source_l00010}00010\ }
+\DoxyCodeLine{\Hypertarget{test__usuario_8cpp_source_l00011}00011\ \ \ \ \ \mbox{\hyperlink{doctest_8h_a4147381e5cb6f68c1a315a852c63bf70}{SUBCASE}}(\textcolor{stringliteral}{"{}User\ registration\ creates\ file\ entry"{}})}
+\DoxyCodeLine{\Hypertarget{test__usuario_8cpp_source_l00012}00012\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{test__usuario_8cpp_source_l00013}00013\ \ \ \ \ \ \ \textcolor{comment}{//\ Count\ lines\ before\ registration}}
+\DoxyCodeLine{\Hypertarget{test__usuario_8cpp_source_l00014}00014\ \ \ \ \ \ \ std::ifstream\ file(\textcolor{stringliteral}{"{}data/usuarios.txt"{}});}
+\DoxyCodeLine{\Hypertarget{test__usuario_8cpp_source_l00015}00015\ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ linesBefore\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{test__usuario_8cpp_source_l00016}00016\ \ \ \ \ \ \ std::string\ line;}
+\DoxyCodeLine{\Hypertarget{test__usuario_8cpp_source_l00017}00017\ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (std::getline(file,\ line))}
+\DoxyCodeLine{\Hypertarget{test__usuario_8cpp_source_l00018}00018\ \ \ \ \ \ \ \ \ linesBefore++;}
+\DoxyCodeLine{\Hypertarget{test__usuario_8cpp_source_l00019}00019\ \ \ \ \ \ \ file.close();}
+\DoxyCodeLine{\Hypertarget{test__usuario_8cpp_source_l00020}00020\ }
+\DoxyCodeLine{\Hypertarget{test__usuario_8cpp_source_l00021}00021\ \ \ \ \ \ \ user.\mbox{\hyperlink{classUsuario_a181823955eaeae8631c263773423b2eb}{cadastrar}}(\textcolor{stringliteral}{"{}File\ Test\ User"{}},\ \textcolor{stringliteral}{"{}filetest@email.com"{}},\ \textcolor{stringliteral}{"{}filepass"{}},\ \textcolor{stringliteral}{"{}11888888888"{}},\ \textcolor{stringliteral}{"{}987.654.321-\/00"{}},\ \textcolor{stringliteral}{"{}File\ Test\ Address"{}});}
+\DoxyCodeLine{\Hypertarget{test__usuario_8cpp_source_l00022}00022\ }
+\DoxyCodeLine{\Hypertarget{test__usuario_8cpp_source_l00023}00023\ \ \ \ \ \ \ \textcolor{comment}{//\ Count\ lines\ after\ registration}}
+\DoxyCodeLine{\Hypertarget{test__usuario_8cpp_source_l00024}00024\ \ \ \ \ \ \ file.open(\textcolor{stringliteral}{"{}data/usuarios.txt"{}});}
+\DoxyCodeLine{\Hypertarget{test__usuario_8cpp_source_l00025}00025\ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ linesAfter\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{test__usuario_8cpp_source_l00026}00026\ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (std::getline(file,\ line))}
+\DoxyCodeLine{\Hypertarget{test__usuario_8cpp_source_l00027}00027\ \ \ \ \ \ \ \ \ linesAfter++;}
+\DoxyCodeLine{\Hypertarget{test__usuario_8cpp_source_l00028}00028\ \ \ \ \ \ \ file.close();}
+\DoxyCodeLine{\Hypertarget{test__usuario_8cpp_source_l00029}00029\ }
+\DoxyCodeLine{\Hypertarget{test__usuario_8cpp_source_l00030}00030\ \ \ \ \ \ \ \mbox{\hyperlink{doctest_8h_a836cca6b6ed3a1706353f6d1bca0935f}{CHECK}}(linesAfter\ >\ linesBefore);}
+\DoxyCodeLine{\Hypertarget{test__usuario_8cpp_source_l00031}00031\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{test__usuario_8cpp_source_l00032}00032\ }
+\DoxyCodeLine{\Hypertarget{test__usuario_8cpp_source_l00033}00033\ \ \ \ \ \mbox{\hyperlink{doctest_8h_a4147381e5cb6f68c1a315a852c63bf70}{SUBCASE}}(\textcolor{stringliteral}{"{}Login\ with\ existing\ user"{}})}
+\DoxyCodeLine{\Hypertarget{test__usuario_8cpp_source_l00034}00034\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{test__usuario_8cpp_source_l00035}00035\ \ \ \ \ \ \ \textcolor{comment}{//\ Ensure\ user\ exists\ first}}
+\DoxyCodeLine{\Hypertarget{test__usuario_8cpp_source_l00036}00036\ \ \ \ \ \ \ user.\mbox{\hyperlink{classUsuario_a181823955eaeae8631c263773423b2eb}{cadastrar}}(\textcolor{stringliteral}{"{}Login\ Test"{}},\ \textcolor{stringliteral}{"{}logintest@email.com"{}},\ \textcolor{stringliteral}{"{}loginpass"{}},\ \textcolor{stringliteral}{"{}11777777777"{}},\ \textcolor{stringliteral}{"{}111.222.333-\/44"{}},\ \textcolor{stringliteral}{"{}Login\ Address"{}});}
+\DoxyCodeLine{\Hypertarget{test__usuario_8cpp_source_l00037}00037\ }
+\DoxyCodeLine{\Hypertarget{test__usuario_8cpp_source_l00038}00038\ \ \ \ \ \ \ \mbox{\hyperlink{classUsuario}{Usuario}}\ newUser;}
+\DoxyCodeLine{\Hypertarget{test__usuario_8cpp_source_l00039}00039\ \ \ \ \ \ \ \mbox{\hyperlink{doctest_8h_a836cca6b6ed3a1706353f6d1bca0935f}{CHECK}}(newUser.\mbox{\hyperlink{classUsuario_a0d6fa1232b45ff90d645a7fa5204f53d}{login}}(\textcolor{stringliteral}{"{}logintest@email.com"{}},\ \textcolor{stringliteral}{"{}loginpass"{}})\ ==\ \textcolor{keyword}{true});}
+\DoxyCodeLine{\Hypertarget{test__usuario_8cpp_source_l00040}00040\ \ \ \ \ \ \ \mbox{\hyperlink{doctest_8h_a836cca6b6ed3a1706353f6d1bca0935f}{CHECK}}(newUser.\mbox{\hyperlink{classUsuario_a7ecc74b7950190ce12e3cd6cc551238b}{getNome}}()\ ==\ \textcolor{stringliteral}{"{}Login\ Test"{}});}
+\DoxyCodeLine{\Hypertarget{test__usuario_8cpp_source_l00041}00041\ \ \ \ \ \ \ \mbox{\hyperlink{doctest_8h_a836cca6b6ed3a1706353f6d1bca0935f}{CHECK}}(newUser.\mbox{\hyperlink{classUsuario_ab2539a1ac5c44f6d59271ed641243b56}{getEmail}}()\ ==\ \textcolor{stringliteral}{"{}logintest@email.com"{}});}
+\DoxyCodeLine{\Hypertarget{test__usuario_8cpp_source_l00042}00042\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{test__usuario_8cpp_source_l00043}00043\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{test__usuario_8cpp_source_l00044}00044\ }
+\DoxyCodeLine{\Hypertarget{test__usuario_8cpp_source_l00045}00045\ \ \ \mbox{\hyperlink{doctest_8h_a8bc255ff55721571e878568d2b5dcb35}{TEST\_CASE}}(\textcolor{stringliteral}{"{}Usuario\ shopping\ cart\ integration"{}})}
+\DoxyCodeLine{\Hypertarget{test__usuario_8cpp_source_l00046}00046\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{test__usuario_8cpp_source_l00047}00047\ \ \ \ \ \mbox{\hyperlink{classUsuario}{Usuario}}\ user;}
+\DoxyCodeLine{\Hypertarget{test__usuario_8cpp_source_l00048}00048\ \ \ \ \ user.\mbox{\hyperlink{classUsuario_a181823955eaeae8631c263773423b2eb}{cadastrar}}(\textcolor{stringliteral}{"{}Cart\ User"{}},\ \textcolor{stringliteral}{"{}cart@email.com"{}},\ \textcolor{stringliteral}{"{}cartpass"{}},\ \textcolor{stringliteral}{"{}11666666666"{}},\ \textcolor{stringliteral}{"{}555.666.777-\/88"{}},\ \textcolor{stringliteral}{"{}Cart\ Address"{}});}
+\DoxyCodeLine{\Hypertarget{test__usuario_8cpp_source_l00049}00049\ \ \ \ \ user.\mbox{\hyperlink{classUsuario_a0d6fa1232b45ff90d645a7fa5204f53d}{login}}(\textcolor{stringliteral}{"{}cart@email.com"{}},\ \textcolor{stringliteral}{"{}cartpass"{}});}
+\DoxyCodeLine{\Hypertarget{test__usuario_8cpp_source_l00050}00050\ }
+\DoxyCodeLine{\Hypertarget{test__usuario_8cpp_source_l00051}00051\ \ \ \ \ \mbox{\hyperlink{doctest_8h_a4147381e5cb6f68c1a315a852c63bf70}{SUBCASE}}(\textcolor{stringliteral}{"{}Add\ product\ to\ cart"{}})}
+\DoxyCodeLine{\Hypertarget{test__usuario_8cpp_source_l00052}00052\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{test__usuario_8cpp_source_l00053}00053\ \ \ \ \ \ \ \mbox{\hyperlink{classProduto}{Produto}}\ produto(500,\ \textcolor{stringliteral}{"{}Cart\ Product"{}},\ \textcolor{stringliteral}{"{}Cart\ Brand"{}},\ 25.50,\ 4.2,\ 8,\ \textcolor{stringliteral}{"{}Product\ for\ cart\ testing"{}},\ \textcolor{stringliteral}{"{}Cart\ Location"{}});}
+\DoxyCodeLine{\Hypertarget{test__usuario_8cpp_source_l00054}00054\ \ \ \ \ \ \ user.\mbox{\hyperlink{classUsuario_a60191520d306ddd78211ab16cb1f02a8}{carrinho}}.\mbox{\hyperlink{classCarrinho_a9ef328b84d84ea12642beb164fe8fdac}{inserir}}(produto,\ 3);}
+\DoxyCodeLine{\Hypertarget{test__usuario_8cpp_source_l00055}00055\ }
+\DoxyCodeLine{\Hypertarget{test__usuario_8cpp_source_l00056}00056\ \ \ \ \ \ \ \mbox{\hyperlink{doctest_8h_a836cca6b6ed3a1706353f6d1bca0935f}{CHECK}}(user.\mbox{\hyperlink{classUsuario_a60191520d306ddd78211ab16cb1f02a8}{carrinho}}.\mbox{\hyperlink{classCarrinho_a00a9f7551fe6a070048351c7d727471a}{carrinhoProdutos}}.size()\ ==\ 1);}
+\DoxyCodeLine{\Hypertarget{test__usuario_8cpp_source_l00057}00057\ \ \ \ \ \ \ \mbox{\hyperlink{doctest_8h_a836cca6b6ed3a1706353f6d1bca0935f}{CHECK}}(user.\mbox{\hyperlink{classUsuario_a60191520d306ddd78211ab16cb1f02a8}{carrinho}}.\mbox{\hyperlink{classCarrinho_a00a9f7551fe6a070048351c7d727471a}{carrinhoProdutos}}[produto]\ ==\ 3);}
+\DoxyCodeLine{\Hypertarget{test__usuario_8cpp_source_l00058}00058\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{test__usuario_8cpp_source_l00059}00059\ }
+\DoxyCodeLine{\Hypertarget{test__usuario_8cpp_source_l00060}00060\ \ \ \ \ \mbox{\hyperlink{doctest_8h_a4147381e5cb6f68c1a315a852c63bf70}{SUBCASE}}(\textcolor{stringliteral}{"{}Multiple\ products\ in\ cart"{}})}
+\DoxyCodeLine{\Hypertarget{test__usuario_8cpp_source_l00061}00061\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{test__usuario_8cpp_source_l00062}00062\ \ \ \ \ \ \ \mbox{\hyperlink{classProduto}{Produto}}\ produto1(501,\ \textcolor{stringliteral}{"{}Product\ 1"{}},\ \textcolor{stringliteral}{"{}Brand\ 1"{}},\ 10.0,\ 4.0,\ 5,\ \textcolor{stringliteral}{"{}Description\ 1"{}},\ \textcolor{stringliteral}{"{}Location\ 1"{}});}
+\DoxyCodeLine{\Hypertarget{test__usuario_8cpp_source_l00063}00063\ \ \ \ \ \ \ \mbox{\hyperlink{classProduto}{Produto}}\ produto2(502,\ \textcolor{stringliteral}{"{}Product\ 2"{}},\ \textcolor{stringliteral}{"{}Brand\ 2"{}},\ 20.0,\ 4.5,\ 3,\ \textcolor{stringliteral}{"{}Description\ 2"{}},\ \textcolor{stringliteral}{"{}Location\ 2"{}});}
+\DoxyCodeLine{\Hypertarget{test__usuario_8cpp_source_l00064}00064\ }
+\DoxyCodeLine{\Hypertarget{test__usuario_8cpp_source_l00065}00065\ \ \ \ \ \ \ user.\mbox{\hyperlink{classUsuario_a60191520d306ddd78211ab16cb1f02a8}{carrinho}}.\mbox{\hyperlink{classCarrinho_a9ef328b84d84ea12642beb164fe8fdac}{inserir}}(produto1,\ 1);}
+\DoxyCodeLine{\Hypertarget{test__usuario_8cpp_source_l00066}00066\ \ \ \ \ \ \ user.\mbox{\hyperlink{classUsuario_a60191520d306ddd78211ab16cb1f02a8}{carrinho}}.\mbox{\hyperlink{classCarrinho_a9ef328b84d84ea12642beb164fe8fdac}{inserir}}(produto2,\ 2);}
+\DoxyCodeLine{\Hypertarget{test__usuario_8cpp_source_l00067}00067\ }
+\DoxyCodeLine{\Hypertarget{test__usuario_8cpp_source_l00068}00068\ \ \ \ \ \ \ \mbox{\hyperlink{doctest_8h_a836cca6b6ed3a1706353f6d1bca0935f}{CHECK}}(user.\mbox{\hyperlink{classUsuario_a60191520d306ddd78211ab16cb1f02a8}{carrinho}}.\mbox{\hyperlink{classCarrinho_a00a9f7551fe6a070048351c7d727471a}{carrinhoProdutos}}.size()\ ==\ 2);}
+\DoxyCodeLine{\Hypertarget{test__usuario_8cpp_source_l00069}00069\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{test__usuario_8cpp_source_l00070}00070\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{test__usuario_8cpp_source_l00071}00071\ }
+\DoxyCodeLine{\Hypertarget{test__usuario_8cpp_source_l00072}00072\ \ \ \mbox{\hyperlink{doctest_8h_a8bc255ff55721571e878568d2b5dcb35}{TEST\_CASE}}(\textcolor{stringliteral}{"{}Usuario\ input\ validation"{}})}
+\DoxyCodeLine{\Hypertarget{test__usuario_8cpp_source_l00073}00073\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{test__usuario_8cpp_source_l00074}00074\ \ \ \ \ \mbox{\hyperlink{classUsuario}{Usuario}}\ user;}
+\DoxyCodeLine{\Hypertarget{test__usuario_8cpp_source_l00075}00075\ }
+\DoxyCodeLine{\Hypertarget{test__usuario_8cpp_source_l00076}00076\ \ \ \ \ \mbox{\hyperlink{doctest_8h_a4147381e5cb6f68c1a315a852c63bf70}{SUBCASE}}(\textcolor{stringliteral}{"{}Empty\ credentials\ should\ not\ crash"{}})}
+\DoxyCodeLine{\Hypertarget{test__usuario_8cpp_source_l00077}00077\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{test__usuario_8cpp_source_l00078}00078\ \ \ \ \ \ \ \mbox{\hyperlink{doctest_8h_a78e70f011f20c4ade1d1ac2b8fd33626}{CHECK\_NOTHROW}}(user.\mbox{\hyperlink{classUsuario_a0d6fa1232b45ff90d645a7fa5204f53d}{login}}(\textcolor{stringliteral}{"{}"{}},\ \textcolor{stringliteral}{"{}"{}}));}
+\DoxyCodeLine{\Hypertarget{test__usuario_8cpp_source_l00079}00079\ \ \ \ \ \ \ \mbox{\hyperlink{doctest_8h_a836cca6b6ed3a1706353f6d1bca0935f}{CHECK}}(user.\mbox{\hyperlink{classUsuario_a0d6fa1232b45ff90d645a7fa5204f53d}{login}}(\textcolor{stringliteral}{"{}"{}},\ \textcolor{stringliteral}{"{}"{}})\ ==\ \textcolor{keyword}{false});}
+\DoxyCodeLine{\Hypertarget{test__usuario_8cpp_source_l00080}00080\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{test__usuario_8cpp_source_l00081}00081\ }
+\DoxyCodeLine{\Hypertarget{test__usuario_8cpp_source_l00082}00082\ \ \ \ \ \mbox{\hyperlink{doctest_8h_a4147381e5cb6f68c1a315a852c63bf70}{SUBCASE}}(\textcolor{stringliteral}{"{}Non-\/existent\ user\ login"{}})}
+\DoxyCodeLine{\Hypertarget{test__usuario_8cpp_source_l00083}00083\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{test__usuario_8cpp_source_l00084}00084\ \ \ \ \ \ \ \mbox{\hyperlink{doctest_8h_a836cca6b6ed3a1706353f6d1bca0935f}{CHECK}}(user.\mbox{\hyperlink{classUsuario_a0d6fa1232b45ff90d645a7fa5204f53d}{login}}(\textcolor{stringliteral}{"{}nonexistent@email.com"{}},\ \textcolor{stringliteral}{"{}anypass"{}})\ ==\ \textcolor{keyword}{false});}
+\DoxyCodeLine{\Hypertarget{test__usuario_8cpp_source_l00085}00085\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{test__usuario_8cpp_source_l00086}00086\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{test__usuario_8cpp_source_l00087}00087\ \}}
+
+\end{DoxyCode}

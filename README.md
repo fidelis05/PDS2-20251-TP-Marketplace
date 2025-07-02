@@ -7,6 +7,7 @@
 - Samara Fernandes Cordeiro - [SamaraCordeiro](https://github.com/SamaraCordeiro)
 - Teo Mendes Araujo - [TeoMAraujo](https://github.com/TeoMAraujo)
 
+
 ---
 ## Histórias de Usuário:
 ### Usuário:
@@ -17,16 +18,15 @@
 - Como usuário, quero adicionar produtos ao meu carrinho, para realizar uma compra com múltiplos itens.
 - Como usuário, quero remover produtos do meu carrinho, para gerenciar o que será comprado.
 - Como usuário, quero finalizar a compra dos itens do meu carrinho, para concluir o pedido.
-- Como usuário, quero comprar um produto diretamente da página de anúncio, para agilizar o processo de compra.
 - Como usuário, quero cadastrar um novo produto, informando nome, descrição, preço e quantidade, para colocá-lo à venda.
 - Como usuário, quero visualizar meus pedidos realizados, para acompanhar o histórico de compras.
 - Como usuário, quero cancelar um pedido ainda não processado, para corrigir enganos ou desistências.
 - Como usuário, quero editar ou excluir meus produtos cadastrados, para manter o controle sobre meus anúncios.
 - Como usuário, quero ver uma confirmação ao realizar ações importantes (como deletar produto ou finalizar pedido), para evitar erros.
 ### Administrador:
-- Como administrador, quero listar, filtrar, editar, excluir e cadastrar usuário, para gerenciar o acesso ao sistema.
-- Como administrador, quero listar, filtrar, editar e excluir produtos cadastrados, para garantir a qualidade e organização do marketplace.
-- Como administrador, quero listar, filtrar, editar e excluir pedidos realizados, para poder resolver problemas e manter o controle das operações.
+- Como administrador, quero listar e excluir usuário, para gerenciar o acesso ao sistema.
+- Como administrador, quero listar e excluir produtos cadastrados, para garantir a qualidade e organização do marketplace.
+- Como administrador, quero listar e excluir pedidos realizados, para poder resolver problemas e manter o controle das operações.
 - Como administrador, quero visualizar um resumo estatístico (ex: total de usuários, produtos e pedidos), para ter uma visão geral do sistema.
 
 
@@ -40,7 +40,7 @@ PDS2-20251-TP-Marketplace-main
 │   ├── pedidos.txt
 │   ├── produtos.txt
 │   └── usuarios.txt
-├── html*
+├── docs/
 ├── include
 │   ├── Admin.hpp
 │   ├── Carrinho.hpp
@@ -49,7 +49,6 @@ PDS2-20251-TP-Marketplace-main
 │   ├── Pedido.hpp
 │   ├── Produto.hpp
 │   └── Usuario.hpp
-├── latex*
 ├── Makefile
 ├── README.md
 ├── src
@@ -69,9 +68,29 @@ PDS2-20251-TP-Marketplace-main
     ├── test_pedido.cpp
     └── test_usuario.cpp*
 ```
-'*' são folders que apresentam dados referentes àpenas ao Doxygen
+
+## Como rodar o programa
+- Primeiramente se deve ter instalado a biblioteca ncurses: 
+  ``` bash
+  sudo apt-get install libncurses5-dev libncursesw5-dev
+  ```
+
+- Rodar testes:
+  ``` bash
+  make test
+  ```
+
+- Rodar o programa:
+  ``` bash
+  make run
+  ```
+  - Login admin: `admin123`
+  - Login correios: `user: correios` e `senha: correios123`
 
 ## 📚 Documentação
+
+### Preview da Documentação via GitHub Pages
+[https://fidelis05.github.io/PDS2-20251-TP-Marketplace/](https://fidelis05.github.io/PDS2-20251-TP-Marketplace/)
 
 ### Gerando a Documentação
 O projeto utiliza Doxygen para gerar documentação automática do código. A documentação inclui:

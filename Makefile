@@ -30,7 +30,7 @@ $(BIN)/$(TEST_EXECUTABLE): $(TESTS)/test_all.cpp $(SRC)/Admin.cpp $(SRC)/Carrinh
 # Generate documentation with Doxygen
 docs:
 	@echo "Generating documentation with Doxygen..."
-	/usr/bin/doxygen Doxyfile
+	doxygen Doxyfile
 	@echo "Documentation generated in docs/html/index.html"
 
 # Clean documentation

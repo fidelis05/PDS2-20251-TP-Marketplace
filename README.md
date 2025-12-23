@@ -87,6 +87,10 @@ PDS2-20251-TP-Marketplace-main
   - Login admin: `admin123`
   - Login correios: `user: correios` e `senha: correios123`
 
+
+https://github.com/user-attachments/assets/6cdcd1e7-2a02-45a2-8ca1-c31ba72e55d1
+
+
 ## 📚 Documentação
 
 ### Preview da Documentação via GitHub Pages
